@@ -1,0 +1,52 @@
+{
+  "name": "yumecoder_webapp",
+  "version": "0.0.1",
+  "description": "online IT practice platform",
+  "main": "index.js",
+  "author": "yuusha",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --port 3000 --hot --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --check",
+    "*.(js|jsx)": "eslint"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "node-sass": "^4.12.0",
+    "prettier": "1.18.2",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
+    "fastclick": "^1.0.6",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "typeface-roboto": "^0.0.75"
+  }
+}
