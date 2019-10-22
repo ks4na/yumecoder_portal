@@ -10,10 +10,3 @@ fastclick.attach(document.body)
 import 'typeface-roboto'
 
 ReactDOM.render(<App />, document.getElementById('app'))
-
-// eslint-disable-next-line no-unused-vars
-function testEslint() {
-  let a = 1,
-    b = '2'
-  return a + b
-}
