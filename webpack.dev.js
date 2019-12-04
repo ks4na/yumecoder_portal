@@ -8,6 +8,10 @@ module.exports = {
     path: path.join(__dirname, './dist'),
     filename: 'bundle.js'
   },
+  devServer: {
+    historyApiFallback: true, // browserRouter本地测试需要开启
+    disableHostCheck: true // 本地hosts劫持测试时需要开启
+  },
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
@@ -55,7 +59,7 @@ module.exports = {
         exclude: /src\\fonts/
       },
       // fonts
-      { 
+      {
         test: /\.(ttf|eot|woff|woff2|svg)$/,
         use: {
           loader: 'file-loader',
