@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Tooltip from '@material-ui/core/Tooltip'
 import CompOne from './components/CompOne.jsx'
+import TaskList from './containers/TaskList.jsx'
 
 export default function App() {
   const [compTwo, setCompTwo] = useState()
@@ -14,7 +15,7 @@ export default function App() {
     setCompTwo(CompTwo.default)
   }
   return (
-    <div>
+    <>
       <h2 className={styles.header}>test Material UI</h2>
       <Tooltip title="Add" placement="top">
         <Button
@@ -25,8 +26,9 @@ export default function App() {
           Talk
         </Button>
       </Tooltip>
+      <TaskList />
       <CompOne />
       {compTwo}
-    </div>
+    </>
   )
 }
