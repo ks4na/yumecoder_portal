@@ -11,14 +11,15 @@
 2. webpack - 项目构建工具
    - 配置webpack开发、发布环境
 3. material-ui - react组件库
-4. redux-saga - 状态管理库
+4. redux,redux-saga - 全局状态管理
 5. axios - ajax请求库
 
 ### 其他技术
 1. react-intl - 国际化
 2. react-loadable - 组件懒加载
    - import()动态导入
-3. token认证（前端部分）
+3. token认证机制
+4. QQ三方登录前端实现
 
 ### 代码规范
 1. husky,lint-staged - 提交前代码规范检查
