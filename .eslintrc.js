@@ -2,26 +2,27 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
   extends: 'eslint:recommended',
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react'],
   rules: {
     quotes: [2, 'single'],
     semi: [2, 'never'],
     'react/jsx-uses-react': 2,
-    'react/jsx-uses-vars': 2
-  }
+    'react/jsx-uses-vars': 2,
+    'comma-dangle': ['error', 'always-multiline'],
+  },
 }

@@ -51,7 +51,7 @@ Task.propTypes = {
       id: PropTypes.string.isRequired,
       isCompleted: PropTypes.bool.isRequired,
       isCancelled: PropTypes.bool.isRequired,
-      ref: PropTypes.object.isRequired
+      ref: PropTypes.object.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 }

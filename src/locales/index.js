@@ -5,7 +5,7 @@ import zhCN from './zh-CN.js'
 const locales = {
   'zh-cn': zhCN,
   'en-us': enUS,
-  'ja-jp': jaJP
+  'ja-jp': jaJP,
 }
 
 const defaultLocale = 'zh-cn'

@@ -12,7 +12,7 @@ function WrappedReactIntlDemo() {
     content: '这里是一段内容...',
     changeLocale(locale) {
       dispatch(changeLocale(locale))
-    }
+    },
   }
 
   return (

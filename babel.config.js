@@ -5,16 +5,16 @@ const presets = [
       useBuiltIns: 'usage',
       corejs: {
         version: 3,
-        proposal: true
-      }
-    }
+        proposal: true,
+      },
+    },
   ],
-  '@babel/preset-react'
+  '@babel/preset-react',
 ]
 
 const plugins = ['@babel/plugin-proposal-class-properties']
 
 module.exports = {
   presets,
-  plugins
+  plugins,
 }

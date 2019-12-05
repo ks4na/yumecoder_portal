@@ -5,14 +5,14 @@ import {
   all,
   delay,
   cancel,
-  cancelled
+  cancelled,
 } from 'redux-saga/effects'
 import {
   ADD_ASYNC_TASK,
   addTask,
   completeTask,
   cancelTask,
-  CANCEL_ASYNC_TASK
+  CANCEL_ASYNC_TASK,
 } from '../actions/task.js'
 
 function* watchAddAsyncTask() {

@@ -11,34 +11,34 @@ export function addTask(id, ref) {
       id,
       isCompleted: false,
       isCancelled: false,
-      ref
-    }
+      ref,
+    },
   }
 }
 
 export function addAsyncTask() {
   return {
-    type: ADD_ASYNC_TASK
+    type: ADD_ASYNC_TASK,
   }
 }
 
 export function completeTask(taskName) {
   return {
     type: COMPLETE_TASK,
-    payload: taskName
+    payload: taskName,
   }
 }
 
 export function cancelTask(taskName) {
   return {
     type: CANCEL_TASK,
-    payload: taskName
+    payload: taskName,
   }
 }
 
 export function cancelAsyncTask(taskRef) {
   return {
     type: CANCEL_ASYNC_TASK,
-    payload: taskRef
+    payload: taskRef,
   }
 }

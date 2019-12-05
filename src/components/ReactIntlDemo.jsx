@@ -65,5 +65,5 @@ ReactIntlDemo.propTypes = {
   title: PropTypes.string,
   createTime: PropTypes.instanceOf(Date),
   content: PropTypes.string,
-  changeLocale: PropTypes.func.isRequired
+  changeLocale: PropTypes.func.isRequired,
 }

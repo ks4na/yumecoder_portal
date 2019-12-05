@@ -5,20 +5,20 @@ const initState = [
     id: 'demo task1',
     isCompleted: true,
     isCancelled: false,
-    ref: { id: 'demo task1' }
+    ref: { id: 'demo task1' },
   },
   {
     id: 'demo task2',
     isCompleted: true,
     isCancelled: true,
-    ref: { id: 'demo task2' }
+    ref: { id: 'demo task2' },
   },
   {
     id: 'demo task3',
     isCompleted: false,
     isCancelled: true,
-    ref: { id: 'demo task3' }
-  }
+    ref: { id: 'demo task3' },
+  },
 ]
 
 export default function taskReducer(state = initState, action) {
@@ -30,7 +30,7 @@ export default function taskReducer(state = initState, action) {
         if (item.id === action.payload) {
           return {
             ...item,
-            isCompleted: true
+            isCompleted: true,
           }
         }
         return item
@@ -40,7 +40,7 @@ export default function taskReducer(state = initState, action) {
         if (item.id === action.payload) {
           return {
             ...item,
-            isCancelled: true
+            isCancelled: true,
           }
         }
         return item

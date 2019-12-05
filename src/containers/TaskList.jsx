@@ -14,7 +14,7 @@ function WrappedTaskList() {
     },
     cancelTask(ref) {
       dispatch(cancelAsyncTask(ref))
-    }
+    },
   }
 
   return <TaskList {...taskListProps} />
