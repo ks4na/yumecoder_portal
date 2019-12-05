@@ -8,8 +8,12 @@ import fastclick from 'fastclick'
 import App from './App.jsx'
 
 // add redux
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import configureStore from './models/configureStore.js'
+
+// add react-intl
+import { IntlProvider } from 'react-intl'
+import { getLocaleMessages } from './locales/index.js'
 
 // use fastclick
 fastclick.attach(document.body)
@@ -25,8 +29,24 @@ const store = configureStore(preloadedState)
 function AppWrapper() {
   return (
     <Provider store={store}>
-      <App />
+      <IntlProviderWrapper>
+        <App />
+      </IntlProviderWrapper>
     </Provider>
+  )
+}
+
+function IntlProviderWrapper({ children, ...restProps }) {
+  const locale = useSelector(({ locale }) => locale)
+
+  return (
+    <IntlProvider
+      {...restProps}
+      locale={locale}
+      messages={getLocaleMessages(locale)}
+    >
+      {children}
+    </IntlProvider>
   )
 }
 

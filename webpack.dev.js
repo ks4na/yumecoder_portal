@@ -74,6 +74,12 @@ module.exports = {
         test: /\.jsx?/,
         use: 'babel-loader',
         exclude: /node_modules/
+      },
+      // es6+ (transform es6+ files in directory node_modules/** )
+      {
+        test: /\.jsx?/,
+        use: 'babel-loader',
+        include: [/node_modules\\react-intl/]
       }
     ]
   }
