@@ -12,7 +12,7 @@ module.exports = {
     historyApiFallback: true, // browserRouter本地测试需要开启
     disableHostCheck: true // 本地hosts劫持测试时需要开启
   },
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
