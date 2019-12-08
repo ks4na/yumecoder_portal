@@ -1,0 +1,19 @@
+.container {
+  width: 400px;
+  height: 450px;
+  border: 1px solid red;
+
+  .title {
+    font-weight: 700;
+    color: blue;
+  }
+
+  .body {
+    font-size: 20px;
+    color: green;
+
+    &::after {
+      content: 'suffix';
+    }
+  }
+}

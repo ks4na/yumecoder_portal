@@ -1,0 +1,24 @@
+.container {
+  width: 300px;
+  height: 250px;
+  border: 1px solid yellow;
+  background: url('../imgs/baidulogo.png');
+
+  .title {
+    font-weight: 300;
+    color: orange;
+  }
+
+  .body {
+    font-size: 20px;
+    color: green;
+
+    &::after {
+      content: 'suffix CompTwo';
+    }
+  }
+}
+
+.title {
+  color: gray;
+}
