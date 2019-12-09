@@ -9,6 +9,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
+    host: '0.0.0.0', // 允许以非localhost方式访问，方便手机，其他机器访问本地项目
     historyApiFallback: true, // browserRouter本地测试需要开启
     disableHostCheck: true, // 本地hosts劫持测试时需要开启
   },
