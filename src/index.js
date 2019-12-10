@@ -2,6 +2,16 @@
 import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 
+// IE9 Base64 polyfill
+if (!global.atob || !global.btoa) {
+  console.log('start to add base64 polyfill')
+  import(/* webpackChunkName: 'polyfill-base64' */ 'Base64').then(base64 => {
+    global.btoa = base64.default.btoa
+    global.atob = base64.default.atob
+    console.log('add base64 polyfill success')
+  })
+}
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import fastclick from 'fastclick'
