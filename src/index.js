@@ -31,6 +31,16 @@ fastclick.attach(document.body)
 // import roboto font
 import 'typeface-roboto'
 
+// add router
+import { BrowserRouter, HashRouter } from 'react-router-dom'
+import detectBrowserInfo from 'check-browser-info'
+let Router = BrowserRouter
+// IE9 不支持 historyAPI, 切换为 HasHhRouter
+const browserInfo = detectBrowserInfo()
+if (browserInfo.name === 'IE' && browserInfo.version === '9') {
+  Router = HashRouter
+}
+
 // create redux store
 const preloadedState = {}
 const store = configureStore(preloadedState)
@@ -40,15 +50,17 @@ function AppWrapper() {
   return (
     <Provider store={store}>
       <IntlProviderWrapper>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </IntlProviderWrapper>
     </Provider>
   )
 }
 
+// wrap App Comp with ReactIntl
 function IntlProviderWrapper({ children, ...restProps }) {
   const locale = useSelector(({ locale }) => locale)
-
   return (
     <IntlProvider
       {...restProps}
