@@ -1,3 +1,5 @@
-.header {
-  font-size: 20px;
+.navLinkWrapper {
+  :global(.active) {
+    font-weight: 700;
+  }
 }

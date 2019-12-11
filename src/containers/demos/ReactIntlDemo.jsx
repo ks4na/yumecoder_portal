@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactIntlDemo from '../components/ReactIntlDemo.jsx'
-import { changeLocale } from '../models/actions/locale.js'
+import ReactIntlDemo from '../../components/demos/ReactIntlDemo.jsx'
+import { changeLocale } from '../../models/actions/locale.js'
 import { useDispatch } from 'react-redux'
 
 function WrappedReactIntlDemo() {

@@ -1,38 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './App.scss'
-import Button from '@material-ui/core/Button'
-import DeleteIcon from '@material-ui/icons/Delete'
-import Tooltip from '@material-ui/core/Tooltip'
-import CompOne from './components/CompOne.jsx'
-import TaskList from './containers/TaskList.jsx'
-import ReactIntlDemo from './containers/ReactIntlDemo.jsx'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { NavLink, Switch, Route } from 'react-router-dom'
+import Demos from './containers/demos/index.jsx'
+import TestMuiDemo from './components/TestMaterialDesign.jsx'
 
 export default function App() {
-  const [compTwo, setCompTwo] = useState()
-  const handleClick = async () => {
-    const CompTwo = await import(
-      /* webpackChunkName: 'CompTwo' */ './components/CompTwo.jsx'
-    )
-    setCompTwo(CompTwo.default)
-  }
   return (
     <>
       <CssBaseline />
-      <h2 className={styles.header}>test Material UI</h2>
-      <Tooltip title="Add" placement="top">
-        <Button
-          variant="contained"
-          startIcon={<DeleteIcon />}
-          onClick={handleClick}
-        >
-          Talk
-        </Button>
-      </Tooltip>
-      <TaskList />
-      <ReactIntlDemo />
-      <CompOne />
-      {compTwo}
+
+      <div className={styles.navLinkWrapper}>
+        <ul>
+          <li>
+            <NavLink to="/testMui">Test Material Design</NavLink>
+          </li>
+          <li>
+            <NavLink to="/demos">Demos Page</NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <Switch>
+        <Route path="/demos" component={Demos} />
+        <Route path="/testMui" component={TestMuiDemo} />
+      </Switch>
     </>
   )
 }

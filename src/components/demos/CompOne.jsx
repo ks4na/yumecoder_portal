@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './CompOne.scss'
-import BabelLogo from '../imgs/logos/babel.svg'
+import BabelLogo from '../../imgs/logos/babel.svg'
 
 function CompOne() {
   return (
