@@ -16,8 +16,15 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0', // 允许以非localhost方式访问，方便手机，其他机器访问本地项目
-    historyApiFallback: true, // browserRouter本地测试需要开启
+    historyApiFallback: {
+      disableDotRule: true,
+    }, // browserRouter本地测试需要开启
     disableHostCheck: true, // 本地hosts劫持测试时需要开启
+
+    // 关闭 WDS 在控制台的 log
+    clientLogLevel: 'none',
+    // 启动 gzip 压缩
+    compress: true,
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
