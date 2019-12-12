@@ -40,6 +40,9 @@ const browserInfo = detectBrowserInfo()
 if (browserInfo.name === 'IE' && browserInfo.version === '9') {
   Router = HashRouter
 }
+// 根据 webpack 的全局变量 __WEBPACK_ENV_BASENAME__ (取的是 package.json 中的 basename) 来设置 Router 的 basename
+// eslint-disable-next-line no-undef
+const basename = __WEBPACK_ENV_BASENAME__
 
 // create redux store
 const preloadedState = {}
@@ -50,7 +53,7 @@ function AppWrapper() {
   return (
     <Provider store={store}>
       <IntlProviderWrapper>
-        <Router>
+        <Router basename={basename}>
           <App />
         </Router>
       </IntlProviderWrapper>

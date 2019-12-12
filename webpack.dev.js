@@ -1,10 +1,16 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, './src/index.js'),
   output: {
+    // 如果不指定，默认为 '', 此时所有的引用路径都将是相对路径(例如：index.html 中引用的 bundle.js 的路径为：
+    // src="bundle.js")，指定为 '/'之后，webpack 会将这些引用前面添加上 '/'。
+    // 指定 publicPath 对于 BrowserRouter 模式非常重要， BrowserRouter 模式下不指定该属性，那么多层路由情况下
+    // (如: localhost:3000/user/3/topics)刷新页面，这些引用路径都将是错误的(localhost:3000/user/3/bundle.js)
+    publicPath: '/',
     path: path.join(__dirname, './dist'),
     filename: 'bundle.js',
   },
@@ -18,6 +24,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
       filename: 'index.html',
+    }),
+    // 定义 webpack 全局变量，可从代码中获取该值
+    new Webpack.DefinePlugin({
+      __WEBPACK_ENV_BASENAME__: JSON.stringify('/'),
     }),
   ],
   module: {
