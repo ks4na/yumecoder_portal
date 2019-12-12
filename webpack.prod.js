@@ -121,7 +121,7 @@ module.exports = {
             name: '[path][name]_[hash:8].[ext]',
           },
         },
-        exclude: /src\\fonts/,
+        exclude: /src[\\/]fonts/,
       },
       // fonts
       {
@@ -132,7 +132,7 @@ module.exports = {
             name: 'fonts/[name]_[hash:4].[ext]',
           },
         },
-        exclude: /src\\imgs/,
+        exclude: /src[\\/]imgs/,
       },
       // es6+
       {
@@ -144,7 +144,7 @@ module.exports = {
       {
         test: /\.jsx?/,
         use: 'babel-loader',
-        include: [/node_modules\\react-intl/],
+        include: [/node_modules[\\/]react-intl/],
       },
       // html files
       {
