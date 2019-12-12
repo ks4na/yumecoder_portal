@@ -1,0 +1,50 @@
+name: Deploy to prod server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Run lint, test, cov ...
+        run: |
+          yarn install
+          yarn run build
+          echo "lint, test, cov ..."
+          echo "ok"
+
+      - name: Deploy to prod server
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.tencentcloud_DEPLOY_KEY}}
+        with:
+          flags: '-avzr --delete'
+          options: ''
+          ssh_options: ''
+          src: 'dist'
+          dest: '${{ secrets.tencentcloud_USERNAME }}@${{ secrets.tencentcloud_HOST }}:./yumecoder/portal/prod/temp'
+          
+      - name: Run shell commands
+        uses: appleboy/ssh-action@master
+        env:
+          TC_USERNAME: ${{ secrets.tencentcloud_USERNAME }}
+        with:
+          host: ${{ secrets.tencentcloud_HOST }}
+          username: ${{ secrets.tencentcloud_USERNAME }}
+          key: ${{ secrets.tencentcloud_DEPLOY_KEY }}
+          envs: TC_USERNAME
+          script: |
+            cd /home/$TC_USERNAME/yumecoder/portal/prod
+            ./deploy.sh
+            
+            
