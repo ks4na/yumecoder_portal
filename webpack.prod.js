@@ -61,6 +61,7 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static', // 设置生成方式为 html文件
+      openAnalyzer: false, // 不自动打开报告文件
     }), // bundle分析插件
     new CleanWebpackPlugin(), // 清理dist文件夹
     // 定义 webpack 全局变量，可从代码中获取该值
