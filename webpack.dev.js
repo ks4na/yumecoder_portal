@@ -33,6 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
       filename: 'index.html',
+      favicon: './src/imgs/logos/favicon.ico',
     }),
     // 定义 webpack 全局变量，可从代码中获取该值
     new Webpack.DefinePlugin({
