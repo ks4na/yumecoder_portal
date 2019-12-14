@@ -1,30 +1,32 @@
 import React from 'react'
-import styles from './App.scss'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { NavLink, Switch, Route } from 'react-router-dom'
-import Demos from './containers/demos/index.jsx'
-import TestMuiDemo from './components/TestMaterialDesign.jsx'
+import { Switch, Route } from 'react-router-dom'
+import DevIndexPage from './components/demos/DevIndexPage.jsx'
+import NoMatch from './components/NoMatch.jsx'
+import Page404 from './components/Page404.jsx'
+import IndexPage from './containers/IndexPage.jsx'
+
+import RootLayout from './components/layouts/RootLayout.jsx'
 
 export default function App() {
   return (
-    <>
+    <RootLayout>
       <CssBaseline />
 
-      <div className={styles.navLinkWrapper}>
-        <ul>
-          <li>
-            <NavLink to="/testMui">Test Material Design</NavLink>
-          </li>
-          <li>
-            <NavLink to="/demos">Demos Page</NavLink>
-          </li>
-        </ul>
-      </div>
-
       <Switch>
-        <Route path="/demos" component={Demos} />
-        <Route path="/testMui" component={TestMuiDemo} />
+        <Route path="/" exact>
+          <IndexPage />
+        </Route>
+        <Route path="/404">
+          <Page404 />
+        </Route>
+        <Route path="/dev">
+          <DevIndexPage />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
       </Switch>
-    </>
+    </RootLayout>
   )
 }

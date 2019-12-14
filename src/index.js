@@ -34,6 +34,10 @@ import 'typeface-roboto'
 // add router
 import { BrowserRouter, HashRouter } from 'react-router-dom'
 import detectBrowserInfo from 'check-browser-info'
+
+// add MUI theme provider
+import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
+
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
 const browserInfo = detectBrowserInfo()
@@ -53,9 +57,11 @@ function AppWrapper() {
   return (
     <Provider store={store}>
       <IntlProviderWrapper>
-        <Router basename={basename}>
-          <App />
-        </Router>
+        <ThemeProviderWrapper>
+          <Router basename={basename}>
+            <App />
+          </Router>
+        </ThemeProviderWrapper>
       </IntlProviderWrapper>
     </Provider>
   )
@@ -72,6 +78,17 @@ function IntlProviderWrapper({ children, ...restProps }) {
     >
       {children}
     </IntlProvider>
+  )
+}
+
+// wrap App Comp with MUI theme provider
+function ThemeProviderWrapper({ children }) {
+  const theme = useSelector(({ theme }) => theme)
+  return (
+    <ThemeProvider theme={theme}>
+      {/* inject the style tags first in the head */}
+      <StylesProvider injectFirst>{children}</StylesProvider>
+    </ThemeProvider>
   )
 }
 

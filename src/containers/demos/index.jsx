@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, Switch, useRouteMatch, Route } from 'react-router-dom'
-// import { RouteWithSubRoutes } from '../../router.js'
 import LazyLoadDemo from './LazyLoadDemo.jsx'
 import TaskListDemo from './TaskListDemo.jsx'
 import ReactIntlDemo from './ReactIntlDemo.jsx'
+import NoMatch from '../../components/NoMatch.jsx'
 
 export default function Demos() {
   const match = useRouteMatch()
@@ -28,9 +28,18 @@ export default function Demos() {
       </ul>
 
       <Switch>
-        <Route path={`${match.path}/lazyload`} component={LazyLoadDemo} />
-        <Route path={`${match.path}/reduxsaga`} component={TaskListDemo} />
-        <Route path={`${match.path}/reactintl`} component={ReactIntlDemo} />
+        <Route path={`${match.path}/lazyload`}>
+          <LazyLoadDemo />
+        </Route>
+        <Route path={`${match.path}/reduxsaga`}>
+          <TaskListDemo />
+        </Route>
+        <Route path={`${match.path}/reactintl`}>
+          <ReactIntlDemo />
+        </Route>
+        <Route path={`${match.path}/*`}>
+          <NoMatch />
+        </Route>
       </Switch>
     </>
   )
