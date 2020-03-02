@@ -24,7 +24,9 @@ module.exports = {
     // 关闭 WDS 在控制台的 log
     clientLogLevel: 'none',
     // 启动 gzip 压缩
-    compress: true,
+    // compress: true,
+    // 开启https(自签名)
+    https: true,
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
