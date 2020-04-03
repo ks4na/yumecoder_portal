@@ -33,7 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
       filename: 'index.html',
-      favicon: './src/imgs/logos/favicon.ico',
+      favicon: './favicon.ico',
     }),
     // 定义 webpack 全局变量，可从代码中获取该值
     new Webpack.DefinePlugin({
@@ -77,7 +77,7 @@ module.exports = {
             name: '[name]_[hash:8].[ext]',
           },
         },
-        exclude: /src[\\/]fonts/,
+        exclude: /assets[\\/]fonts/,
       },
       // fonts
       {
@@ -88,17 +88,17 @@ module.exports = {
             name: '[name]_[hash:4].[ext]',
           },
         },
-        exclude: /src[\\/]imgs/,
+        exclude: /assets[\\/]imgs/,
       },
       // es6+
       {
-        test: /\.jsx?/,
+        test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
       // es6+ (transform es6+ files in directory node_modules/** )
       {
-        test: /\.jsx?/,
+        test: /\.jsx?$/,
         use: 'babel-loader',
         include: [/node_modules[\\/]react-intl/],
       },
