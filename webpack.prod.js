@@ -15,7 +15,7 @@ const basename = ensureSlash(publicPath, false) // basename 后面不需要 '/'
 
 module.exports = {
   mode: 'production',
-  entry: path.join(__dirname, './src/index.js'),
+  entry: path.join(__dirname, './src/index.tsx'),
   output: {
     // 如果不指定，默认为 '', 此时所有的引用路径都将是相对路径(例如：index.html 中引用的 bundle.js 的路径为：
     // src="bundle.js")，指定为 '/'之后，webpack 会将这些引用前面添加上 '/'。
@@ -137,13 +137,13 @@ module.exports = {
       },
       // es6+
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
       // es6+ (transform es6+ files in directory node_modules/** )
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         use: 'babel-loader',
         include: [/node_modules[\\/]react-intl/],
       },
@@ -158,5 +158,10 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    // 在默认数组的基础上添加解析 jsx 和 ts, tsx 后缀，
+    // 作用是让webpack识别这些后缀名，从而在 import这些后缀名的模块时可以省略后缀名
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.ts', '.tsx'],
   },
 }

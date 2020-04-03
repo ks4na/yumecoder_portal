@@ -25,17 +25,7 @@ import detectBrowserInfo from 'check-browser-info'
 import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
 
 // use fastclick
-fastclick.attach(document.body)
-
-// IE9 Base64 polyfill
-if (!window.atob || !window.btoa) {
-  console.log('start to add base64 polyfill')
-  import(/* webpackChunkName: 'polyfill-base64' */ 'Base64').then(base64 => {
-    window.btoa = base64.default.btoa
-    window.atob = base64.default.atob
-    console.log('add base64 polyfill success')
-  })
-}
+fastclick(document.body)
 
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
