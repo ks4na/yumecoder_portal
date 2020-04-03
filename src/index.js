@@ -1,16 +1,5 @@
-// 添加polyfill，兼容IE9/11
-import 'react-app-polyfill/ie9'
-import 'react-app-polyfill/stable'
-
-// IE9 Base64 polyfill
-if (!global.atob || !global.btoa) {
-  console.log('start to add base64 polyfill')
-  import(/* webpackChunkName: 'polyfill-base64' */ 'Base64').then(base64 => {
-    global.btoa = base64.default.btoa
-    global.atob = base64.default.atob
-    console.log('add base64 polyfill success')
-  })
-}
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -25,9 +14,6 @@ import configureStore from './models/configureStore.js'
 import { IntlProvider } from 'react-intl'
 import { getLocaleMessages } from './locales/index.js'
 
-// use fastclick
-fastclick.attach(document.body)
-
 // import roboto font
 import 'typeface-roboto'
 
@@ -37,6 +23,19 @@ import detectBrowserInfo from 'check-browser-info'
 
 // add MUI theme provider
 import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
+
+// use fastclick
+fastclick.attach(document.body)
+
+// IE9 Base64 polyfill
+if (!window.atob || !window.btoa) {
+  console.log('start to add base64 polyfill')
+  import(/* webpackChunkName: 'polyfill-base64' */ 'Base64').then(base64 => {
+    window.btoa = base64.default.btoa
+    window.atob = base64.default.atob
+    console.log('add base64 polyfill success')
+  })
+}
 
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
