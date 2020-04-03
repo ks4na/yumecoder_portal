@@ -2,9 +2,8 @@ import React from 'react'
 import { FormattedMessage, FormattedDate } from 'react-intl'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
-import PropTypes from 'prop-types'
 
-function ReactIntlDemo(props) {
+function ReactIntlDemo(props: PropTypes): JSX.Element {
   return (
     <>
       <h2>React-Intl Demo</h2>
@@ -61,9 +60,9 @@ function ReactIntlDemo(props) {
 
 export default ReactIntlDemo
 
-ReactIntlDemo.propTypes = {
-  title: PropTypes.string,
-  createTime: PropTypes.instanceOf(Date),
-  content: PropTypes.string,
-  changeLocale: PropTypes.func.isRequired,
+interface PropTypes {
+  title: string
+  createTime: Date
+  content: string
+  changeLocale(locale: string): void
 }

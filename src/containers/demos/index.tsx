@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link, Switch, useRouteMatch, Route } from 'react-router-dom'
-import LazyLoadDemo from './LazyLoadDemo.jsx'
-import TaskListDemo from './TaskListDemo.jsx'
-import ReactIntlDemo from './ReactIntlDemo.jsx'
-import NoMatch from '../../components/NoMatch.jsx'
+import LazyLoadDemo from './LazyLoadDemo'
+import TaskListDemo from './TaskListDemo'
+import ReactIntlDemo from './ReactIntlDemo'
+import NoMatch from '../../components/NoMatch'
 
-export default function Demos() {
+export default function Demos(): JSX.Element {
   const match = useRouteMatch()
   return (
     <>

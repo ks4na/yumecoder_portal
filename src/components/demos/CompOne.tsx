@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './CompOne.scss'
 import BabelLogo from '../../../assets/imgs/logos/babel.svg'
 
-function CompOne() {
+function CompOne(): JSX.Element {
   return (
     <>
       <div className={styles.container}>

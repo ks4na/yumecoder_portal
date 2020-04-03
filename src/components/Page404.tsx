@@ -1,8 +1,8 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-export default function Page404() {
-  const location = useLocation()
+export default function Page404(): JSX.Element {
+  const location = useLocation<{ referrer: string }>()
   return (
     <>
       <h2>404 page</h2>

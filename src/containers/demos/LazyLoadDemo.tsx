@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import CompOne from '../../components/demos/CompOne.jsx'
+import CompOne from '../../components/demos/CompOne'
 import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-export default function LazyLoadDemo() {
-  const [compTwo, setCompTwo] = useState()
+export default function LazyLoadDemo(): JSX.Element {
+  const [compTwo, setCompTwo] = useState<React.ReactNode>()
   const handleClick = async () => {
     try {
-      const CompTwo = await import(
-        /* webpackChunkName: 'CompTwo' */ '../../components/demos/CompTwo.jsx'
-      )
-      setCompTwo(CompTwo.default)
+      const CompTwo = await (await import(
+        /* webpackChunkName: 'CompTwo' */ '../../components/demos/CompTwo'
+      )).default
+      setCompTwo(CompTwo)
     } catch (err) {
       console.log('异步组件加载失败')
     }

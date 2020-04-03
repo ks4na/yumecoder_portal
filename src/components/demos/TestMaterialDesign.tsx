@@ -9,7 +9,7 @@ const styles = {
   },
 }
 
-export default function TestMaterialDesign() {
+export default function TestMaterialDesign(): JSX.Element {
   return (
     <>
       <h2 style={styles.header}>test Material UI</h2>

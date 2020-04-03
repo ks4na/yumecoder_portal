@@ -1,14 +1,14 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { Switch, Route } from 'react-router-dom'
-import DevIndexPage from './components/demos/DevIndexPage.jsx'
-import NoMatch from './components/NoMatch.jsx'
-import Page404 from './components/Page404.jsx'
-import IndexPage from './containers/IndexPage.jsx'
+import DevIndexPage from './components/demos/DevIndexPage'
+import NoMatch from './components/NoMatch'
+import Page404 from './components/Page404'
+import IndexPage from './containers/IndexPage'
 
-import RootLayout from './components/layouts/RootLayout.jsx'
+import RootLayout from './components/layouts/RootLayout'
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <RootLayout>
       <CssBaseline />

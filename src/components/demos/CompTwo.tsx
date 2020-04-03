@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './CompTwo.scss'
 import _ from 'lodash'
 
-function CompTwo() {
+function CompTwo(): JSX.Element {
   console.log(_.shuffle([1, 2, 3, 4]))
   return (
     <>

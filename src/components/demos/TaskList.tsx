@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
 
-function Task(props) {
+function Task(props: PropTypes): JSX.Element {
   return (
     <>
       <h3>Task List</h3>
@@ -43,15 +42,15 @@ function Task(props) {
 
 export default Task
 
-Task.propTypes = {
-  addAsyncTask: PropTypes.func.isRequired,
-  cancelTask: PropTypes.func.isRequired,
-  tasks: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isCompleted: PropTypes.bool.isRequired,
-      isCancelled: PropTypes.bool.isRequired,
-      ref: PropTypes.object.isRequired,
-    })
-  ).isRequired,
+interface PropTypes {
+  addAsyncTask(): void
+  cancelTask(taskRef: object): void
+  tasks: Task[]
+}
+
+interface Task {
+  id: string
+  isCompleted: boolean
+  isCancelled: boolean
+  ref: object
 }

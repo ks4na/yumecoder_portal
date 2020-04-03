@@ -1,12 +1,12 @@
 import React from 'react'
-import Demos from '../../containers/demos/index.jsx'
-import TestMuiDemo from './TestMaterialDesign.jsx'
+import Demos from '../../containers/demos/index'
+import TestMuiDemo from './TestMaterialDesign'
 import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom'
-import RootLayout from '../layouts/RootLayout.jsx'
-import NoMatch from '../NoMatch.jsx'
+import RootLayout from '../layouts/RootLayout'
+import NoMatch from '../NoMatch'
 import styles from './DevIndexPage.scss'
 
-export default function DevIndexPage() {
+export default function DevIndexPage(): JSX.Element {
   const match = useRouteMatch()
   return (
     <RootLayout>
