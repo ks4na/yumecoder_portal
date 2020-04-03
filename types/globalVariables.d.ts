@@ -1,1 +1,1 @@
-declare var __WEBPACK_ENV_BASENAME__: string
+declare const __WEBPACK_ENV_BASENAME__: string

@@ -1,6 +1,6 @@
 .rootLayout {
-  min-width: 320px;
-  min-height: 100vh;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
+  min-width: 320px;
 }

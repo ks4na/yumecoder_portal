@@ -31,6 +31,7 @@ export function getLocale(str?: string): LocaleKey {
   const localeFromStorage =
     window.localStorage && window.localStorage.getItem('locale')
   const navigatorLang =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     window.navigator.language || (window.navigator as any).browserLanguage
   const locale = str || localeFromStorage || navigatorLang || defaultLocale
 

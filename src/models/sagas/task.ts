@@ -18,16 +18,7 @@ import {
   SagaCancelTaskAction,
 } from '../actions'
 
-function* watchSagaDoTask() {
-  while (true) {
-    const action = yield take(SAGA_DO_TASK)
-    const taskId = `task ${Date.now()}`
-    const task = yield fork(sagaDoTask, action, taskId)
-    yield put(addTask(taskId, task))
-  }
-}
-
-function* sagaDoTask(action: SagaDoTaskAction, taskId: string) {
+function* sagaDoTask(action: SagaDoTaskAction, taskId: string): Generator {
   try {
     yield delay(5000)
     yield put(completeTask(taskId))
@@ -38,18 +29,34 @@ function* sagaDoTask(action: SagaDoTaskAction, taskId: string) {
   }
 }
 
-function* watchSagaCancelTask() {
+function* watchSagaDoTask(): Generator {
   while (true) {
-    const action = yield take(SAGA_CANCEL_TASK)
-    yield fork(sagaCancelTask, action)
+    const action = yield take(SAGA_DO_TASK)
+    const taskId = `task ${Date.now()}`
+    const task = yield fork<typeof sagaDoTask>(
+      sagaDoTask,
+      action as SagaDoTaskAction,
+      taskId
+    )
+    yield put(addTask(taskId, task as object))
   }
 }
 
-function* sagaCancelTask(action: SagaCancelTaskAction) {
+function* sagaCancelTask(action: SagaCancelTaskAction): Generator {
   const taskRef = action.payload as Task
   yield cancel(taskRef)
 }
 
-export default function* taskSaga() {
+function* watchSagaCancelTask(): Generator {
+  while (true) {
+    const action = yield take(SAGA_CANCEL_TASK)
+    yield fork<typeof sagaCancelTask>(
+      sagaCancelTask,
+      action as SagaCancelTaskAction
+    )
+  }
+}
+
+export default function* taskSaga(): Generator {
   yield all([watchSagaDoTask(), watchSagaCancelTask()])
 }

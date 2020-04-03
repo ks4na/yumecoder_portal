@@ -25,7 +25,7 @@ function Task(props: PropTypes): JSX.Element {
                     <Button
                       size="small"
                       color="secondary"
-                      onClick={() => props.cancelTask(task.ref)}
+                      onClick={(): void => props.cancelTask(task.ref)}
                     >
                       取消
                     </Button>

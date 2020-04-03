@@ -9,21 +9,21 @@ function ReactIntlDemo(props: PropTypes): JSX.Element {
       <h2>React-Intl Demo</h2>
       <ButtonGroup size="small" aria-label="small contained button group">
         <Button
-          onClick={() => {
+          onClick={(): void => {
             props.changeLocale('zh-CN')
           }}
         >
           zh-CN
         </Button>
         <Button
-          onClick={() => {
+          onClick={(): void => {
             props.changeLocale('en-US')
           }}
         >
           en-US
         </Button>
         <Button
-          onClick={() => {
+          onClick={(): void => {
             props.changeLocale('ja-JP')
           }}
         >

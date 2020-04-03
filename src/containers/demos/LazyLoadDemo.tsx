@@ -5,7 +5,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 export default function LazyLoadDemo(): JSX.Element {
   const [compTwo, setCompTwo] = useState<React.ReactNode>()
-  const handleClick = async () => {
+  const handleClick = async (): Promise<void> => {
     try {
       const CompTwo = await (await import(
         /* webpackChunkName: 'CompTwo' */ '../../components/demos/CompTwo'

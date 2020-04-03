@@ -6,8 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { getServedPath, ensureSlash } = require('./pathUtil.js')
+const { getServedPath, ensureSlash } = require('./pathUtil')
 const Webpack = require('webpack')
+const autoPrefixer = require('autoprefixer')
+const ObsoleteWebpackPlugin = require('obsolete-webpack-plugin')
 
 // 根据 package.json 中的 config.basename 字段设置 publicPath， 默认为 '/'
 const publicPath = getServedPath('./package.json')
@@ -69,6 +71,13 @@ module.exports = {
     new Webpack.DefinePlugin({
       __WEBPACK_ENV_BASENAME__: JSON.stringify(basename),
     }),
+    // 配置选项参考 https://github.com/ElemeFE/obsolete-webpack-plugin#options
+    new ObsoleteWebpackPlugin({
+      template:
+        '<div>The browser you are using is too old. For a better experience, ' +
+        'please <a href="https://browsehappy.com/">upgrade</a> your browser first.' +
+        '<button id="obsoleteClose">&times;</button></div>',
+    }),
   ],
   module: {
     rules: [
@@ -90,6 +99,13 @@ module.exports = {
                 mode: 'local',
                 localIdentName: '[name]__[local]_[hash:8]', // custom className, format: filename__classname_hash:8
               },
+            },
+          },
+          // 注意： postcss-loader 放在 css-loader 之后，sass-loader 之前
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoPrefixer], // 配置 postcss 插件
             },
           },
           'sass-loader',

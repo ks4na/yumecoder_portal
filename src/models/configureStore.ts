@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, DeepPartial } from 'redux'
+import { createStore, applyMiddleware, DeepPartial, Store } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 import createSagaMiddleware from 'redux-saga'
@@ -11,7 +11,9 @@ const composeEnhancers = composeWithDevTools({
 // create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware()
 
-export default function configureStore<S>(preloadedState: DeepPartial<S>) {
+export default function configureStore<S>(
+  preloadedState: DeepPartial<S>
+): Store {
   // mount sagaMiddleware on the store
   const store = createStore(
     rootReducer,

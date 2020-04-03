@@ -6,13 +6,10 @@ import {
 } from '../actions'
 import { saveLocaleToLocalStorage, getLocale } from '../../locales'
 
-export function* watchSagaChangeLocale() {
-  yield takeEvery(SAGA_CHANGE_LOCALE, changeLocale)
-}
-
-export function* changeLocale(action: SagaChangeLocaleAction) {
+export function* changeLocale(action: SagaChangeLocaleAction): Generator {
   const locale = getLocale(action.payload)
   // 更新 <html> 标签的 lang 属性
+  // eslint-disable-next-line compat/compat
   const htmlEle = document.querySelector('html')
   if (htmlEle) {
     htmlEle.lang = locale
@@ -23,6 +20,10 @@ export function* changeLocale(action: SagaChangeLocaleAction) {
   yield put(setLocale(locale))
 }
 
-export default function* localeSaga() {
+export function* watchSagaChangeLocale(): Generator {
+  yield takeEvery(SAGA_CHANGE_LOCALE, changeLocale)
+}
+
+export default function* localeSaga(): Generator {
   yield all([watchSagaChangeLocale()])
 }

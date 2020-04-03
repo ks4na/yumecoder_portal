@@ -5,6 +5,7 @@ import DevIndexPage from './components/demos/DevIndexPage'
 import NoMatch from './components/NoMatch'
 import Page404 from './components/Page404'
 import IndexPage from './containers/IndexPage'
+import './App.scss'
 
 import RootLayout from './components/layouts/RootLayout'
 

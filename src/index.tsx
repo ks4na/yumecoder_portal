@@ -27,7 +27,8 @@ import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import raf from 'raf'
 
 // use fastclick
-// @ts-ignore : not work when using fastclick(document.body)
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore : using "fastclick(document.body)" will cause error
 fastclick.attach(document.body)
 
 let Router = BrowserRouter
@@ -47,7 +48,7 @@ const preloadedState = {}
 const store = configureStore(preloadedState)
 
 // add AppWrapper Comp to wrap App Comp
-function AppWrapper() {
+function AppWrapper(): JSX.Element {
   return (
     <Provider store={store}>
       <IntlProviderWrapper>
@@ -65,7 +66,7 @@ function AppWrapper() {
 function IntlProviderWrapper({
   children,
   ...restProps
-}: React.PropsWithChildren<React.Attributes>) {
+}: React.PropsWithChildren<React.Attributes>): JSX.Element {
   const locale = useSelector(({ localeState }) => localeState.locale)
   return (
     <IntlProvider
@@ -81,9 +82,8 @@ function IntlProviderWrapper({
 // wrap App Comp with MUI theme provider
 function ThemeProviderWrapper({
   children,
-}: React.PropsWithChildren<React.Attributes>) {
+}: React.PropsWithChildren<React.Attributes>): JSX.Element {
   const theme = useSelector(({ themeState }) => themeState.theme)
-  console.log('themeType', theme.palette.type)
   return (
     <ThemeProvider theme={theme}>
       {/* inject the style tags first in the head */}
