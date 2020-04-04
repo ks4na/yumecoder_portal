@@ -2,30 +2,69 @@
 
 ## 介绍
 
-由原先的单体式 JavaWeb 应用改为前后端分离项目，此项目为前台 webapp 端，使用 React 技术栈重新构建。  
-主要动机是前端技术（React 相关）以及 docker、shell、git 等技术练习强化。
+由原先的 standalone javaweb app 改为前后端分离项目，此项目为 webapp 端，使用 react 技术栈重新编写。  
+主要目的是练习前端技术（React 相关）以及 docker, shell, git 等技术。
 
-## 使用技术总结
+## 练习范围概览
 
-### 基础技术
+### 基础
 
-1. react,react-dom
-2. webpack - 项目构建工具
-   - 配置 webpack 开发、发布环境
-3. material-ui - react 组件库
-4. redux,redux-saga - 全局状态管理
-5. axios - ajax 请求库
+- `react`, `react-dom`, `react-router-dom`
+  - 基础 react 框架
+- `typescript`
+  - 使用 typescript 语法编写
+  - `babel-typescript`
+    - 使用 babel 编译 typescript 代码，提升开发体验
+- `material-ui`
+  - react 组件库
+- `redux`
+  - 全局状态管理
+  - `redux-saga`
+    - 处理副作用
+- `axios`
+  - ajax 请求库
+  - `mockjs`
+    - mock 请求数据
 
-### 其他技术
+### 额外
 
-1. react-intl - 国际化
-2. react-loadable - 组件懒加载
-   - import()动态导入
-3. token 认证机制
-4. QQ 三方登录前端实现
+- `react-intl`
+  - 国际化支持
+- `react-loadable`
+  - 组件级别懒加载
+  - import()
+    - 手动懒加载
+- `token auth`
+  - token 认证机制
+- `third-party account login`
+  - 三方登录支持
+  - `QQ`
+    - 支持使用 QQ 号登录
 
-### 代码规范
+### 规范
 
-1. husky,lint-staged - 提交前代码规范检查
-2. eslint - js 代码检查
-3. prettier - 代码格式化
+- `husky`, `lint-staged`
+  - precommit 代码检查
+- `eslint`
+  - js/ts 代码检查
+- `stylelint`
+  - 样式代码检查
+- `prettier`
+  - 规范代码书写风格
+
+### 测试
+
+- `jest`
+  - 代码测试
+  - `enzyme`, `@testing-library/react-hooks`
+    - react 组件测试
+
+### 构建/部署
+
+- `webpack`
+  - 打包工具
+  - 手动配置 webpack 开发、发布环境
+- `Github Actions`
+  - 持续集成支持
+  - `docker`, `ECS`, `shell`
+    - 使用 docker 容器部署应用
