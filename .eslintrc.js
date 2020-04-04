@@ -5,11 +5,14 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    'jest/globals': true,
   },
   // 指定eslint的解析器
   parser: '@typescript-eslint/parser',
-  plugins: ['react-hooks'], // 使用 react hooks 添加该 plugin
+  plugins: ['react-hooks', 'jest'], // 使用 react hooks 添加该 plugin
   extends: [
+    // 使用 eslint-plugin-jest 推荐的规则
+    'plugin:jest/recommended',
     // 使用 eslint-plugin-compat 推荐的规则
     'plugin:compat/recommended',
     // 使用 @typescript-eslint/eslint-plugin 推荐的规则
@@ -41,5 +44,6 @@ module.exports = {
     // 指定规则，可以覆盖推荐的规则
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     '@typescript-eslint/no-var-requires': 'off',
+    'jest/no-export': 'off',
   },
 }
