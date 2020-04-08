@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link, Switch, useRouteMatch, Route } from 'react-router-dom'
+import { Link, Switch, useRouteMatch, Route, Redirect } from 'react-router-dom'
 import LazyLoadDemo from './LazyLoadDemo'
 import TaskListDemo from './TaskListDemo'
 import ReactIntlDemo from './ReactIntlDemo'
-import NoMatch from '../../components/NoMatch'
 
 export default function Demos(): JSX.Element {
   const match = useRouteMatch()
@@ -37,9 +36,7 @@ export default function Demos(): JSX.Element {
         <Route path={`${match.path}/reactintl`}>
           <ReactIntlDemo />
         </Route>
-        <Route path={`${match.path}/*`}>
-          <NoMatch />
-        </Route>
+        <Redirect to={`${match.path}`} />
       </Switch>
     </>
   )

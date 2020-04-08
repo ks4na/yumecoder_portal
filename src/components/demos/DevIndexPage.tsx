@@ -1,9 +1,14 @@
 import React from 'react'
-import Demos from '../../containers/demos/index'
+import Demos from '../../containers/demos'
 import TestMuiDemo from './TestMaterialDesign'
-import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom'
+import {
+  useRouteMatch,
+  NavLink,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import RootLayout from '../layouts/RootLayout'
-import NoMatch from '../NoMatch'
 import styles from './DevIndexPage.scss'
 
 export default function DevIndexPage(): JSX.Element {
@@ -27,9 +32,7 @@ export default function DevIndexPage(): JSX.Element {
         <Route path={`${match.path}/testMui`}>
           <TestMuiDemo />
         </Route>
-        <Route path={`${match.path}/*`}>
-          <NoMatch />
-        </Route>
+        <Redirect to={`${match.path}`} />
       </Switch>
     </RootLayout>
   )
