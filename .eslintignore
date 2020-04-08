@@ -1,1 +1,5 @@
 # /node_modules/*  and /bower_compontents/* are ignored by default
+
+/dist/*
+
+pathUtil.js
