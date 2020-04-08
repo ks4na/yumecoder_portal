@@ -8,13 +8,12 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import RootLayout from '../layouts/RootLayout'
 import styles from './DevIndexPage.scss'
 
 export default function DevIndexPage(): JSX.Element {
   const match = useRouteMatch()
   return (
-    <RootLayout>
+    <>
       <div className={styles.navLinkWrapper}>
         <ul>
           <li>
@@ -34,6 +33,6 @@ export default function DevIndexPage(): JSX.Element {
         </Route>
         <Redirect to={`${match.path}`} />
       </Switch>
-    </RootLayout>
+    </>
   )
 }

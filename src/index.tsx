@@ -23,6 +23,7 @@ import detectBrowserInfo from 'check-browser-info'
 
 // add MUI theme provider
 import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
+import { CssBaseline } from '@material-ui/core'
 
 import raf from 'raf'
 
@@ -86,6 +87,7 @@ function ThemeProviderWrapper({
   const theme = useSelector(({ themeState }) => themeState.theme)
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       {/* inject the style tags first in the head */}
       <StylesProvider injectFirst>{children}</StylesProvider>
     </ThemeProvider>
