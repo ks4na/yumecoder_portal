@@ -1,22 +1,32 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, RouteProps } from 'react-router-dom'
+import './App.scss'
 import IndexPage from './containers/IndexPage'
 import DevIndexPage from './components/demos/DevIndexPage'
 import NoMatch from './components/NoMatch'
-import './App.scss'
+
+const routes: RouteProps[] = [
+  {
+    path: '/',
+    exact: true,
+    component: IndexPage,
+  },
+  {
+    path: '/dev',
+    component: DevIndexPage,
+  },
+  {
+    path: '*',
+    component: NoMatch,
+  },
+]
 
 export default function App(): JSX.Element {
   return (
     <Switch>
-      <Route path="/" exact>
-        <IndexPage />
-      </Route>
-      <Route path="/dev">
-        <DevIndexPage />
-      </Route>
-      <Route path="*">
-        <NoMatch />
-      </Route>
+      {routes.map((route, i) => (
+        <Route key={i} {...route} />
+      ))}
     </Switch>
   )
 }
