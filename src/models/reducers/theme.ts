@@ -1,5 +1,6 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeActions, ALTER_THEME_TYPE } from '../actions'
+import { teal, orange } from '@material-ui/core/colors'
 
 export interface ThemeState {
   theme: Theme
@@ -11,8 +12,8 @@ const themeTypeFromLocal = localStorage.getItem('themeType')
 const initialState: ThemeState = {
   theme: createMuiTheme({
     palette: {
-      primary: { main: '#08B292' },
-      secondary: { main: '#FF9100' },
+      primary: teal,
+      secondary: orange,
       type: themeTypeFromLocal !== 'dark' ? 'light' : 'dark',
     },
   }),
