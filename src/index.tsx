@@ -26,6 +26,9 @@ import { CssBaseline } from '@material-ui/core'
 
 import raf from 'raf'
 
+// add axios configuration file
+import '../axios.config'
+
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
 const browserInfo = detectBrowserInfo()

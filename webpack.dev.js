@@ -29,6 +29,9 @@ module.exports = {
     // compress: true,
     // 开启https(自签名)
     https: true,
+    proxy: {
+      '/api': 'http://49.235.176.149:7001',
+    },
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
