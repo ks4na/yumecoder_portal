@@ -3,7 +3,6 @@ import 'regenerator-runtime/runtime'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import fastclick from 'fastclick'
 import App from './App'
 
 // add redux
@@ -26,11 +25,6 @@ import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import { CssBaseline } from '@material-ui/core'
 
 import raf from 'raf'
-
-// use fastclick
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore : using "fastclick(document.body)" will cause error
-fastclick.attach(document.body)
 
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
