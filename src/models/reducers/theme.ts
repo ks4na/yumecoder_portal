@@ -1,4 +1,4 @@
-import { createMuiTheme, Theme } from '@material-ui/core/styles'
+import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core/styles'
 import { ThemeActions, ALTER_THEME_TYPE } from '../actions'
 import { teal, orange } from '@material-ui/core/colors'
 
@@ -9,12 +9,18 @@ export interface ThemeState {
 // get themeType from localstorage
 const themeTypeFromLocal = localStorage.getItem('themeType')
 
+const customedThemeOptions: ThemeOptions = {
+  palette: {
+    primary: teal,
+    secondary: orange,
+    type: themeTypeFromLocal !== 'dark' ? 'light' : 'dark',
+  },
+}
+
 const initialState: ThemeState = {
   theme: createMuiTheme({
     palette: {
-      primary: teal,
-      secondary: orange,
-      type: themeTypeFromLocal !== 'dark' ? 'light' : 'dark',
+      ...customedThemeOptions.palette,
     },
   }),
 }
@@ -27,10 +33,9 @@ export default function themeReducer(
     case ALTER_THEME_TYPE:
       return {
         ...state,
-        theme: {
-          ...state.theme,
-          palette: { ...state.theme.palette, type: action.payload },
-        },
+        theme: createMuiTheme({
+          palette: { ...customedThemeOptions.palette, type: action.payload },
+        }),
       }
     default:
       return state
