@@ -9,4 +9,21 @@ export default {
   indexPageAppKeyWord: '在线IT练习平台',
   indexPageBtnLogin: '登&nbsp;&nbsp;录',
   indexPageBtnRegist: '注&nbsp;&nbsp;册',
+
+  // containers/LoginPage/index.tsx
+  loginPageTitle: '登&nbsp;录',
+  loginPageBtnRegist: '注&nbsp;册',
+  loginPageUnexpectedError: '预期外的错误',
+  loginPageForgotPwd: '忘记密码',
+
+  // containers/LoginPage/LoginForm.tsx
+  loginPageLoginFormInvalidEmailAddress: '邮箱格式不正确',
+  loginPageLoginFormInvalidPassword: '密码必须为6-18位字母或数字',
+  loginPageLoginFormEmailInputPlaceholder: '邮箱',
+  loginPageLoginFormPasswordInputPlaceholder: '密码（6-18位字母或数字）',
+  loginPageLoginFormBtnLoginEnabledStatusText: '登&nbsp;&nbsp;录',
+  loginPageLoginFormBtnLoginDisabledStatusText: '正在登录中...',
+
+  // containers/LoginPage/ThirdPartyLogin.tsx
+  loginPageThirdPartyLoginHeader: '其它登录方式',
 }
