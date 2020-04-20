@@ -12,7 +12,7 @@ import AccountIcon from '@material-ui/icons/AccountCircleOutlined'
 import LockIcon from '@material-ui/icons/LockOutlined'
 import PwdVisibleIcon from '@material-ui/icons/VisibilityOutlined'
 import PwdInvisibleIcon from '@material-ui/icons/VisibilityOffOutlined'
-import { validateEmail, validatePassword } from '../../helpers/validation'
+import { validateEmail, validatePassword } from '../../configs/validation'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   sagaUserLogin,
@@ -21,7 +21,7 @@ import {
   setLoginCancelledStatus,
 } from '../../models/actions'
 import { LoginStatus } from '../../models/reducers/login'
-import { useHistory } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { useIntl, FormattedHTMLMessage } from 'react-intl'
 
 interface TextFieldState {
@@ -30,14 +30,13 @@ interface TextFieldState {
   helperText?: string
 }
 
-let lastLoginStatus: LoginStatus = LoginStatus.INITIAL
+let currentLoginStatus: LoginStatus = LoginStatus.INITIAL
 
 export default function LoginForm(): JSX.Element {
   const dispatch = useDispatch()
-  const history = useHistory()
   const loginState = useSelector(({ loginState }) => loginState)
   const isLoggingIn = loginState.status === LoginStatus.LOGGINGIN
-  lastLoginStatus = loginState.status
+  currentLoginStatus = loginState.status
   const emailInputRef = React.useRef<HTMLInputElement>()
   const passwordInputref = React.useRef<HTMLInputElement>()
   const [emailState, setEmailState] = React.useState<TextFieldState>({
@@ -169,20 +168,24 @@ export default function LoginForm(): JSX.Element {
     dispatch(resetLoginStatus())
   }, [dispatch])
 
-  // unmount 组件时，如果当前登录状态为 LOGGINGIN，则切换为 CANCELLED
+  // unmount 组件时
   React.useEffect(() => {
     return (): void => {
-      if (lastLoginStatus === LoginStatus.LOGGINGIN) {
+      // 如果当前登录状态为 LOGGINGIN，则切换为 CANCELLED
+      if (currentLoginStatus === LoginStatus.LOGGINGIN) {
         dispatch(setLoginCancelledStatus())
+      }
+
+      // 如果当前登录状态为 SUCCESS, 则重置登录状态为 INITIAL
+      if (currentLoginStatus === LoginStatus.SUCCESS) {
+        dispatch(resetLoginStatus())
       }
     }
   }, [dispatch])
 
-  // 如果登录状态为 SUCCESS
+  // 如果登录状态为 SUCCESS， 则跳转练习页面
   if (loginState.status === LoginStatus.SUCCESS) {
-    // 重置登录状态为 INITIAL, 然后跳转练习页面
-    dispatch(resetLoginStatus())
-    history.push('/test/menu')
+    return <Redirect to="/test/menu" />
   }
 
   return (
