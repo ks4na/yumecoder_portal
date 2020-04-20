@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Grid, IconButton } from '@material-ui/core'
 import GithubLogo from '../../../assets/imgs/third-party-login/github.png'
-import oauthLoginConfig from '../../helpers/oauthLogin.config'
+import oauthLoginConfig from '../../configs/oauthLogin.config'
 
 const githubClientId = oauthLoginConfig.github.clientId
 const githubOauthUrl = oauthLoginConfig.github.oauthUrl

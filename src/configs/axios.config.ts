@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const baseUrls = {
+interface BaseUrls {
+  [propName: string]: string
+}
+
+const baseUrls: BaseUrls = {
   development: '',
   unittest: '',
   sit: '//testserver.com',
