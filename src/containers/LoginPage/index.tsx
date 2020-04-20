@@ -5,7 +5,9 @@ import {
   LinearProgress,
   Link as MuiLink,
   Snackbar,
+  IconButton,
 } from '@material-ui/core'
+import CloseIcon from '@material-ui/icons/Close'
 import LoginPageHeader from './Header'
 import BasicLayout from '../../components/layouts/BasicLayout'
 import LoginForm from './LoginForm'
@@ -39,7 +41,7 @@ export default function LoginPage(): JSX.Element {
       {/* toast message bar */}
       <Snackbar
         open={showErrMsg}
-        autoHideDuration={10000}
+        autoHideDuration={3000}
         onClose={handleHideErrMsg}
         message={
           loginState.msg || (
@@ -48,6 +50,16 @@ export default function LoginPage(): JSX.Element {
               defaultMessage="预期外的错误"
             />
           )
+        }
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleHideErrMsg}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
         }
       />
       {/* body */}
