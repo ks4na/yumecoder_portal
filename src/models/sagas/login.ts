@@ -5,6 +5,7 @@ import {
   setLoggingInStatus,
   setLoginSuccessStatus,
   setLoginFailedStatus,
+  sagaSaveTokensToLocal,
 } from '../actions'
 import { LoginStatus } from '../reducers/login'
 import * as Api from '../apis'
@@ -33,14 +34,9 @@ function* userLogin(action: SagaUserLoginAction): Generator {
         // 后台返回的错误信息
         yield put(setLoginFailedStatus(data.msg || ''))
       } else {
-        // 先保存 tokens 到 localStorage， 然后设置登录状态为 SUCCESS
+        // 先保存 tokens， 然后设置登录状态为 SUCCESS
         const { refresh_token: refreshToken, access_token: accessToken } = data
-        yield call(
-          [localStorage, 'setItem'],
-          'refreshToken',
-          refreshToken || ''
-        )
-        yield call([localStorage, 'setItem'], 'accessToken', accessToken || '')
+        yield put(sagaSaveTokensToLocal({ accessToken, refreshToken }))
         yield put(setLoginSuccessStatus())
       }
     }

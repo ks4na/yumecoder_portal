@@ -84,9 +84,6 @@ export type LoginActions =
 export const SAGA_USER_LOGIN = 'SAGA_USER_LOGIN'
 export type SAGA_USER_LOGIN = typeof SAGA_USER_LOGIN
 
-export const SAGA_SAVE_TOKENS_TO_LOCAL = 'SAGA_SAVE_TOKENS_TO_LOCAL'
-export type SAGA_SAVE_TOKENS_TO_LOCAL = typeof SAGA_SAVE_TOKENS_TO_LOCAL
-
 export interface UserLoginPayloadType {
   account: string
   password: string
