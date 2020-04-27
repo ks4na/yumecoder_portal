@@ -10,6 +10,7 @@ import {
 import CloseIcon from '@material-ui/icons/Close'
 import LoginPageHeader from './Header'
 import BasicLayout from '../../components/layouts/BasicLayout'
+import BodyLayout from '../../components/layouts/BodyLayout'
 import LoginForm from './LoginForm'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -63,7 +64,7 @@ export default function LoginPage(): JSX.Element {
         }
       />
       {/* body */}
-      <Container maxWidth="sm">
+      <BodyLayout>
         {/* login form */}
         <LoginForm />
         <Box textAlign="right" mt={2} mb={5}>
@@ -76,7 +77,7 @@ export default function LoginPage(): JSX.Element {
         </Box>
         {/* third party login */}
         <ThirdPartyLogin />
-      </Container>
+      </BodyLayout>
     </BasicLayout>
   )
 }
