@@ -26,4 +26,8 @@ export default {
 
   // containers/LoginPage/ThirdPartyLogin.tsx
   loginPageThirdPartyLoginHeader: '其它登录方式',
+
+  // containers/LoginPage/GithubLoginCallback.tsx
+  'loginPage.githubLoginCallback.txtHandlingGithubLogin':
+    '正在处理github登录请求...',
 }

@@ -27,4 +27,8 @@ export default {
 
   // containers/LoginPage/ThirdPartyLogin.tsx
   loginPageThirdPartyLoginHeader: 'Sign in with',
+
+  // containers/LoginPage/GithubLoginCallback.tsx
+  'loginPage.githubLoginCallback.txtHandlingGithubLogin':
+    'handling github login request...',
 }
