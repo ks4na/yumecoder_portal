@@ -1,11 +1,14 @@
 import React from 'react'
-import { Container, Box } from '@material-ui/core'
+import { Container, Box, BoxProps } from '@material-ui/core'
 
-interface PropTypes {
+interface PropTypes extends BoxProps {
   children: React.ReactNode
 }
 
-export default function BasicLayout({ children }: PropTypes): JSX.Element {
+export default function BasicLayout({
+  children,
+  ...otherProps
+}: PropTypes): JSX.Element {
   return (
     <Box
       clone
@@ -13,6 +16,7 @@ export default function BasicLayout({ children }: PropTypes): JSX.Element {
       position="relative"
       overflow="hidden"
       bgcolor="background.default"
+      {...otherProps}
     >
       <Container disableGutters maxWidth={false}>
         {children}
