@@ -3,6 +3,7 @@ import taskState, { TaskState } from './task'
 import localeState, { LocaleState } from './locale'
 import themeState, { ThemeState } from './theme'
 import loginState, { LoginState } from './login'
+import snackbarState, { SnackbarState } from './snackbar'
 
 declare module 'react-redux' {
   interface DefaultRootState {
@@ -10,6 +11,7 @@ declare module 'react-redux' {
     taskState: TaskState
     themeState: ThemeState
     loginState: LoginState
+    snackbarState: SnackbarState
   }
 }
 
@@ -18,4 +20,5 @@ export default combineReducers({
   localeState,
   themeState,
   loginState,
+  snackbarState,
 })

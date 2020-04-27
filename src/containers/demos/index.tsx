@@ -3,6 +3,7 @@ import { Link, Switch, useRouteMatch, Route, Redirect } from 'react-router-dom'
 import LazyLoadDemo from './LazyLoadDemo'
 import TaskListDemo from './TaskListDemo'
 import ReactIntlDemo from './ReactIntlDemo'
+import GlobalSnackbarDemo from './GlobalSnackbarDemo'
 
 export default function Demos(): JSX.Element {
   const match = useRouteMatch()
@@ -24,6 +25,9 @@ export default function Demos(): JSX.Element {
         <li>
           <Link to={`${match.url}/reactintl`}>react-intl国际化示例</Link>
         </li>
+        <li>
+          <Link to={`${match.url}/globalsnackbar`}>全局 Snackbar 示例</Link>
+        </li>
       </ul>
 
       <Switch>
@@ -35,6 +39,9 @@ export default function Demos(): JSX.Element {
         </Route>
         <Route path={`${match.path}/reactintl`}>
           <ReactIntlDemo />
+        </Route>
+        <Route path={`${match.path}/globalsnackbar`}>
+          <GlobalSnackbarDemo />
         </Route>
         <Redirect to={`${match.path}`} />
       </Switch>
