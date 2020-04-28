@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route, RouteProps } from 'react-router-dom'
 import './App.scss'
+import GlobalSnackbar from './containers/GlobalSnackbar'
 import IndexPage from './containers/IndexPage'
 import DevIndexPage from './components/demos/DevIndexPage'
 import NoMatch from './components/NoMatch'
@@ -33,10 +34,14 @@ const routes: RouteProps[] = [
 
 export default function App(): JSX.Element {
   return (
-    <Switch>
-      {routes.map((route, i) => (
-        <Route key={i} {...route} />
-      ))}
-    </Switch>
+    <>
+      {/* 全局消息提示组件 */}
+      <GlobalSnackbar />
+      <Switch>
+        {routes.map((route, i) => (
+          <Route key={i} {...route} />
+        ))}
+      </Switch>
+    </>
   )
 }
