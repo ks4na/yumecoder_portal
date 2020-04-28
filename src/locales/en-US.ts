@@ -13,7 +13,6 @@ export default {
   // containers/LoginPage/index.tsx
   loginPageTitle: 'Sign&nbsp;In',
   loginPageBtnRegist: 'Sign&nbsp;Up',
-  loginPageUnexpectedError: 'unexpected error',
   loginPageForgotPwd: 'forgot password',
 
   // containers/LoginPage/LoginForm.tsx

@@ -11,6 +11,8 @@ import {
   setGithubLoggingInStatus,
   setGithubLoginSuccessStatus,
   setGithubLoginFailedStatus,
+  addSnackbarItem,
+  addAxiosErrSnackbarItem,
 } from '../actions'
 import { LoginStatus } from '../reducers/login'
 import * as Api from '../apis'
@@ -30,25 +32,26 @@ function* userLogin(action: SagaUserLoginAction): Generator {
       return
     }
     const data = response.data
-    if (typeof data.code !== 'number') {
-      // 不正确的请求返回的数据
-      console.error(response.data)
-      yield put(setLoginFailedStatus(''))
+    if (data.code !== 0) {
+      // 接口返回的错误信息
+      yield put(setLoginFailedStatus())
+      // 添加 Snackbar 提示信息
+      yield put(
+        addSnackbarItem({
+          message: data.msg,
+        })
+      )
     } else {
-      if (data.code !== 0) {
-        // 后台返回的错误信息
-        yield put(setLoginFailedStatus(data.msg || ''))
-      } else {
-        // 先保存 tokens， 然后设置登录状态为 SUCCESS
-        const { refresh_token: refreshToken, access_token: accessToken } = data
-        yield put(sagaSaveTokensToLocal({ accessToken, refreshToken }))
-        yield put(setLoginSuccessStatus())
-      }
+      // 先保存 tokens， 然后设置登录状态为 SUCCESS
+      const { refresh_token: refreshToken, access_token: accessToken } = data
+      yield put(sagaSaveTokensToLocal({ accessToken, refreshToken }))
+      yield put(setLoginSuccessStatus())
     }
   } catch (err) {
-    // 预期外的错误（ajax请求出错等）
-    yield put(setLoginFailedStatus(''))
-    console.error(err)
+    // 预期外的错误
+    yield put(setLoginFailedStatus())
+    // 添加 Snackbar 提示信息
+    yield put(addAxiosErrSnackbarItem(err))
   }
 }
 
@@ -72,9 +75,14 @@ function* githubLogin(action: SagaGithubLoginAction): Generator {
     }
     const data = response.data
     if (data.code !== 0) {
-      // 后台返回的错误信息
-      console.log('errmsg from server', data.msg)
+      // 接口返回的错误信息
       yield put(setGithubLoginFailedStatus())
+      // 添加 Snackbar 提示信息
+      yield put(
+        addSnackbarItem({
+          message: data.msg,
+        })
+      )
     } else {
       // 先保存 tokens， 然后设置登录状态为 SUCCESS
       const { refresh_token: refreshToken, access_token: accessToken } = data
@@ -82,9 +90,10 @@ function* githubLogin(action: SagaGithubLoginAction): Generator {
       yield put(setGithubLoginSuccessStatus())
     }
   } catch (err) {
-    // 预期外的错误（ajax请求出错等）
+    // 预期外的错误
     yield put(setGithubLoginFailedStatus())
-    console.error('caught err', err)
+    // 添加 Snackbar 提示信息
+    yield put(addAxiosErrSnackbarItem(err))
   }
 }
 

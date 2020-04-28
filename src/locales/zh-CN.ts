@@ -13,7 +13,6 @@ export default {
   // containers/LoginPage/index.tsx
   loginPageTitle: '登&nbsp;录',
   loginPageBtnRegist: '注&nbsp;册',
-  loginPageUnexpectedError: '预期外的错误',
   loginPageForgotPwd: '忘记密码',
 
   // containers/LoginPage/LoginForm.tsx

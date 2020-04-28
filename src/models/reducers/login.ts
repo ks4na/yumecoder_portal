@@ -24,13 +24,11 @@ export enum LoginStatus {
 export interface LoginState {
   status: LoginStatus
   githubLoginStatus: LoginStatus
-  msg: string
 }
 
 const initialState: LoginState = {
   status: LoginStatus.INITIAL,
   githubLoginStatus: LoginStatus.INITIAL,
-  msg: '',
 }
 
 export default function loginReducer(
@@ -40,15 +38,15 @@ export default function loginReducer(
   switch (action.type) {
     // common login
     case LOGIN_STATUS_LOGGINGIN:
-      return { ...state, status: LoginStatus.LOGGINGIN, msg: '' }
+      return { ...state, status: LoginStatus.LOGGINGIN }
     case LOGIN_STATUS_SUCCESS:
-      return { ...state, status: LoginStatus.SUCCESS, msg: '' }
+      return { ...state, status: LoginStatus.SUCCESS }
     case LOGIN_STATUS_FAILED:
-      return { ...state, status: LoginStatus.FAILED, msg: action.payload }
+      return { ...state, status: LoginStatus.FAILED }
     case LOGIN_STATUS_CANCELLED:
-      return { ...state, status: LoginStatus.CANCELLED, msg: '' }
+      return { ...state, status: LoginStatus.CANCELLED }
     case LOGIN_STATUS_RESET:
-      return { ...state, status: initialState.status, msg: initialState.msg }
+      return { ...state, status: initialState.status }
     // github login
     case GITHUB_LOGIN_STATUS_LOGGINGIN:
       return { ...state, githubLoginStatus: LoginStatus.LOGGINGIN }

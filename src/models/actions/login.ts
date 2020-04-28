@@ -40,13 +40,11 @@ export function setLoginSuccessStatus(): LoginSuccessAction {
 
 export interface LoginFailedAction {
   type: LOGIN_STATUS_FAILED
-  payload: string
 }
 
-export function setLoginFailedStatus(msg: string): LoginFailedAction {
+export function setLoginFailedStatus(): LoginFailedAction {
   return {
     type: LOGIN_STATUS_FAILED,
-    payload: msg,
   }
 }
 
