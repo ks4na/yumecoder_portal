@@ -3,7 +3,6 @@ import 'regenerator-runtime/runtime'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import fastclick from 'fastclick'
 import App from './App'
 
 // add redux
@@ -23,13 +22,12 @@ import detectBrowserInfo from 'check-browser-info'
 
 // add MUI theme provider
 import { ThemeProvider, StylesProvider } from '@material-ui/core/styles'
+import { CssBaseline } from '@material-ui/core'
 
 import raf from 'raf'
 
-// use fastclick
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore : using "fastclick(document.body)" will cause error
-fastclick.attach(document.body)
+// add axios configuration file
+import './configs/axios.config'
 
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
@@ -86,6 +84,7 @@ function ThemeProviderWrapper({
   const theme = useSelector(({ themeState }) => themeState.theme)
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       {/* inject the style tags first in the head */}
       <StylesProvider injectFirst>{children}</StylesProvider>
     </ThemeProvider>

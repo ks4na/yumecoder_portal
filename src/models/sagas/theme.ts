@@ -7,7 +7,7 @@ import {
 
 function* saveTypeToLocal(action: SagaSaveTypeToLocalAction): Generator {
   const themeType = action.payload
-  yield call(localStorage.setItem, 'themeType', themeType)
+  yield call([localStorage, 'setItem'], 'themeType', themeType)
   yield put(alterThemeType(themeType))
 }
 function* watchSagaSaveTypeToLocal(): Generator {

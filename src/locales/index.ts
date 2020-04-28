@@ -24,7 +24,10 @@ type DefaultLocaleMsgsType = typeof zhCN
 const localeInfos: LocaleInfosType<LocaleKey, DefaultLocaleMsgsType> = {
   'zh-cn': { locale: 'zh-cn', msgs: zhCN },
   'en-us': { locale: 'en', msgs: enUS },
-  'ja-jp': { locale: 'ja', msgs: jaJP },
+  'ja-jp': {
+    locale: 'ja',
+    msgs: jaJP as LocaleInfoValueMsgType<DefaultLocaleMsgsType>,
+  },
 }
 
 export function getLocale(str?: string): LocaleKey {

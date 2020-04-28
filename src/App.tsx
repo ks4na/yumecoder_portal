@@ -1,33 +1,47 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, RouteProps } from 'react-router-dom'
+import './App.scss'
+import GlobalSnackbar from './containers/GlobalSnackbar'
+import IndexPage from './containers/IndexPage'
 import DevIndexPage from './components/demos/DevIndexPage'
 import NoMatch from './components/NoMatch'
-import Page404 from './components/Page404'
-import IndexPage from './containers/IndexPage'
-import './App.scss'
+import LoginPage from './containers/LoginPage'
+import GithubLoginCallback from './containers/LoginPage/GithubLoginCallback'
 
-import RootLayout from './components/layouts/RootLayout'
+const routes: RouteProps[] = [
+  {
+    path: '/',
+    exact: true,
+    component: IndexPage,
+  },
+  {
+    path: '/dev',
+    component: DevIndexPage,
+  },
+  {
+    path: '/login',
+    component: LoginPage,
+  },
+  {
+    path: '/githubLoginCallback',
+    component: GithubLoginCallback,
+  },
+  {
+    path: '*',
+    component: NoMatch,
+  },
+]
 
 export default function App(): JSX.Element {
   return (
-    <RootLayout>
-      <CssBaseline />
-
+    <>
+      {/* 全局消息提示组件 */}
+      <GlobalSnackbar />
       <Switch>
-        <Route path="/" exact>
-          <IndexPage />
-        </Route>
-        <Route path="/404">
-          <Page404 />
-        </Route>
-        <Route path="/dev">
-          <DevIndexPage />
-        </Route>
-        <Route path="*">
-          <NoMatch />
-        </Route>
+        {routes.map((route, i) => (
+          <Route key={i} {...route} />
+        ))}
       </Switch>
-    </RootLayout>
+    </>
   )
 }
