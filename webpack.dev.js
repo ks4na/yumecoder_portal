@@ -82,13 +82,13 @@ module.exports = {
           },
           'sass-loader',
         ],
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /assets[\\/]fonts/],
       },
       // css/scss (stylesheet from lib)
       {
         test: /\.(css|sass|scss)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: /node_modules/,
+        include: [/node_modules/, /assets[\\/]fonts/],
       },
       // img
       {

@@ -29,6 +29,9 @@ import raf from 'raf'
 // add axios configuration file
 import './configs/axios.config'
 
+// import iconfonts
+import '../assets/fonts/iconfonts/style.css'
+
 let Router = BrowserRouter
 // IE9 不支持 historyAPI, 切换为 HasHhRouter
 const browserInfo = detectBrowserInfo()
