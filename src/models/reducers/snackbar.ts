@@ -13,9 +13,12 @@ export type SnackbarItemType = Omit<SnackbarProps, 'open'> &
   AugmentedSnackbarProps
 
 export interface AugmentedSnackbarProps {
-  messageComponent?: ComponentType
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  messageComponent?: ComponentType<any>
   messageComponentProps?: object
-  actionComponent?: ComponentType
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  actionComponent?: ComponentType<any>
   actionComponentProps?: object
 }
 

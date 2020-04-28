@@ -30,4 +30,8 @@ export default {
   // containers/LoginPage/GithubLoginCallback.tsx
   'loginPage.githubLoginCallback.txtHandlingGithubLogin':
     '正在处理github登录请求...',
+
+  // containers/AxiosErrorMsgHandler/index.tsx
+  'AxiosErrorMsgHandler.index.txtRequestError': '请求发生错误',
+  'AxiosErrorMsgHandler.index.txtResponseStatusCode': '状态码',
 }

@@ -1,4 +1,8 @@
 import { SnackbarItemType } from '../reducers/snackbar'
+import { AxiosError } from 'axios'
+import AxiosErrorMsgHandler, {
+  AxiosErrorMsgHandlerProps,
+} from '../../containers/AxiosErrorMsgHandler'
 
 export const OPEN_SNACKBAR = 'OPEN_SNACKBAR'
 export type OPEN_SNACKBAR = typeof OPEN_SNACKBAR
@@ -86,4 +90,16 @@ export function changeSnackbarItems(
     type: CHANGE_SNACKBAR_ITEMS,
     payload: newSnackbarItems,
   }
+}
+
+/* 添加 AxiosError 提示信息 Snackbar */
+export function addAxiosErrSnackbarItem(
+  err: AxiosError
+): AddSnackbarItemAction {
+  return addSnackbarItem({
+    messageComponent: AxiosErrorMsgHandler,
+    messageComponentProps: {
+      error: err,
+    } as AxiosErrorMsgHandlerProps,
+  })
 }

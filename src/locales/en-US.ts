@@ -31,4 +31,8 @@ export default {
   // containers/LoginPage/GithubLoginCallback.tsx
   'loginPage.githubLoginCallback.txtHandlingGithubLogin':
     'handling github login request...',
+
+  // containers/AxiosErrorMsgHandler/index.tsx
+  'AxiosErrorMsgHandler.index.txtRequestError': 'Unexpected Error',
+  'AxiosErrorMsgHandler.index.txtResponseStatusCode': 'StatusCode',
 }
