@@ -21,7 +21,7 @@ jobs:
       - name: Run lint, test, cov ...
         run: |
           yarn install
-          yarn run build
+          yarn run build:sit
           echo "lint, test, cov ..."
           echo "ok"
 

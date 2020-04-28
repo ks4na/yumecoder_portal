@@ -70,6 +70,7 @@ module.exports = {
     // 定义 webpack 全局变量，可从代码中获取该值
     new Webpack.DefinePlugin({
       __WEBPACK_ENV_BASENAME__: JSON.stringify(basename),
+      'process.env.AXIOS_ENV': JSON.stringify(process.env.AXIOS_ENV),
     }),
     // 配置选项参考 https://github.com/ElemeFE/obsolete-webpack-plugin#options
     new ObsoleteWebpackPlugin({

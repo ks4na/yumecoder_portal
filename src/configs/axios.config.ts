@@ -7,13 +7,14 @@ interface BaseUrls {
 const baseUrls: BaseUrls = {
   development: '',
   unittest: '',
-  sit: '//testserver.com',
-  production: '//prodserver.com',
+  sit: '//api.yumecoder.top/sit',
+  production: '//api.yumecoder.top/prod',
 }
 
 // 配置 axios 的 baseURL
 axios.defaults.baseURL =
-  baseUrls[process.env.NODE_ENV || 'development'] || baseUrls.development
+  baseUrls[process.env.AXIOS_ENV || process.env.NODE_ENV || 'development'] ||
+  baseUrls.development
 
 // 添加请求拦截器
 axios.interceptors.request.use(

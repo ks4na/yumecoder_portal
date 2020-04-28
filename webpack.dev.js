@@ -30,7 +30,10 @@ module.exports = {
     // 开启https(自签名)
     https: true,
     proxy: {
-      '/api': 'http://49.235.176.149:7001',
+      '/api': {
+        target: 'https://api.yumecoder.top/sit',
+        changeOrigin: true,
+      },
     },
   },
   devtool: 'cheap-module-eval-source-map',
@@ -43,6 +46,7 @@ module.exports = {
     // 定义 webpack 全局变量，可从代码中获取该值
     new Webpack.DefinePlugin({
       __WEBPACK_ENV_BASENAME__: JSON.stringify('/'),
+      'process.env.AXIOS_ENV': JSON.stringify(process.env.AXIOS_ENV),
     }),
     // 配置选项参考 https://github.com/ElemeFE/obsolete-webpack-plugin#options
     new ObsoleteWebpackPlugin({
