@@ -11,8 +11,8 @@ const composeEnhancers = composeWithDevTools({
 // create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware()
 
-export default function configureStore<S>(
-  preloadedState: DeepPartial<S>
+export default function configureStore(
+  preloadedState: DeepPartial<typeof rootReducer>
 ): Store {
   // mount sagaMiddleware on the store
   const store = createStore(

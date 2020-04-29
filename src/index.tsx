@@ -17,7 +17,9 @@ import { getLocaleMessages } from './locales'
 import 'typeface-roboto'
 
 // add router
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
+import history from './configs/history'
+
 import detectBrowserInfo from 'check-browser-info'
 
 // add MUI theme provider
@@ -32,17 +34,11 @@ import './configs/axios.config'
 // import iconfonts
 import '../assets/fonts/iconfonts/style.css'
 
-let Router = BrowserRouter
-// IE9 不支持 historyAPI, 切换为 HasHhRouter
 const browserInfo = detectBrowserInfo()
-if (browserInfo.name === 'IE' && browserInfo.version === '9') {
-  Router = HashRouter
+const isIE9 = browserInfo.name === 'IE' && browserInfo.version === '9'
 
-  // requestAnimationFrame polyfill
-  raf.polyfill()
-}
-// 根据 webpack 的全局变量 __WEBPACK_ENV_BASENAME__ (取的是 package.json 中的 basename) 来设置 Router 的 basename
-const basename = __WEBPACK_ENV_BASENAME__
+// requestAnimationFrame polyfill
+isIE9 && raf.polyfill()
 
 // create redux store
 const preloadedState = {}
@@ -54,7 +50,7 @@ function AppWrapper(): JSX.Element {
     <Provider store={store}>
       <IntlProviderWrapper>
         <ThemeProviderWrapper>
-          <Router basename={basename}>
+          <Router history={history}>
             <App />
           </Router>
         </ThemeProviderWrapper>
