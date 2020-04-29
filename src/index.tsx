@@ -7,7 +7,7 @@ import App from './App'
 
 // add redux
 import { Provider, useSelector } from 'react-redux'
-import configureStore from './models/configureStore'
+import store from './configs/reduxStore'
 
 // add react-intl
 import { IntlProvider } from 'react-intl'
@@ -39,10 +39,6 @@ const isIE9 = browserInfo.name === 'IE' && browserInfo.version === '9'
 
 // requestAnimationFrame polyfill
 isIE9 && raf.polyfill()
-
-// create redux store
-const preloadedState = {}
-const store = configureStore(preloadedState)
 
 // add AppWrapper Comp to wrap App Comp
 function AppWrapper(): JSX.Element {
