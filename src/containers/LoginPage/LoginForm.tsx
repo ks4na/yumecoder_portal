@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   TextField,
   TextFieldProps,
@@ -21,8 +20,8 @@ import {
   setLoginCancelledStatus,
 } from '../../models/actions'
 import { LoginStatus } from '../../models/reducers/login'
-import { Redirect } from 'react-router-dom'
 import { useIntl, FormattedHTMLMessage } from 'react-intl'
+import history from '../../configs/history'
 
 interface TextFieldState {
   value: string
@@ -176,17 +175,22 @@ export default function LoginForm(): JSX.Element {
         dispatch(setLoginCancelledStatus())
       }
 
-      // 如果当前登录状态为 SUCCESS, 则重置登录状态为 INITIAL
-      if (currentLoginStatus === LoginStatus.SUCCESS) {
+      // 如果当前登录状态为 SUCCESS/FAILED, 则重置登录状态为 INITIAL
+      if (
+        currentLoginStatus === LoginStatus.SUCCESS ||
+        currentLoginStatus === LoginStatus.FAILED
+      ) {
         dispatch(resetLoginStatus())
       }
     }
   }, [dispatch])
 
-  // 如果登录状态为 SUCCESS， 则跳转练习页面
-  if (loginState.status === LoginStatus.SUCCESS) {
-    return <Redirect to="/test/menu" />
-  }
+  React.useEffect(() => {
+    // 如果登录状态为 SUCCESS， 则跳转练习页面
+    if (loginState.status === LoginStatus.SUCCESS) {
+      history.push('/test/menu')
+    }
+  }, [loginState.status])
 
   return (
     <form noValidate autoComplete="off">

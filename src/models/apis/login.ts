@@ -37,3 +37,32 @@ export interface GithubLoginReturnType {
   access_token?: string
   refresh_token?: string
 }
+
+// qq login
+export async function handleQQLogin({
+  openId,
+  nickname,
+  gender,
+  avatar,
+}: QQLoginParams): Promise<AxiosResponse<QQLoginReturnType>> {
+  return await axios.post('/api/login/qq', {
+    openId,
+    nickname,
+    gender,
+    avatar,
+  })
+}
+
+export interface QQLoginParams {
+  openId: string
+  nickname: string
+  gender: string
+  avatar: string
+}
+
+export interface QQLoginReturnType {
+  code: number
+  msg?: string
+  access_token?: string
+  refresh_token?: string
+}

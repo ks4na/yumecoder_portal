@@ -11,6 +11,8 @@ import {
   GITHUB_LOGIN_STATUS_CANCELLED,
   GITHUB_LOGIN_STATUS_RESET,
   GithubLoginActions,
+  QQLoginActions,
+  CHANGE_QQ_LOGIN_STATUS,
 } from '../actions'
 
 export enum LoginStatus {
@@ -24,16 +26,18 @@ export enum LoginStatus {
 export interface LoginState {
   status: LoginStatus
   githubLoginStatus: LoginStatus
+  qqLoginStatus: LoginStatus
 }
 
 const initialState: LoginState = {
   status: LoginStatus.INITIAL,
   githubLoginStatus: LoginStatus.INITIAL,
+  qqLoginStatus: LoginStatus.INITIAL,
 }
 
 export default function loginReducer(
   state = initialState,
-  action: LoginActions | GithubLoginActions
+  action: LoginActions | GithubLoginActions | QQLoginActions
 ): LoginState {
   switch (action.type) {
     // common login
@@ -58,6 +62,9 @@ export default function loginReducer(
       return { ...state, githubLoginStatus: LoginStatus.CANCELLED }
     case GITHUB_LOGIN_STATUS_RESET:
       return { ...state, githubLoginStatus: initialState.githubLoginStatus }
+    // QQ login
+    case CHANGE_QQ_LOGIN_STATUS:
+      return { ...state, qqLoginStatus: action.payload }
     default:
       return state
   }

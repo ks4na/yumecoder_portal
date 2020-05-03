@@ -7,4 +7,12 @@ export default {
         ? 'https://localhost:3000/githubLoginCallback'
         : '',
   },
+  qq: {
+    jsSDKSrc: 'https://connect.qq.com/qc_jssdk.js',
+    clientId: '101870667',
+    redirectUri:
+      process.env.NODE_ENV === 'development'
+        ? 'https://localhost:3000/qqLoginCallback'
+        : 'https://m.yumecoder.top/qqLoginCallback',
+  },
 }

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'fa';
   src:
-    url('fonts/fa.ttf?tbz9oy') format('truetype'),
-    url('fonts/fa.woff?tbz9oy') format('woff'),
-    url('fonts/fa.svg?tbz9oy#fa') format('svg');
+    url('fonts/fa.ttf?ipdtpz') format('truetype'),
+    url('fonts/fa.woff?ipdtpz') format('woff'),
+    url('fonts/fa.svg?ipdtpz#fa') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,4 +26,10 @@
 
 .fa-github-alt:before {
   content: "\f113";
+}
+.fa-qq:before {
+  content: "\f1d6";
+}
+.fa-github:before {
+  content: "\eab0";
 }

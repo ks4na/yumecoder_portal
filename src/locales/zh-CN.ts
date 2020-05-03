@@ -30,6 +30,11 @@ export default {
   'loginPage.githubLoginCallback.txtHandlingGithubLogin':
     '正在处理github登录请求...',
 
+  // containers/LoginPage/QQLogin.tsx
+  'loginPage.qqLogin.txtGetQQLoginInfoFailed': '获取QQ登录信息失败',
+  // containers/LoginPage/QQLoginCallback.tsx
+  'loginPage.qqLoginCallback.txtHandlingQQLogin': '正在处理QQ登录请求...',
+
   // containers/AxiosErrorMsgHandler/index.tsx
   'AxiosErrorMsgHandler.index.txtRequestError': '请求发生错误',
   'AxiosErrorMsgHandler.index.txtResponseStatusCode': '状态码',

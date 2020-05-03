@@ -31,6 +31,12 @@ export default {
   'loginPage.githubLoginCallback.txtHandlingGithubLogin':
     'handling github login request...',
 
+  // containers/LoginPage/QQLogin.tsx
+  'loginPage.qqLogin.txtGetQQLoginInfoFailed': 'failed to get QQ login info',
+  // containers/LoginPage/QQLoginCallback.tsx
+  'loginPage.qqLoginCallback.txtHandlingQQLogin':
+    'handling QQ login request...',
+
   // containers/AxiosErrorMsgHandler/index.tsx
   'AxiosErrorMsgHandler.index.txtRequestError': 'Unexpected Error',
   'AxiosErrorMsgHandler.index.txtResponseStatusCode': 'StatusCode',

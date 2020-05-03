@@ -11,21 +11,22 @@ import {
   sagaGithubLogin,
 } from '../../models/actions'
 import { LoginStatus } from '../../models/reducers/login'
+import history from '../../configs/history'
 
 const useStyles = makeStyles((theme: Theme) => ({
   githubIcon: {
     fontSize: '8rem',
     marginTop: theme.spacing(-10),
     marginBottom: theme.spacing(5),
-    color: theme.palette.text.secondary,
+    color: theme.palette.type === 'dark' ? theme.palette.text.primary : '#000',
     animation: '$opacityTransition 2s ease-in-out infinite alternate',
   },
   '@keyframes opacityTransition': {
     from: {
-      color: theme.palette.text.primary,
+      opacity: 1,
     },
     to: {
-      color: theme.palette.text.disabled,
+      opacity: 0.5,
     },
   },
 }))
@@ -48,6 +49,9 @@ export default function GithubLoginCallback(): JSX.Element {
     // 发送 github 登录请求
     if (code) {
       dispatch(sagaGithubLogin({ code }))
+    } else {
+      // 没有 code 参数，跳转登录页面
+      history.replace('/login')
     }
   }, [dispatch, code])
 
@@ -59,8 +63,11 @@ export default function GithubLoginCallback(): JSX.Element {
         dispatch(setGithubLoginCancelledStatus())
       }
 
-      // 如果当前 githubLoginStatus 为 SUCCESS, 则重置登录状态为 INITIAL
-      if (currentGithubLoginStatus === LoginStatus.SUCCESS) {
+      // 如果当前 githubLoginStatus 为 SUCCESS/FAILED, 则重置登录状态为 INITIAL
+      if (
+        currentGithubLoginStatus === LoginStatus.SUCCESS ||
+        currentGithubLoginStatus === LoginStatus.FAILED
+      ) {
         dispatch(resetGithubLoginStatus())
       }
     }
