@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, Grid } from '@material-ui/core'
 import { makeStyles, Theme } from '@material-ui/core/styles'
-import { useLocation, Redirect } from 'react-router-dom'
+import { useLocation, Redirect, useHistory } from 'react-router-dom'
 import BasicLayout from '../../components/layouts/BasicLayout'
 import { FormattedMessage } from 'react-intl'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,7 +11,6 @@ import {
   sagaGithubLogin,
 } from '../../models/actions'
 import { LoginStatus } from '../../models/reducers/login'
-import history from '../../configs/history'
 
 const useStyles = makeStyles((theme: Theme) => ({
   githubIcon: {
@@ -35,6 +34,7 @@ let currentGithubLoginStatus: LoginStatus = LoginStatus.INITIAL
 
 export default function GithubLoginCallback(): JSX.Element {
   const classes = useStyles()
+  const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
   const loginState = useSelector(({ loginState }) => loginState)
@@ -53,7 +53,7 @@ export default function GithubLoginCallback(): JSX.Element {
       // 没有 code 参数，跳转登录页面
       history.replace('/login')
     }
-  }, [dispatch, code])
+  }, [dispatch, code, history])
 
   // unmount 组件时
   React.useEffect(() => {

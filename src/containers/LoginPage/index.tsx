@@ -12,15 +12,16 @@ import ThirdPartyLogin from './ThirdPartyLogin'
 
 export default function LoginPage(): JSX.Element {
   const loginState = useSelector(({ loginState }) => loginState)
+  const isLoggingInState =
+    loginState.status === LoginStatus.LOGGINGIN ||
+    loginState.qqLoginStatus === LoginStatus.LOGGINGIN
 
   return (
     <BasicLayout>
       {/* header */}
       <LoginPageHeader />
       {/* login progress bar */}
-      {loginState.status === LoginStatus.LOGGINGIN && (
-        <LinearProgress color="secondary" />
-      )}
+      {isLoggingInState && <LinearProgress color="secondary" />}
       {/* body */}
       <BodyLayout>
         {/* login form */}

@@ -21,7 +21,7 @@ import {
 } from '../../models/actions'
 import { LoginStatus } from '../../models/reducers/login'
 import { useIntl, FormattedHTMLMessage } from 'react-intl'
-import history from '../../configs/history'
+import { useHistory } from 'react-router-dom'
 
 interface TextFieldState {
   value: string
@@ -32,9 +32,12 @@ interface TextFieldState {
 let currentLoginStatus: LoginStatus = LoginStatus.INITIAL
 
 export default function LoginForm(): JSX.Element {
+  const history = useHistory()
   const dispatch = useDispatch()
   const loginState = useSelector(({ loginState }) => loginState)
-  const isLoggingIn = loginState.status === LoginStatus.LOGGINGIN
+  const isLoggingIn =
+    loginState.status === LoginStatus.LOGGINGIN ||
+    loginState.qqLoginStatus === LoginStatus.LOGGINGIN
   currentLoginStatus = loginState.status
   const emailInputRef = React.useRef<HTMLInputElement>()
   const passwordInputref = React.useRef<HTMLInputElement>()
@@ -190,7 +193,7 @@ export default function LoginForm(): JSX.Element {
     if (loginState.status === LoginStatus.SUCCESS) {
       history.push('/test/menu')
     }
-  }, [loginState.status])
+  }, [history, loginState.status])
 
   return (
     <form noValidate autoComplete="off">
