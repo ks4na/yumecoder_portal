@@ -23,7 +23,7 @@ axios.interceptors.request.use(
     const locale = localStorage.getItem('locale')
     if (locale) {
       if (config.method === 'get') {
-        config.params.locale = locale
+        config.params = { locale, ...config.params }
       } else {
         config.url += `?locale=${locale}`
       }
