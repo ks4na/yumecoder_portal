@@ -206,6 +206,7 @@ export default function LoginForm(): JSX.Element {
           onChange={handleEmailChange}
           onBlur={handleEmailBlur}
           placeholder={emailInputPlaceholderString}
+          disabled={isLoggingIn}
         />
       </Box>
 
@@ -218,6 +219,7 @@ export default function LoginForm(): JSX.Element {
           onChange={handlePasswordChange}
           onBlur={handlePasswordBlur}
           placeholder={passwordInputPlaceholderString}
+          disabled={isLoggingIn}
         />
       </Box>
       <Button
