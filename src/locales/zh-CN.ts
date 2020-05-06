@@ -38,4 +38,28 @@ export default {
   // containers/AxiosErrorMsgHandler/index.tsx
   'AxiosErrorMsgHandler.index.txtRequestError': '请求发生错误',
   'AxiosErrorMsgHandler.index.txtResponseStatusCode': '状态码',
+
+  // containers/RegistPage/Header.tsx
+  'registPage.txtTitle': '注&nbsp;册',
+  'registPage.btnLogin': '登&nbsp;录',
+
+  // containers/RegistPage/RegistForm.tsx
+  'registPage.registForm.unmatchedRepassword': '两次输入的密码不一致',
+  'registPage.registForm.repasswordInputPlaceholder': '再次输入密码',
+  'registPage.registForm.btnRegist.txt': '注&nbsp;&nbsp;册',
+  'registPage.registForm.btnRegist.txtDisabled': '正在注册中...',
+  'registPage.registForm.emptyCaptcha': '人机验证不通过',
+  'registPage.registForm.txtUsedEmail': '该邮箱已被占用',
+  'registPage.registForm.txtUnusedEmail': '该邮箱可以使用',
+  'registPage.registForm.txtEmailChecking': '正在检测邮箱是否可用',
+  'registPage.registForm.txtEmailCheckFailed': '检查邮箱可用性时发生异常',
+
+  // containers/RegistPage/ActiveForm.tsx
+  'registPage.activeForm.txtInvalidActiveCode': '验证码格式不正确',
+  'registPage.activeForm.txtActiveCodePlaceholder': '6位数字验证码',
+  'registPage.activeForm.txtActiveCodeInputLabel':
+    '输入注册邮箱中接收到的激活验证码',
+  'registPage.activeForm.btnActivate.txt': '激&nbsp;&nbsp;活',
+  'registPage.activeForm.btnActivate.txtDisabled': '正在激活中...',
+  'registPage.activeForm.txtActivateSuccess': '账号激活成功',
 }

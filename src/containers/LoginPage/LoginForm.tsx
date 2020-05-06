@@ -1,16 +1,5 @@
 import React from 'react'
-import {
-  TextField,
-  TextFieldProps,
-  InputAdornment,
-  Box,
-  IconButton,
-  Button,
-} from '@material-ui/core'
-import AccountIcon from '@material-ui/icons/AccountCircleOutlined'
-import LockIcon from '@material-ui/icons/LockOutlined'
-import PwdVisibleIcon from '@material-ui/icons/VisibilityOutlined'
-import PwdInvisibleIcon from '@material-ui/icons/VisibilityOffOutlined'
+import { Box, Button } from '@material-ui/core'
 import { validateEmail, validatePassword } from '../../configs/validation'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -22,6 +11,8 @@ import {
 import { LoginStatus } from '../../models/reducers/login'
 import { useIntl, FormattedHTMLMessage } from 'react-intl'
 import { useHistory } from 'react-router-dom'
+import EmailTextField from '../../components/TextField/EmailTextField'
+import PasswordTextField from '../../components/TextField/PasswordTextField'
 
 interface TextFieldState {
   value: string
@@ -199,6 +190,7 @@ export default function LoginForm(): JSX.Element {
     <form noValidate autoComplete="off">
       <Box marginY={4}>
         <EmailTextField
+          id="login_form-input-email"
           inputRef={emailInputRef}
           error={emailState.error}
           helperText={emailState.helperText}
@@ -212,6 +204,7 @@ export default function LoginForm(): JSX.Element {
 
       <Box marginY={4}>
         <PasswordTextField
+          id="login_form-input-password"
           inputRef={passwordInputref}
           error={passwordState.error}
           helperText={passwordState.helperText}
@@ -238,68 +231,10 @@ export default function LoginForm(): JSX.Element {
         ) : (
           <FormattedHTMLMessage
             id="loginPageLoginFormBtnLoginEnabledStatusText"
-            defaultMessage="登&nbsp;录"
+            defaultMessage="登&nbsp;&nbsp;录"
           />
         )}
       </Button>
     </form>
-  )
-}
-
-function EmailTextField(props: TextFieldProps): JSX.Element {
-  return (
-    <TextField
-      id="input-email"
-      fullWidth
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <AccountIcon />
-          </InputAdornment>
-        ),
-      }}
-      {...props}
-    />
-  )
-}
-
-function PasswordTextField(props: TextFieldProps): JSX.Element {
-  const [showPwd, setShowPwd] = React.useState(false)
-
-  const handleMouseDownPassword = function(
-    e: React.MouseEvent<HTMLButtonElement>
-  ): void {
-    e.preventDefault()
-  }
-
-  const handleClickShowPassword = function(): void {
-    setShowPwd(showPwd => !showPwd)
-  }
-  return (
-    <TextField
-      id="input-password"
-      fullWidth
-      type={showPwd ? 'text' : 'password'}
-      autoComplete="current-password"
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <LockIcon />
-          </InputAdornment>
-        ),
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onMouseDown={handleMouseDownPassword}
-              onClick={handleClickShowPassword}
-            >
-              {showPwd ? <PwdVisibleIcon /> : <PwdInvisibleIcon />}
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-      {...props}
-    />
   )
 }

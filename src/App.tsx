@@ -8,6 +8,7 @@ import NoMatch from './components/NoMatch'
 import LoginPage from './containers/LoginPage'
 import GithubLoginCallback from './containers/LoginPage/GithubLoginCallback'
 import QQLoginCallback from './containers/LoginPage/QQLoginCallback'
+import RegistPage from './containers/RegistPage'
 
 const routes: RouteProps[] = [
   {
@@ -30,6 +31,10 @@ const routes: RouteProps[] = [
   {
     path: '/qqLoginCallback',
     component: QQLoginCallback,
+  },
+  {
+    path: '/regist',
+    component: RegistPage,
   },
   {
     path: '*',

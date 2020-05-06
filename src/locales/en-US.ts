@@ -40,4 +40,34 @@ export default {
   // containers/AxiosErrorMsgHandler/index.tsx
   'AxiosErrorMsgHandler.index.txtRequestError': 'Unexpected Error',
   'AxiosErrorMsgHandler.index.txtResponseStatusCode': 'StatusCode',
+
+  // containers/RegistPage/Header.tsx
+  'registPage.txtTitle': 'Sign&nbsp;Up',
+  'registPage.btnLogin': 'Sign&nbsp;In',
+
+  // containers/RegistPage/RegistForm.tsx
+  'registPage.registForm.unmatchedRepassword':
+    'the password did not match the re-typed password',
+  'registPage.registForm.repasswordInputPlaceholder': 'retype your password',
+  'registPage.registForm.btnRegist.txt': 'Sign&nbsp;&nbsp;Up',
+  'registPage.registForm.btnRegist.txtDisabled': 'Signing Up ...',
+  'registPage.registForm.emptyCaptcha': 'man-machine verification failed',
+  'registPage.registForm.txtUsedEmail':
+    'sorry, this email address has been used',
+  'registPage.registForm.txtUnusedEmail':
+    'okay, you can use this email address',
+  'registPage.registForm.txtEmailChecking':
+    'checking email address availability',
+  'registPage.registForm.txtEmailCheckFailed':
+    'failed to check email address availability',
+
+  // containers/RegistPage/ActiveForm.tsx
+  'registPage.activeForm.txtInvalidActiveCode': 'invalid active code format',
+  'registPage.activeForm.txtActiveCodePlaceholder': 'active code: 6 numbers',
+  'registPage.activeForm.txtActiveCodeInputLabel':
+    'enter the active code received from your email address',
+  'registPage.activeForm.btnActivate.txt': 'activate',
+  'registPage.activeForm.btnActivate.txtDisabled': 'activating...',
+  'registPage.activeForm.txtActivateSuccess':
+    'your account has been activated successfully',
 }

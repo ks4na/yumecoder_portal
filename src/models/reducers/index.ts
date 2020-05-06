@@ -4,6 +4,7 @@ import localeState, { LocaleState } from './locale'
 import themeState, { ThemeState } from './theme'
 import loginState, { LoginState } from './login'
 import snackbarState, { SnackbarState } from './snackbar'
+import registState, { RegistState } from './regist'
 
 declare module 'react-redux' {
   interface DefaultRootState {
@@ -12,6 +13,7 @@ declare module 'react-redux' {
     themeState: ThemeState
     loginState: LoginState
     snackbarState: SnackbarState
+    registState: RegistState
   }
 }
 
@@ -21,4 +23,5 @@ export default combineReducers({
   themeState,
   loginState,
   snackbarState,
+  registState,
 })

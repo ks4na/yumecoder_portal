@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl'
 export default function ThirdPartyLogin(): JSX.Element {
   return (
     <Box>
-      <Box className="header" textAlign="center" position="relative" mb={4}>
+      <Box className="header" textAlign="center" position="relative">
         <Box clone position="absolute" top="50%" left={0} width="100%">
           <Divider />
         </Box>
@@ -26,10 +26,12 @@ export default function ThirdPartyLogin(): JSX.Element {
           </Typography>
         </Box>
       </Box>
-      <Grid className="body" container justify="center">
-        <GithubLogin />
-        <QQLogin />
-      </Grid>
+      <Box clone marginY={4}>
+        <Grid className="body" container justify="center">
+          <GithubLogin />
+          <QQLogin />
+        </Grid>
+      </Box>
     </Box>
   )
 }
