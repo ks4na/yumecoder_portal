@@ -9,6 +9,8 @@ import LoginPage from './containers/LoginPage'
 import GithubLoginCallback from './containers/LoginPage/GithubLoginCallback'
 import QQLoginCallback from './containers/LoginPage/QQLoginCallback'
 import RegistPage from './containers/RegistPage'
+import PasswordIndex from './containers/Password'
+import useScrollToTop from './components/hooks/useScrollToTop'
 
 const routes: RouteProps[] = [
   {
@@ -37,12 +39,19 @@ const routes: RouteProps[] = [
     component: RegistPage,
   },
   {
+    path: '/password',
+    component: PasswordIndex,
+  },
+  {
     path: '*',
     component: NoMatch,
   },
 ]
 
 export default function App(): JSX.Element {
+  // 路由切换时，返回页面顶部
+  useScrollToTop()
+
   return (
     <>
       {/* 全局消息提示组件 */}

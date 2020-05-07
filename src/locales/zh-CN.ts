@@ -62,4 +62,38 @@ export default {
   'registPage.activeForm.btnActivate.txt': '激&nbsp;&nbsp;活',
   'registPage.activeForm.btnActivate.txtDisabled': '正在激活中...',
   'registPage.activeForm.txtActivateSuccess': '账号激活成功',
+
+  // containers/Password/PwdResetPage/Header.tsx
+  'password.pwdResetPage.txtTitle': '密码重置',
+
+  // containers/Password/PwdResetPage/EmailValidateForm.tsx
+  'password.pwdResetPage.emailValidateForm.txtEmailInputLabel':
+    '输入需要找回密码的邮箱账号',
+  'password.pwdResetPage.emailValidateForm.txtEmailInputPlaceholder':
+    '邮箱账号',
+  'password.pwdResetPage.emailValidateForm.btnValidate.txt': '确&nbsp;&nbsp;定',
+  'password.pwdResetPage.emailValidateForm.btnValidate.txtDisabled':
+    '正在请求中...',
+  'password.pwdResetPage.emailValidateForm.txtEmailValidationSuccess':
+    '验证码已发送至您的邮箱',
+
+  // containers/Password/PwdResetPage/PwdResetForm.tsx
+  'password.pwdResetPage.pwdResetForm.caption': '设置新的密码',
+  'password.PwdResetPage.PwdResetForm.txtPwdInputLabel': '新密码',
+  'password.pwdResetPage.pwdResetForm.txtPwdInputPlaceholder':
+    '6-18位字母或数字',
+  'password.pwdResetPage.pwdResetForm.txtInvalidPwd': '新密码格式不正确',
+  'password.pwdResetPage.pwdResetForm.txtRepwdInputLabel': '确认新密码',
+  'password.pwdResetPage.pwdResetForm.txtRepwdInputPlaceholder':
+    '再次输入新密码',
+  'password.pwdResetPage.pwdResetForm.txtInvalidRepwd': '两次输入的密码不一致',
+  'password.pwdResetPage.pwdResetForm.txtValidationCodeInputLabel': '验证码',
+  'password.pwdResetPage.pwdResetForm.txtValidationCodeInputPlaceholder':
+    '从邮箱获取的6位数字验证码',
+  'password.pwdResetPage.pwdResetForm.txtInvalidValidationCode':
+    '验证码格式不正确',
+  'password.pwdResetPage.pwdResetForm.btnSubmit.txtDisabled': '正在请求中...',
+  'password.pwdResetPage.pwdResetForm.btnSubmit.txt': '确&nbsp;&nbsp;定',
+  'password.pwdResetPage.txtPwdResetSuccess': '密码重置成功',
+  'password.pwdResetPage.btnBackToLoginPage': '返回登录页面',
 }

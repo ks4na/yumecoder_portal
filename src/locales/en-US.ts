@@ -47,7 +47,7 @@ export default {
 
   // containers/RegistPage/RegistForm.tsx
   'registPage.registForm.unmatchedRepassword':
-    'the password did not match the re-typed password',
+    'the re-typed password did not match the password',
   'registPage.registForm.repasswordInputPlaceholder': 'retype your password',
   'registPage.registForm.btnRegist.txt': 'Sign&nbsp;&nbsp;Up',
   'registPage.registForm.btnRegist.txtDisabled': 'Signing Up ...',
@@ -70,4 +70,41 @@ export default {
   'registPage.activeForm.btnActivate.txtDisabled': 'activating...',
   'registPage.activeForm.txtActivateSuccess':
     'your account has been activated successfully',
+
+  // containers/Password/PwdResetPage/Header.tsx
+  'password.pwdResetPage.txtTitle': 'Password&nbsp;Reset',
+
+  // containers/Password/PwdResetPage/EmailValidateForm.tsx
+  'password.pwdResetPage.emailValidateForm.txtEmailInputLabel':
+    'enter your account email address',
+  'password.pwdResetPage.emailValidateForm.txtEmailInputPlaceholder':
+    'email address',
+  'password.pwdResetPage.emailValidateForm.btnValidate.txt': 'Confirm',
+  'password.pwdResetPage.emailValidateForm.btnValidate.txtDisabled':
+    'Requesting...',
+  'password.pwdResetPage.emailValidateForm.txtEmailValidationSuccess':
+    'verification code has been sent to your mailbox',
+
+  // containers/Password/PwdResetPage/PwdResetForm.tsx
+  'password.pwdResetPage.pwdResetForm.caption': 'set new password',
+  'password.PwdResetPage.PwdResetForm.txtPwdInputLabel': 'new password',
+  'password.pwdResetPage.pwdResetForm.txtPwdInputPlaceholder':
+    '6-18 letters or numbers',
+  'password.pwdResetPage.pwdResetForm.txtInvalidPwd': 'invalid password format',
+  'password.pwdResetPage.pwdResetForm.txtRepwdInputLabel':
+    'confirm new password',
+  'password.pwdResetPage.pwdResetForm.txtRepwdInputPlaceholder':
+    'type your new password again',
+  'password.pwdResetPage.pwdResetForm.txtInvalidRepwd':
+    'the re-typed password did not match the  password',
+  'password.pwdResetPage.pwdResetForm.txtValidationCodeInputLabel':
+    'validation code',
+  'password.pwdResetPage.pwdResetForm.txtValidationCodeInputPlaceholder':
+    'code from your mailbox (6 numbers)',
+  'password.pwdResetPage.pwdResetForm.txtInvalidValidationCode':
+    'invalid validation code format',
+  'password.pwdResetPage.pwdResetForm.btnSubmit.txtDisabled': 'Requesting...',
+  'password.pwdResetPage.pwdResetForm.btnSubmit.txt': 'Confirm',
+  'password.pwdResetPage.txtPwdResetSuccess': 'Reset password successfully',
+  'password.pwdResetPage.btnBackToLoginPage': 'Back to Login',
 }

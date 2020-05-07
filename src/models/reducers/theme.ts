@@ -1,6 +1,22 @@
-import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core/styles'
+import {
+  createMuiTheme,
+  Theme,
+  ThemeOptions,
+  SimplePaletteColorOptions,
+} from '@material-ui/core/styles'
 import { ThemeActions, ALTER_THEME_TYPE } from '../actions'
 import { teal, orange } from '@material-ui/core/colors'
+
+// 添加自定义的全局颜色变量声明
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    indexPageGrey?: SimplePaletteColorOptions
+  }
+
+  interface PaletteOptions {
+    indexPageGrey?: SimplePaletteColorOptions
+  }
+}
 
 export interface ThemeState {
   theme: Theme
@@ -14,6 +30,10 @@ const customedThemeOptions: ThemeOptions = {
     primary: teal,
     secondary: orange,
     type: themeTypeFromLocal !== 'dark' ? 'light' : 'dark',
+    indexPageGrey: {
+      main: '#32373D',
+      light: '#3B4048',
+    },
   },
 }
 

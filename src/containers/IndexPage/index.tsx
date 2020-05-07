@@ -70,10 +70,12 @@ const useStyles = makeStyles(theme => ({
   },
   btnRegist: {
     color: '#fff',
-    backgroundColor: '#3B4048',
+    backgroundColor:
+      theme.palette.indexPageGrey && theme.palette.indexPageGrey.light,
 
     '&:hover': {
-      backgroundColor: '#3B4048',
+      backgroundColor:
+        theme.palette.indexPageGrey && theme.palette.indexPageGrey.light,
     },
   },
 }))
@@ -113,8 +115,9 @@ export default function IndexPage(): JSX.Element {
     handleBtnRegistClick,
     isWideTypeFont,
   } = useIndexPage()
+
   return (
-    <Box clone minHeight="100%" bgcolor="#32373D" p={5}>
+    <Box clone minHeight="100vh" bgcolor="indexPageGrey.main">
       <Container disableGutters maxWidth={false} className={classes.root}>
         <Grid
           container

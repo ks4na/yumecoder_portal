@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Webpack = require('webpack')
 const autoPrefixer = require('autoprefixer')
-const ObsoleteWebpackPlugin = require('obsolete-webpack-plugin')
+// const ObsoleteWebpackPlugin = require('obsolete-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -49,12 +49,12 @@ module.exports = {
       'process.env.AXIOS_ENV': JSON.stringify(process.env.AXIOS_ENV),
     }),
     // 配置选项参考 https://github.com/ElemeFE/obsolete-webpack-plugin#options
-    new ObsoleteWebpackPlugin({
-      template:
-        '<div>The browser you are using is too old. For a better experience, ' +
-        'please <a href="https://browsehappy.com/">upgrade</a> your browser first.' +
-        '<button id="obsoleteClose">&times;</button></div>',
-    }),
+    // new ObsoleteWebpackPlugin({
+    //   template:
+    //     '<div>The browser you are using is too old. For a better experience, ' +
+    //     'please <a href="https://browsehappy.com/">upgrade</a> your browser first.' +
+    //     '<button id="obsoleteClose">&times;</button></div>',
+    // }),
   ],
   module: {
     rules: [

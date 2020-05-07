@@ -9,7 +9,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getServedPath, ensureSlash } = require('./pathUtil')
 const Webpack = require('webpack')
 const autoPrefixer = require('autoprefixer')
-const ObsoleteWebpackPlugin = require('obsolete-webpack-plugin')
+// const ObsoleteWebpackPlugin = require('obsolete-webpack-plugin')
 
 // 根据 package.json 中的 config.basename 字段设置 publicPath， 默认为 '/'
 const publicPath = getServedPath('./package.json')
@@ -73,12 +73,12 @@ module.exports = {
       'process.env.AXIOS_ENV': JSON.stringify(process.env.AXIOS_ENV),
     }),
     // 配置选项参考 https://github.com/ElemeFE/obsolete-webpack-plugin#options
-    new ObsoleteWebpackPlugin({
-      template:
-        '<div>The browser you are using is too old. For a better experience, ' +
-        'please <a href="https://browsehappy.com/">upgrade</a> your browser first.' +
-        '<button id="obsoleteClose">&times;</button></div>',
-    }),
+    // new ObsoleteWebpackPlugin({
+    //   template:
+    //     '<div>The browser you are using is too old. For a better experience, ' +
+    //     'please <a href="https://browsehappy.com/">upgrade</a> your browser first.' +
+    //     '<button id="obsoleteClose">&times;</button></div>',
+    // }),
   ],
   module: {
     rules: [
