@@ -33,7 +33,7 @@ jobs:
           ssh_options: ''
           src: 'dist'
           dest: '${{ secrets.tencentcloud_USERNAME }}@${{ secrets.tencentcloud_HOST }}:./yumecoder/portal/prod/temp'
-          
+
       - name: Run shell commands
         uses: appleboy/ssh-action@master
         env:
@@ -43,8 +43,9 @@ jobs:
           username: ${{ secrets.tencentcloud_USERNAME }}
           key: ${{ secrets.tencentcloud_DEPLOY_KEY }}
           envs: TC_USERNAME
+          timeout: 60s
+          proxy_timeout: 60s
+          debug: true
           script: |
             cd /home/$TC_USERNAME/yumecoder/portal/prod
             ./deploy.sh
-            
-            

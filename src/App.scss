@@ -1,5 +1,3 @@
-.navLinkWrapper {
-  :global(.active) {
-    font-weight: 700;
-  }
+:global(body) {
+  min-width: 320px;
 }

@@ -1,0 +1,4 @@
+# tsconfig file
+tsconfig.json
+
+/dist/*
