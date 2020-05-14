@@ -9,6 +9,7 @@ export default {
   indexPageAppKeyWord: 'Online IT Practice Platform',
   indexPageBtnLogin: 'Sign&nbsp;&nbsp;In',
   indexPageBtnRegist: 'Sign&nbsp;&nbsp;Up',
+  'indexPage.tooltipBtnChangeLanguage': 'switch language',
 
   // containers/LoginPage/index.tsx
   loginPageTitle: 'Sign&nbsp;In',
@@ -107,4 +108,37 @@ export default {
   'password.pwdResetPage.pwdResetForm.btnSubmit.txt': 'Confirm',
   'password.pwdResetPage.txtPwdResetSuccess': 'Reset password successfully',
   'password.pwdResetPage.btnBackToLoginPage': 'Back to Login',
+
+  // containers/Test/TestMenu/Header.tsx
+  'test.testMenu.header.txtTitle': 'Special Practice',
+
+  // containers/Test/TestMenu/PracticeInfo.tsx
+  'test.testMenu.practiceInfo.labelExerciseDays': 'Practice Days',
+  'test.testMenu.practiceInfo.labelNumberOfPracticedQuestions':
+    'Done Questions',
+  'test.testMenu.practiceInfo.labelAccuracy': 'Accuracy',
+
+  // containers/Test/TestMenu/PracticeItemList.tsx
+  'test.testMenu.practiceItemList.txtTotalAmount': 'Total:{ totalAmount }',
+  'test.testMenu.practiceItemList.txtDoneAmount': 'Done:{ doneAmount }',
+  'test.testMenu.practiceItemList.txtCorrectRate': 'Accuracy:{rate}%',
+  'test.testMenu.practiceItemList.tooltipToPractice': 'to practice',
+
+  // containers/Test/TestMenu/NavDrawer
+  'test.testMenu.navDrawer.txtNavTestHistory': 'History',
+  'test.testMenu.navDrawer.txtNavMistakes': 'Mistakes',
+  'test.testMenu.navDrawer.txtNavCollection': 'Collection',
+  'test.testMenu.navDrawer.txtNavNotification': 'Notification',
+  'test.testMenu.navDrawer.txtNavHome': 'Home',
+  'test.testMenu.navDrawer.txtNavSettings': 'Settings',
+  'test.testMenu.navDrawer.txtNoPersonalizedSignature':
+    'No personalized signature',
+  'test.testMenu.navDrawer.footer.txtDarkMode': 'dark mode',
+  'test.testMenu.navDrawer.footer.txtLightMode': 'light mode',
+  'test.testMenu.navDrawer.footer.tooltipBtnChangeLanguage': 'switch language',
+  'test.testMenu.navDrawer.footer.tooltipBtnLogout': 'sign out',
+
+  // configs/axios.config
+  'axios.config.interceptors.response.autoRefreshToken.failed':
+    'token has expired, please sign in again',
 }

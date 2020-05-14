@@ -1,5 +1,5 @@
 // 定义 eslint-plugin-compat 插件的 polyfills 声明
-const compatPolyfills = ['URLSearchParams']
+const compatPolyfills = ['URLSearchParams', 'Promise']
 
 module.exports = {
   env: {

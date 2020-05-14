@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'fa';
   src:
-    url('fonts/fa.ttf?qw46yu') format('truetype'),
-    url('fonts/fa.woff?qw46yu') format('woff'),
-    url('fonts/fa.svg?qw46yu#fa') format('svg');
+    url('fonts/fa.ttf?9pcq2b') format('truetype'),
+    url('fonts/fa.woff?9pcq2b') format('woff'),
+    url('fonts/fa.svg?9pcq2b#fa') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,8 +24,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-repwd:before {
-  content: "\e900";
+.fa-my-practice:before {
+  content: "\e901";
+}
+.fa-collection:before {
+  content: "\e902";
+}
+.fa-home:before {
+  content: "\e903";
+}
+.fa-mistakes:before {
+  content: "\e904";
+}
+.fa-notification:before {
+  content: "\e905";
+}
+.fa-settings:before {
+  content: "\e906";
+}
+.fa-special-practice:before {
+  content: "\e907";
 }
 .fa-times-circle:before {
   content: "\f057";
@@ -50,4 +68,7 @@
 }
 .fa-github:before {
   content: "\eab0";
+}
+.fa-repwd:before {
+  content: "\e900";
 }

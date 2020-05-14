@@ -6,6 +6,8 @@ import loginState, { LoginState } from './login'
 import snackbarState, { SnackbarState } from './snackbar'
 import registState, { RegistState } from './regist'
 import pwdResetState, { PwdResetState } from './pwdReset'
+import testMenuState, { TestMenuState } from './tests/menu'
+import logoutState, { LogoutState } from './logout'
 
 declare module 'react-redux' {
   interface DefaultRootState {
@@ -16,6 +18,8 @@ declare module 'react-redux' {
     snackbarState: SnackbarState
     registState: RegistState
     pwdResetState: PwdResetState
+    testMenuState: TestMenuState
+    logoutState: LogoutState
   }
 }
 
@@ -27,4 +31,6 @@ export default combineReducers({
   snackbarState,
   registState,
   pwdResetState,
+  testMenuState,
+  logoutState,
 })

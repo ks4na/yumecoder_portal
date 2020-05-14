@@ -11,6 +11,7 @@ import QQLoginCallback from './containers/LoginPage/QQLoginCallback'
 import RegistPage from './containers/RegistPage'
 import PasswordIndex from './containers/Password'
 import useScrollToTop from './components/hooks/useScrollToTop'
+import TestIndex from './containers/Test'
 
 const routes: RouteProps[] = [
   {
@@ -41,6 +42,10 @@ const routes: RouteProps[] = [
   {
     path: '/password',
     component: PasswordIndex,
+  },
+  {
+    path: '/test',
+    component: TestIndex,
   },
   {
     path: '*',

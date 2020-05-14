@@ -6,6 +6,8 @@ import loginSaga from './login'
 import tokenSaga from './token'
 import registSaga from './regist'
 import pwdResetSaga from './pwdReset'
+import testMenuSaga from './tests/menu'
+import logoutSaga from './logout'
 
 export default function* rootSaga(): Generator {
   yield all([
@@ -16,5 +18,7 @@ export default function* rootSaga(): Generator {
     tokenSaga(),
     registSaga(),
     pwdResetSaga(),
+    testMenuSaga(),
+    logoutSaga(),
   ])
 }

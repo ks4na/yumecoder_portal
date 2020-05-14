@@ -9,6 +9,7 @@ export default {
   indexPageAppKeyWord: '在线IT练习平台',
   indexPageBtnLogin: '登&nbsp;&nbsp;录',
   indexPageBtnRegist: '注&nbsp;&nbsp;册',
+  'indexPage.tooltipBtnChangeLanguage': '切换语言',
 
   // containers/LoginPage/index.tsx
   loginPageTitle: '登&nbsp;录',
@@ -96,4 +97,35 @@ export default {
   'password.pwdResetPage.pwdResetForm.btnSubmit.txt': '确&nbsp;&nbsp;定',
   'password.pwdResetPage.txtPwdResetSuccess': '密码重置成功',
   'password.pwdResetPage.btnBackToLoginPage': '返回登录页面',
+
+  // containers/Test/TestMenu/Header.tsx
+  'test.testMenu.header.txtTitle': '专项练习',
+
+  // containers/Test/TestMenu/PracticeInfo.tsx
+  'test.testMenu.practiceInfo.labelExerciseDays': '活跃天数',
+  'test.testMenu.practiceInfo.labelNumberOfPracticedQuestions': '已练习题目数',
+  'test.testMenu.practiceInfo.labelAccuracy': '正确率',
+
+  // containers/Test/TestMenu/PracticeItemList.tsx
+  'test.testMenu.practiceItemList.txtTotalAmount': '共 { totalAmount } 题',
+  'test.testMenu.practiceItemList.txtDoneAmount': '已做 { doneAmount } 题',
+  'test.testMenu.practiceItemList.txtCorrectRate': '正确率 {rate} %',
+  'test.testMenu.practiceItemList.tooltipToPractice': '去练习',
+
+  // containers/Test/TestMenu/NavDrawer
+  'test.testMenu.navDrawer.txtNavTestHistory': '历史练习',
+  'test.testMenu.navDrawer.txtNavMistakes': '错题集',
+  'test.testMenu.navDrawer.txtNavCollection': '收藏的题目',
+  'test.testMenu.navDrawer.txtNavNotification': '消息通知',
+  'test.testMenu.navDrawer.txtNavHome': '个人中心',
+  'test.testMenu.navDrawer.txtNavSettings': '设置',
+  'test.testMenu.navDrawer.txtNoPersonalizedSignature': '还没有个性签名',
+  'test.testMenu.navDrawer.footer.txtDarkMode': '夜间模式',
+  'test.testMenu.navDrawer.footer.txtLightMode': '日间模式',
+  'test.testMenu.navDrawer.footer.tooltipBtnChangeLanguage': '切换语言',
+  'test.testMenu.navDrawer.footer.tooltipBtnLogout': '退出',
+
+  // configs/axios.config
+  'axios.config.interceptors.response.autoRefreshToken.failed':
+    'token 授权信息失效，请重新登录',
 }
