@@ -54,6 +54,8 @@ function* watchSagaRequestTestMenuData(): Generator {
     if (resultAction.type === SAGA_CANCEL_FETCH_TEST_MENU_DATA) {
       yield cancel(task)
     }
+
+    yield put(changeTestMenuStatus(Status.INITIAL))
   }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   List,
   ListItem,
@@ -9,6 +8,7 @@ import {
   makeStyles,
   ListItemProps,
 } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   listItemIcon: {
@@ -21,7 +21,7 @@ export interface NavListItem extends ListItemProps<'div'> {
   name: React.ReactNode
   icon: React.ReactNode
   component?: React.ElementType
-  href?: string
+  to?: string
   secondaryAction?: React.ReactNode
 }
 
@@ -41,7 +41,7 @@ export default function NavList({ list }: NavListProps): JSX.Element {
             key={i}
             {...others}
             button
-            component={item.component || 'a'}
+            component={item.component || Link}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
             <ListItemText primary={name} />

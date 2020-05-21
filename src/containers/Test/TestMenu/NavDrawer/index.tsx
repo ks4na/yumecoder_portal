@@ -31,7 +31,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-my-practice" />,
-    href: '/test/history',
+    to: '/test/history',
   },
   {
     name: (
@@ -41,7 +41,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-mistakes" />,
-    href: '/question/mistakes',
+    to: '/question/mistakes',
   },
   {
     name: (
@@ -51,7 +51,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-collection" />,
-    href: '/question/collection',
+    to: '/question/collection',
     divider: true,
   },
   {
@@ -62,7 +62,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-notification" />,
-    href: '/message',
+    to: '/message',
   },
   {
     name: (
@@ -72,7 +72,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-home" />,
-    href: '/home',
+    to: '/home',
     divider: true,
   },
   {
@@ -83,7 +83,7 @@ const navList: NavListItem[] = [
       />
     ),
     icon: <Icon className="fa-settings" />,
-    href: '/home/settings',
+    to: '/home/settings',
   },
 ]
 

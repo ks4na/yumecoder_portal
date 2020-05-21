@@ -132,7 +132,7 @@ export default {
   'test.testMenu.navDrawer.txtNavHome': 'Home',
   'test.testMenu.navDrawer.txtNavSettings': 'Settings',
   'test.testMenu.navDrawer.txtNoPersonalizedSignature':
-    'No personalized signature',
+    'No personalized status',
   'test.testMenu.navDrawer.footer.txtDarkMode': 'dark mode',
   'test.testMenu.navDrawer.footer.txtLightMode': 'light mode',
   'test.testMenu.navDrawer.footer.tooltipBtnChangeLanguage': 'switch language',
@@ -141,4 +141,73 @@ export default {
   // configs/axios.config
   'axios.config.interceptors.response.autoRefreshToken.failed':
     'token has expired, please sign in again',
+
+  // containers/Home/HomeRoot/Header.tsx
+  'home.homeRoot.header.title': 'Home',
+
+  // containers/Home/HomeRoot/UserInfoPreview.tsx
+  'home.homeRoot.userInfoPreview.txtFollows':
+    'follows: <span class="{ className }"> { number } </span>',
+  'home.homeRoot.userInfoPreview.txtFollowers':
+    'followers: <span class="{ className }"> { number } </span>',
+  'home.homeRoot.userInfoPreview.txtNoPersonalizedSignature':
+    'No personalized status',
+
+  // containers/Home/HomeRoot/index.tsx
+  'home.homeRoot.txtNavTestHistory': 'History',
+  'home.homeRoot.txtNavMistakes': 'Mistakes',
+  'home.homeRoot.txtNavCollection': 'Collection',
+  'home.homeRoot.txtNavSettings': 'Settings',
+
+  // containers/Home/Profile
+  'home.profile.header.title': 'Profile',
+  'home.profile.labelAvatar': 'Avatar',
+  'home.profile.labelNickname': 'Nickname',
+  'home.profile.labelGender': 'Gender',
+  'home.profile.txtGenderMale': 'male',
+  'home.profile.txtGenderFemale': 'female',
+  'home.profile.txtGenderUnknown': 'unknown',
+  'home.profile.labelPersonalSignature': 'Status',
+  'home.profile.dialogTitleAlterNickname': 'Alter Nickname',
+  'home.profile.nicknameInputInvalidFormat': 'invalid nickname format',
+  'home.profile.nicknameInputLabel': 'new nickname',
+  'home.profile.nicknameInputPlaceholder': '4-15 non-whitespace characters',
+  'home.profile.dialogTitleAlterGender': 'Alter Gender',
+  'home.profile.dialogTitleAlterPersonalSignature': 'Alter Status',
+  'home.profile.personalSignatureInputInvalidFormat':
+    'status should have less than 50 characters',
+  'home.profile.personalSignatureInputLabel': 'new status',
+  'home.profile.personalSignatureInputPlaceholder': 'up to 50 characters',
+  'home.profile.dialogTitleAlterAvatar': 'Alter Avatar',
+  'home.profile.txtSelectImageFirstWarning': 'Please select an image',
+
+  // containers/ImageCrop
+  'imageCrop.txtPlaceholder':
+    'Please select an image within {maxFileSize} MB, support format: {acceptTypeNames}',
+  'imageCrop.txtUnsupportedFileType': 'Unsupported image format',
+  'imageCrop.txtFileSizeTooLarge': 'The size of image is too large',
+
+  // containers/Home/Settings
+  'home.settings.header.title': 'Settings',
+  'home.settings.labelPwdReset': 'Alter Password',
+  'home.settings.dialogAlterQuestionsPerTest': 'Questions Per Test',
+  'home.settings.labelQuestionsPerTest': 'Questions Per Test',
+  'home.settings.txtOnlyNew': 'Only new',
+  'home.settings.txtOnlyMistakes': 'Only mistakes',
+  'home.settings.txtNewAndMistakes': 'New and mistakes',
+  'home.settings.txtAll': 'All',
+  'home.settings.labelTestRange': 'Test Range',
+  'home.settings.dialogAlterTestRange': 'Test Range',
+  'home.settings.btnLogout': 'Sign&nbsp;&nbsp;Out',
+  'home.settings.dialogTitlePwdReset': 'Reset Password',
+  'home.settings.oldPwdInputInvalidFormat': 'invalid password format',
+  'home.settings.oldPwdInputLabel': 'current password',
+  'home.settings.oldPwdInputPlaceholder': 'the password in use',
+  'home.settings.newPwdInputInvalidFormat': 'invalid password format',
+  'home.settings.txtNotSameAsOldPwd':
+    'cannot be the same with the old password',
+  'home.settings.newPwdInputLabel': 'new password',
+  'home.settings.newPwdInputPlaceholder': '6-18 letters or numbers',
+  'home.settings.txtResetPwdSuccessfully':
+    'Reset password successfully, please sign in again',
 }

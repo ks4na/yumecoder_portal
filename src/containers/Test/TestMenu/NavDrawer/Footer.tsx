@@ -14,13 +14,9 @@ import LightThemeIcon from '@material-ui/icons/Brightness5'
 import LanguageIcon from '@material-ui/icons/Language'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  sagaSaveTypeToLocal,
-  sagaRequestLogout,
-} from '../../../../models/actions'
+import { sagaSaveTypeToLocal } from '../../../../models/actions'
 import LanguageChooseMenu from '../../../LangChooseMenu'
-import { Status } from '../../../../models/reducers/status'
-import { useHistory } from 'react-router-dom'
+import useLogoutHook from '../../../../components/hooks/useLogoutHook'
 
 const useStyles = makeStyles(theme => ({
   customedBtn: {
@@ -46,7 +42,6 @@ export default function DrawerFooter(): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
   } = useLanguageChooseMenuHook()
 
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const { isProgressing, handleRequestLogout } = useLogoutHook()
 
   return (
@@ -188,34 +183,4 @@ export interface LanguageChooseMenuHookReturnType {
     anchorEl: null | Element | ((element: Element) => Element)
   ) => void
   handleShowMenu: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-// useLogoutHook
-export function useLogoutHook(): LogoutHookReturnType {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const logoutStatus = useSelector(({ logoutState }) => logoutState.status)
-  const isProgressing = logoutStatus === Status.PROGRESSING
-
-  const handleRequestLogout = React.useCallback((): void => {
-    dispatch(sagaRequestLogout())
-  }, [dispatch])
-
-  // 监听 logoutStatus 变化
-  React.useEffect((): void => {
-    // 状态为 SUCCESS 则跳转到 首页
-    if (logoutStatus === Status.SUCCESS) {
-      history.push('/')
-    }
-  }, [history, logoutStatus])
-
-  return {
-    isProgressing,
-    handleRequestLogout,
-  }
-}
-
-export interface LogoutHookReturnType {
-  isProgressing: boolean
-  handleRequestLogout: () => void
 }

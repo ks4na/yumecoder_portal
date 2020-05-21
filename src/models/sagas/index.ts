@@ -8,6 +8,8 @@ import registSaga from './regist'
 import pwdResetSaga from './pwdReset'
 import testMenuSaga from './tests/menu'
 import logoutSaga from './logout'
+import userSaga from './user'
+import shortcutListCountSaga from './home/shortcutListCount'
 
 export default function* rootSaga(): Generator {
   yield all([
@@ -20,5 +22,7 @@ export default function* rootSaga(): Generator {
     pwdResetSaga(),
     testMenuSaga(),
     logoutSaga(),
+    userSaga(),
+    shortcutListCountSaga(),
   ])
 }

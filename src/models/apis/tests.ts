@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { TestMenuData, User, CategoryItem } from '../reducers/tests/menu'
+import { ShortcutListCountData } from '../reducers/home/shortcutListCount'
 
 // handle request testMenuData
 export interface OriginalCategoryItem {
@@ -16,7 +17,7 @@ export interface OriginalTestMenuDataReturnType {
     nickname: string
     avatar: string
     exercise_days: number
-    personal_message: string
+    personal_message: string | null
     [props: string]: unknown
   }
   questionCategoryTree: OriginalCategoryItem[]
@@ -103,7 +104,7 @@ export async function handleRequestTestMenuData(): Promise<
     nickname: user.nickname,
     avatar: user.avatar,
     exerciseDays: user.exercise_days,
-    personalSignature: user.personal_message,
+    personalSignature: user.personal_message || '',
   }
 
   const retCategories = conertOriginalCategoryItemToCategoryItem(
@@ -117,6 +118,47 @@ export async function handleRequestTestMenuData(): Promise<
     categories: retCategories,
     userDoneQuestionTotal: doneQuestionAmount.count,
     userRightQuestionTotal: rightAmount.count,
+  }
+
+  return ret
+}
+
+// handle fetch shortcutListCount
+export type FetchShortcutListCountReturnType = ShortcutListCountData
+
+export async function handleFetchShortcutListCount(): Promise<
+  FetchShortcutListCountReturnType
+> {
+  const promiseFetchTestHistoryCount = axios.get('/api/tests/count') as Promise<
+    AxiosResponse<{ count: number }>
+  >
+  const promiseFetchMistakesCount = axios.get(
+    '/api/questions/count?type=mistake'
+  ) as Promise<AxiosResponse<{ count: number }>>
+  const promiseFetchCollectionCount = axios.get(
+    '/api/questions/count?type=collected'
+  ) as Promise<AxiosResponse<{ count: number }>>
+
+  const [
+    historyCountResponse,
+    mistakesCountResponse,
+    collectionCountResponse,
+  ] = await Promise.all([
+    promiseFetchTestHistoryCount,
+    promiseFetchMistakesCount,
+    promiseFetchCollectionCount,
+  ])
+
+  const ret: ShortcutListCountData = {
+    history: {
+      count: historyCountResponse.data.count,
+    },
+    mistakes: {
+      count: mistakesCountResponse.data.count,
+    },
+    collection: {
+      count: collectionCountResponse.data.count,
+    },
   }
 
   return ret

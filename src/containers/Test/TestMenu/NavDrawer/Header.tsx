@@ -23,12 +23,12 @@ export interface DrawerHeaderProps {
 const useStyles = makeStyles(theme => ({
   nickname: {
     fontWeight: 500,
-    fontSize: theme.typography.pxToRem(20),
+    fontSize: '1.25rem',
     color: theme.palette.common.white,
   },
   personalizedSignature: {
     wordBreak: 'break-all',
-    color: theme.palette.common.white,
+    color: theme.palette.grey[300],
   },
 }))
 
@@ -55,17 +55,21 @@ export default function DrawerHeader({
             )}
           </Grid>
           <Grid item xs={9} container alignItems="center">
-            {isLoading ? (
-              <Box clone width="50%">
-                <Skeleton variant="text" />
-              </Box>
-            ) : (
-              <MuiLink component={Link} to="/home">
-                <Typography variant="body2" className={classes.nickname} noWrap>
-                  {nickname}
-                </Typography>
-              </MuiLink>
-            )}
+            <Box width="100%">
+              {isLoading ? (
+                <Skeleton variant="rect" height="1.25rem" />
+              ) : (
+                <MuiLink component={Link} to="/home">
+                  <Typography
+                    variant="body2"
+                    className={classes.nickname}
+                    noWrap
+                  >
+                    {nickname}
+                  </Typography>
+                </MuiLink>
+              )}
+            </Box>
           </Grid>
         </Grid>
       </Box>
