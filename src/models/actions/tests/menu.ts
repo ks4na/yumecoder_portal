@@ -4,6 +4,7 @@ import { TestMenuData } from '../../reducers/tests/menu'
 export const CHANGE_TEST_MENU_STATUS = 'CHANGE_TEST_MENU_STATUS'
 export const SAVE_TEST_MENU_DATA = 'SAVE_TEST_MENU_DATA'
 export const RESET_TEST_MENU_STATE = 'RESET_TEST_MENU_STATE'
+export const CHANGE_TEMP_TEST_ID = 'CHANGE_TEMP_TEST_ID'
 
 // =================
 // ACTION CREATORS
@@ -46,6 +47,15 @@ export function resetTestMenuState(): ResetTestMenuStateAction {
   return { type: RESET_TEST_MENU_STATE }
 }
 
+export interface ChangeTempTestIdAction {
+  type: typeof CHANGE_TEMP_TEST_ID
+  payload?: number
+}
+
+export function changeTempTestId(id?: number): ChangeTempTestIdAction {
+  return { type: CHANGE_TEMP_TEST_ID, payload: id }
+}
+
 // =================
 // ACTION TYPES
 // =================
@@ -53,6 +63,7 @@ export type TestMenuActions =
   | ChangeTestMenuStatusAction
   | SaveTestMenuDataAction
   | ResetTestMenuStateAction
+  | ChangeTempTestIdAction
 
 // =================
 // SAGAS

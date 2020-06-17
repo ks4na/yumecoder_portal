@@ -107,6 +107,9 @@ export default {
   'test.testMenu.practiceInfo.labelAccuracy': '正确率',
 
   // containers/Test/TestMenu/PracticeItemList.tsx
+  'test.testMenu.practicePanel.txtPreparingPaper': '正在准备试卷中...',
+
+  // containers/Test/TestMenu/PracticeItemList.tsx
   'test.testMenu.practiceItemList.txtTotalAmount': '共 { totalAmount } 题',
   'test.testMenu.practiceItemList.txtDoneAmount': '已做 { doneAmount } 题',
   'test.testMenu.practiceItemList.txtCorrectRate': '正确率 {rate} %',
@@ -124,6 +127,10 @@ export default {
   'test.testMenu.navDrawer.footer.txtLightMode': '日间模式',
   'test.testMenu.navDrawer.footer.tooltipBtnChangeLanguage': '切换语言',
   'test.testMenu.navDrawer.footer.tooltipBtnLogout': '退出',
+  'test.testMenu.navDrawer.logoutDialog.titleLogout': '退出登录',
+  'test.testMenu.navDrawer.logoutDialog.descLogout': '确认退出登录状态？',
+  'test.testMenu.navDrawer.logoutDialog.btnCancel': '取消',
+  'test.testMenu.navDrawer.logoutDialog.btnConfirm': '确定',
 
   // configs/axios.config
   'axios.config.interceptors.response.autoRefreshToken.failed':
@@ -193,4 +200,43 @@ export default {
   'home.settings.newPwdInputLabel': '新密码',
   'home.settings.newPwdInputPlaceholder': '6-18位字母或数字',
   'home.settings.txtResetPwdSuccessfully': '密码修改成功，请重新登录',
+
+  // containers/Test/TestPage
+  'test.testPage.header.txtDefaultTitle': '专项练习',
+  'test.testPage.exitHalfwayHandler.txtExitHalfwayDialogTitle': '提前退出测试?',
+  'test.testPage.exitHalfwayHandler.txtExitHalfwayDialogContent':
+    '点击确定按钮提前退出测试, 当前测试进度将会被保存。',
+  'test.testPage.exitHalfwayHandler.btnConfirm': '确定',
+  'test.testPage.exitHalfwayHandler.btnCancel': '取消',
+  'test.testPage.testTimer.txtReachTimeLimit': '练习时间超出限制',
+  'test.testPage.btnToggleAnswerCard': '答题卡',
+  'test.testPage.questionPanel.txtIsAlreadyTheFirstQuestion':
+    '当前已经是第一题了~',
+  'test.testPage.questionPanel.txtIsAlreadyTheLastQuestion':
+    '当前已经是最后一题了~',
+  'test.testPage.BottomOperationButton.btnToPrevious': '上一题',
+  'test.testPage.BottomOperationButton.btnToNext': '下一题',
+  'test.testPage.QuestionPanel.txtQuestionTypeSingleAnswer': '单选题',
+  'test.testPage.QuestionPanel.txtQuestionTypeMultiAnswer': '多选题',
+  'test.testPage.BottomOperationButton.btnSubmitPaper': '提交答案',
+  'test.testPage.AnswerCard.btnSubmitPaper': '提交并查看结果',
+  'test.testPage.AnswerCard.title': '答题卡',
+  'test.testPage.PaperSubmissionBackgrop.txtSubmittingPaper':
+    '正在提交试卷中...',
+  'test.testPage.retryPaperSubmitDialog.description':
+    '试卷提交失败，点击重试按钮重新提交试卷。',
+  'test.testPage.RetryPaperSubmitDialog.btnRetry': '重试',
+  'test.testPage.RetryPaperSubmitDialog.btnCancel': '取消',
+  'test.testPage.paperHasDoneDialog.description':
+    '该试卷已完成，请选择查看结果或者返回。',
+  'test.testPage.paperHasDoneDialog.btnToResultPage': '查看结果',
+  'test.testPage.paperHasDoneDialog.btnBack': '返回',
+  'test.testPage.retrySaveTempTestInfoDialog.description':
+    '试卷信息保存失败，点击重试按钮重新尝试保存试卷信息。',
+  'test.testPage.retrySaveTempTestInfoDialog.btnRetry': '重试',
+  'test.testPage.retrySaveTempTestInfoDialog.btnExitAnyway': '直接退出',
+  'test.testMenu.tempTestInfoCheck.description':
+    '检测到存在意外退出的练习，是否继续该练习?',
+  'test.testMenu.tempTestInfoCheck.btnToPractice': '继续',
+  'test.testPage.paperHasDoneDialog.btnCancel': '取消',
 }

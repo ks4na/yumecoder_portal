@@ -12,6 +12,7 @@ import {
   sagaCancelFetchTestMenuData,
   resetTestMenuState,
 } from '../../../models/actions'
+import TempTestInfoCheck from './TempTestInfoCheck'
 
 export default function TestMenu(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -21,17 +22,25 @@ export default function TestMenu(): JSX.Element {
   useTestMenuDataHook()
 
   return (
-    <BasicLayout>
-      {/* Header */}
-      <Header handleNavDrawerToggle={handleNavDrawerToggle} />
-      {/* Nav */}
-      <NavDrawer open={isOpen} handleNavDrawerToggle={handleNavDrawerToggle} />
-      {/* Body */}
-      <BodyLayout disableGutters>
-        <PracticeInfo />
-        <PracticePanel />
-      </BodyLayout>
-    </BasicLayout>
+    <>
+      <BasicLayout>
+        {/* Header */}
+        <Header handleNavDrawerToggle={handleNavDrawerToggle} />
+        {/* Nav */}
+        <NavDrawer
+          open={isOpen}
+          handleNavDrawerToggle={handleNavDrawerToggle}
+        />
+        {/* Body */}
+        <BodyLayout disableGutters>
+          <PracticeInfo />
+          <PracticePanel />
+        </BodyLayout>
+      </BasicLayout>
+
+      {/* 检测是否存在临时考试信息 */}
+      <TempTestInfoCheck />
+    </>
   )
 }
 

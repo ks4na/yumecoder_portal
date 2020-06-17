@@ -119,6 +119,9 @@ export default {
   'test.testMenu.practiceInfo.labelAccuracy': 'Accuracy',
 
   // containers/Test/TestMenu/PracticeItemList.tsx
+  'test.testMenu.practicePanel.txtPreparingPaper': 'Preparing paper...',
+
+  // containers/Test/TestMenu/PracticeItemList.tsx
   'test.testMenu.practiceItemList.txtTotalAmount': 'Total:{ totalAmount }',
   'test.testMenu.practiceItemList.txtDoneAmount': 'Done:{ doneAmount }',
   'test.testMenu.practiceItemList.txtCorrectRate': 'Accuracy:{rate}%',
@@ -137,6 +140,11 @@ export default {
   'test.testMenu.navDrawer.footer.txtLightMode': 'light mode',
   'test.testMenu.navDrawer.footer.tooltipBtnChangeLanguage': 'switch language',
   'test.testMenu.navDrawer.footer.tooltipBtnLogout': 'sign out',
+  'test.testMenu.navDrawer.logoutDialog.titleLogout': 'Sign out',
+  'test.testMenu.navDrawer.logoutDialog.descLogout':
+    'Are you sure to sign out ?',
+  'test.testMenu.navDrawer.logoutDialog.btnCancel': 'cancel',
+  'test.testMenu.navDrawer.logoutDialog.btnConfirm': 'confirm',
 
   // configs/axios.config
   'axios.config.interceptors.response.autoRefreshToken.failed':
@@ -210,4 +218,45 @@ export default {
   'home.settings.newPwdInputPlaceholder': '6-18 letters or numbers',
   'home.settings.txtResetPwdSuccessfully':
     'Reset password successfully, please sign in again',
+
+  // containers/Test/TestPage
+  'test.testPage.header.txtDefaultTitle': 'Special Practice',
+  'test.testPage.exitHalfwayHandler.txtExitHalfwayDialogTitle': 'exit halfway?',
+  'test.testPage.exitHalfwayHandler.txtExitHalfwayDialogContent':
+    'click confirm button to exit halfway, current exercise progress will be saved.',
+  'test.testPage.exitHalfwayHandler.btnConfirm': 'Confirm',
+  'test.testPage.exitHalfwayHandler.btnCancel': 'Cancel',
+  'test.testPage.testTimer.txtReachTimeLimit':
+    'The time spent has exceeded the limit',
+  'test.testPage.btnToggleAnswerCard': 'Answer card',
+  'test.testPage.questionPanel.txtIsAlreadyTheFirstQuestion':
+    'It is already the first question ~',
+  'test.testPage.questionPanel.txtIsAlreadyTheLastQuestion':
+    'It is already the last question ~',
+  'test.testPage.BottomOperationButton.btnToPrevious': 'Previous',
+  'test.testPage.BottomOperationButton.btnToNext': 'Next',
+  'test.testPage.QuestionPanel.txtQuestionTypeSingleAnswer': 'Only one answer',
+  'test.testPage.QuestionPanel.txtQuestionTypeMultiAnswer':
+    'More than one answer',
+  'test.testPage.BottomOperationButton.btnSubmitPaper': 'Submit Answers',
+  'test.testPage.AnswerCard.btnSubmitPaper': 'Submit And View Result',
+  'test.testPage.AnswerCard.title': 'Answer Card',
+  'test.testPage.PaperSubmissionBackgrop.txtSubmittingPaper':
+    'Submitting test paper...',
+  'test.testPage.retryPaperSubmitDialog.description':
+    'Failed to submit the test paper, click the retry button to resubmit.',
+  'test.testPage.RetryPaperSubmitDialog.btnRetry': 'Retry',
+  'test.testPage.RetryPaperSubmitDialog.btnCancel': 'Cancel',
+  'test.testPage.paperHasDoneDialog.description':
+    'This paper has been done, please choose to view the result or return.',
+  'test.testPage.paperHasDoneDialog.btnToResultPage': 'View result',
+  'test.testPage.paperHasDoneDialog.btnBack': 'Back',
+  'test.testPage.retrySaveTempTestInfoDialog.description':
+    'Failed to save the test info, click the retry button to resave.',
+  'test.testPage.retrySaveTempTestInfoDialog.btnRetry': 'Retry',
+  'test.testPage.retrySaveTempTestInfoDialog.btnExitAnyway': 'Exit Anyway',
+  'test.testMenu.tempTestInfoCheck.description':
+    'An exercise that unexpectedly exited is detected. Do you want to continue ?',
+  'test.testMenu.tempTestInfoCheck.btnToPractice': 'Continue',
+  'test.testPage.paperHasDoneDialog.btnCancel': 'Cancel',
 }

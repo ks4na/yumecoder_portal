@@ -17,6 +17,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { sagaSaveTypeToLocal } from '../../../../models/actions'
 import LanguageChooseMenu from '../../../LangChooseMenu'
 import useLogoutHook from '../../../../components/hooks/useLogoutHook'
+import useDialogHook from '../../../../components/hooks/useDialogHook'
+import LogoutDialog, { LogoutDialogProps } from './LogoutDialog'
 
 const useStyles = makeStyles(theme => ({
   customedBtn: {
@@ -43,6 +45,19 @@ export default function DrawerFooter(): JSX.Element {
   } = useLanguageChooseMenuHook()
 
   const { isProgressing, handleRequestLogout } = useLogoutHook()
+
+  const { open, handleOpen, handleClose } = useDialogHook()
+
+  const logoutDialogProps: LogoutDialogProps = {
+    open,
+    handleCancel: handleClose,
+    handleConfirm: (): void => {
+      // 关闭 dialog
+      handleClose()
+      // 发起 logout 请求
+      handleRequestLogout()
+    },
+  }
 
   return (
     <>
@@ -110,7 +125,7 @@ export default function DrawerFooter(): JSX.Element {
             >
               <ButtonBase
                 className={classes.customedBtn}
-                onClick={isProgressing ? undefined : handleRequestLogout}
+                onClick={isProgressing ? undefined : handleOpen}
               >
                 <ExitToAppIcon />
               </ButtonBase>
@@ -124,6 +139,8 @@ export default function DrawerFooter(): JSX.Element {
         anchorEl={anchorEl}
         changeAnchorEl={changeAnchorEl}
       />
+      {/* LogoutDialog */}
+      <LogoutDialog {...logoutDialogProps} />
     </>
   )
 }

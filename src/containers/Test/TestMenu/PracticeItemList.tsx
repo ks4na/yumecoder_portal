@@ -15,6 +15,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 
 export default function PracticeItemList({
   list,
+  toTestPage,
 }: PracticeItemListProps): JSX.Element {
   return (
     <Box clone flex={1}>
@@ -46,6 +47,7 @@ export default function PracticeItemList({
                     color="primary"
                     aria-label="take a practice"
                     edge="end"
+                    onClick={(): void => toTestPage(item.id)}
                   >
                     <ArrowForwardIcon />
                   </IconButton>
@@ -61,6 +63,7 @@ export default function PracticeItemList({
 
 export interface PracticeItemListProps {
   list: PracticeItem[]
+  toTestPage: (categoryId: number) => void
 }
 
 export interface PracticeItem {

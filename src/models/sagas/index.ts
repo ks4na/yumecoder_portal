@@ -10,6 +10,8 @@ import testMenuSaga from './tests/menu'
 import logoutSaga from './logout'
 import userSaga from './user'
 import shortcutListCountSaga from './home/shortcutListCount'
+import paperSaga from './tests/paper'
+import testPageSaga from './tests/testPage'
 
 export default function* rootSaga(): Generator {
   yield all([
@@ -24,5 +26,7 @@ export default function* rootSaga(): Generator {
     logoutSaga(),
     userSaga(),
     shortcutListCountSaga(),
+    paperSaga(),
+    testPageSaga(),
   ])
 }

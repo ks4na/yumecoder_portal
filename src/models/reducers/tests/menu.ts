@@ -4,6 +4,7 @@ import {
   CHANGE_TEST_MENU_STATUS,
   SAVE_TEST_MENU_DATA,
   RESET_TEST_MENU_STATE,
+  CHANGE_TEMP_TEST_ID,
 } from '../../actions'
 
 export interface User {
@@ -33,6 +34,7 @@ export interface TestMenuData {
 export interface TestMenuState {
   status: Status
   data?: TestMenuData
+  tempTestId?: number
 }
 
 const initState: TestMenuState = {
@@ -48,6 +50,12 @@ export default function testMenuReducer(
       return { ...state, status: action.payload }
     case SAVE_TEST_MENU_DATA:
       return { ...state, data: action.payload }
+    case CHANGE_TEMP_TEST_ID: {
+      return {
+        ...state,
+        tempTestId: action.payload,
+      }
+    }
     case RESET_TEST_MENU_STATE:
       return initState
     default:
