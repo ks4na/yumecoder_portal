@@ -6,6 +6,13 @@ import loginSaga from './login'
 import tokenSaga from './token'
 import registSaga from './regist'
 import pwdResetSaga from './pwdReset'
+import testMenuSaga from './tests/menu'
+import logoutSaga from './logout'
+import userSaga from './user'
+import shortcutListCountSaga from './home/shortcutListCount'
+import paperSaga from './tests/paper'
+import testPageSaga from './tests/testPage'
+import testResultSaga from './tests/testResult'
 
 export default function* rootSaga(): Generator {
   yield all([
@@ -16,5 +23,12 @@ export default function* rootSaga(): Generator {
     tokenSaga(),
     registSaga(),
     pwdResetSaga(),
+    testMenuSaga(),
+    logoutSaga(),
+    userSaga(),
+    shortcutListCountSaga(),
+    paperSaga(),
+    testPageSaga(),
+    testResultSaga(),
   ])
 }

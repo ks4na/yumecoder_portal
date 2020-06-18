@@ -1,12 +1,30 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Snackbar, SnackbarCloseReason } from '@material-ui/core'
+import { Snackbar, SnackbarCloseReason, IconButton } from '@material-ui/core'
 import {
   changeCurrentSnackbar,
   openSnackbar,
   closeSnackbar,
   changeSnackbarItems,
 } from '../../models/actions'
+import CloseIcon from '@material-ui/icons/Close'
+
+// closeBtn
+function CloseBtn(): JSX.Element {
+  const dispatch = useDispatch()
+  return (
+    <IconButton
+      size="small"
+      aria-label="close"
+      color="inherit"
+      onClick={(): void => {
+        dispatch(closeSnackbar())
+      }}
+    >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+  )
+}
 
 export default function GlobalSnackbar(): JSX.Element {
   const dispatch = useDispatch()
@@ -96,6 +114,7 @@ export default function GlobalSnackbar(): JSX.Element {
   return (
     <Snackbar
       open={open}
+      action={<CloseBtn />}
       {...snackbarProps}
       onExited={handleExited}
       onClose={handleClose}

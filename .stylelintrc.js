@@ -22,5 +22,6 @@ module.exports = {
     'selector-type-no-unknown': null,
     'value-keyword-case': null,
     'selector-type-case': null,
+    'function-name-case': null,
   },
 }

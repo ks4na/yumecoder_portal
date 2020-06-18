@@ -10,7 +10,7 @@ export default function BodyLayout({
   ...otherProps
 }: PropTypes): JSX.Element {
   return (
-    <Container maxWidth="sm" {...otherProps}>
+    <Container maxWidth="md" {...otherProps}>
       {children}
     </Container>
   )

@@ -11,3 +11,10 @@ declare namespace LUOCAPTCHA {
     reset(): void
   }
 }
+
+// webpack 提供的 process.browser 变量
+declare namespace NodeJS {
+  interface Process {
+    browser: boolean
+  }
+}

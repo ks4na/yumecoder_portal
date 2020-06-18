@@ -83,7 +83,7 @@ export default function GithubLoginCallback(): JSX.Element {
   }
 
   return (
-    <BasicLayout height="100%">
+    <BasicLayout height="100vh">
       <Box clone height="100%">
         <Grid container alignItems="center" justify="center">
           <Box clone textAlign="center" marginTop={-5}>
