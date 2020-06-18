@@ -3,7 +3,13 @@ import { IconButton } from '@material-ui/core'
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined'
 import { useHistory } from 'react-router-dom'
 
-export default function IconButtonBack(): JSX.Element {
+export interface IconButtonBackProps {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+}
+
+export default function IconButtonBack({
+  onClick,
+}: IconButtonBackProps): JSX.Element {
   const history = useHistory()
 
   const handleBack = function(): void {
@@ -15,7 +21,7 @@ export default function IconButtonBack(): JSX.Element {
       edge="start"
       color="inherit"
       aria-label="back"
-      onClick={handleBack}
+      onClick={onClick || handleBack}
     >
       <ArrowBackIosOutlinedIcon />
     </IconButton>

@@ -6,6 +6,7 @@ import {
   QuestionType,
   OptionType,
 } from '../reducers/tests/testPage'
+import { TestResultData } from '../reducers/tests/testResult'
 
 // handle request testMenuData
 export interface OriginalCategoryItem {
@@ -349,4 +350,93 @@ export async function handleSaveUncompletedTest({
     spentTime,
     userAnswers,
   })
+}
+
+// handle fetch test result
+export interface CommonErrorReturnType {
+  code: number
+  msg: string
+}
+
+export interface OriginalTestResultData {
+  test: {
+    id: number
+    test_name: string
+    question_amount: number
+    correct_amount: number
+    spend_time: string
+    questions: {
+      sort: number
+      id: number
+      right_answer: string[]
+      personal_answer: string[]
+    }[]
+  }
+}
+export type FetchTestResultReturnType = TestResultData | CommonErrorReturnType
+
+// 自定义类型保护
+export function isOriginalTestResultType(
+  data: OriginalTestResultData | CommonErrorReturnType
+): data is OriginalTestResultData {
+  return (data as OriginalTestResultData).test !== undefined
+}
+
+// 自定义类型保护
+export function isTestResultData(
+  data: FetchTestResultReturnType
+): data is TestResultData {
+  return (data as TestResultData).id !== undefined
+}
+
+export async function handleFetchTestResult(
+  testId: number | string
+): Promise<FetchTestResultReturnType> {
+  const response = (await axios.get(
+    `/api/tests/${testId}/result`
+  )) as AxiosResponse<OriginalTestResultData | CommonErrorReturnType>
+  const { data } = response
+
+  if (isOriginalTestResultType(data)) {
+    const ret: TestResultData = {
+      id: data.test.id,
+      testName: data.test.test_name,
+      questionAmount: data.test.question_amount,
+      correctAmount: data.test.correct_amount,
+      spentTime: data.test.spend_time,
+      questions: data.test.questions
+        .sort((a, b) => a.sort - b.sort)
+        .map(item => {
+          let isRight = false
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+          if (isCorrect(item.right_answer, item.personal_answer)) {
+            isRight = true
+          }
+
+          return {
+            id: item.id,
+            isRight,
+          }
+        }),
+    }
+
+    return ret
+  } else {
+    return data
+  }
+}
+
+/**
+ * 判断用户答案是否正确
+ * @param rightAnswer 正确答案数组
+ * @param personalAnswer 用户答案数组
+ */
+export function isCorrect(
+  rightAnswer: string[],
+  personalAnswer: string[]
+): boolean {
+  return (
+    personalAnswer.length === rightAnswer.length &&
+    new Set([...rightAnswer, ...personalAnswer]).size === rightAnswer.length
+  )
 }

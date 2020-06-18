@@ -239,4 +239,12 @@ export default {
     '检测到存在意外退出的练习，是否继续该练习?',
   'test.testMenu.tempTestInfoCheck.btnToPractice': '继续',
   'test.testPage.paperHasDoneDialog.btnCancel': '取消',
+
+  // containers/Test/TestResultPage
+  'test.testResultPage.header.txtTitle': '结果报告',
+  'test.testResultPage.footer.btnAnalysisOfWrong': '错题解析',
+  'test.testResultPage.footer.btnAnalysisOfAll': '全部解析',
+  'test.testResultPage.TestResultBrief.lblTimeSpent': '练习时长',
+  'test.testResultPage.TestResultBrief.lblRightCount': '正确数',
+  'test.testResultPage.AchievementBar.label': '能力变化',
 }

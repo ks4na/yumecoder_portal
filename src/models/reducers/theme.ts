@@ -18,6 +18,17 @@ declare module '@material-ui/core/styles/createPalette' {
   }
 }
 
+// 添加自定义的 mixins
+declare module '@material-ui/core/styles/createMixins' {
+  interface Mixins {
+    testPageFooterHeight: number
+  }
+
+  interface MixinsOptions {
+    testPageFooterHeight: number
+  }
+}
+
 export interface ThemeState {
   theme: Theme
 }
@@ -35,13 +46,15 @@ const customedThemeOptions: ThemeOptions = {
       light: '#3B4048',
     },
   },
+  // 自定义的 mixins
+  mixins: {
+    testPageFooterHeight: 45, // 练习页面的 footer 高度
+  },
 }
 
 const initialState: ThemeState = {
   theme: createMuiTheme({
-    palette: {
-      ...customedThemeOptions.palette,
-    },
+    ...customedThemeOptions,
   }),
 }
 

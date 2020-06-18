@@ -12,6 +12,7 @@ import userSaga from './user'
 import shortcutListCountSaga from './home/shortcutListCount'
 import paperSaga from './tests/paper'
 import testPageSaga from './tests/testPage'
+import testResultSaga from './tests/testResult'
 
 export default function* rootSaga(): Generator {
   yield all([
@@ -28,5 +29,6 @@ export default function* rootSaga(): Generator {
     shortcutListCountSaga(),
     paperSaga(),
     testPageSaga(),
+    testResultSaga(),
   ])
 }

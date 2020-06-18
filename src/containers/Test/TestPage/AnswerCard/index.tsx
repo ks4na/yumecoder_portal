@@ -34,6 +34,10 @@ const useStyles = makeStyles(theme => ({
   linkIconItem: {
     width: '20%',
     padding: theme.spacing(1, 0),
+
+    [theme.breakpoints.up('md')]: {
+      width: '10%',
+    },
   },
   linkIcon: {
     display: 'block',
@@ -47,6 +51,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '20px',
     margin: '0 auto',
     cursor: 'pointer',
+    backgroundColor: 'transparent',
 
     '&.multi': {
       borderRadius: '20%',
@@ -84,7 +89,7 @@ export default function AnswerCard(): JSX.Element {
 
   const renderQuestionLinks = (
     <Box clone paddingY={2}>
-      <Grid container justify="space-around">
+      <Grid container>
         {questionLinksData.map(item => (
           <Grid item key={item.index} className={classes.linkIconItem}>
             <Box

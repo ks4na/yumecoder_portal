@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   optionIcon: {
     width: 22,
     height: 22,
-    margin: theme.spacing(0, 2, 0, 0),
+    margin: theme.spacing(0, 2, 0, 1),
     fontSize: theme.typography.pxToRem(16),
     color: theme.palette.text.primary,
     border: `2px solid ${theme.palette.text.primary}`,

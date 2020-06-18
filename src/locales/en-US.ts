@@ -259,4 +259,12 @@ export default {
     'An exercise that unexpectedly exited is detected. Do you want to continue ?',
   'test.testMenu.tempTestInfoCheck.btnToPractice': 'Continue',
   'test.testPage.paperHasDoneDialog.btnCancel': 'Cancel',
+
+  // containers/Test/TestResultPage
+  'test.testResultPage.header.txtTitle': 'Result Report',
+  'test.testResultPage.footer.btnAnalysisOfWrong': 'View Wrong',
+  'test.testResultPage.footer.btnAnalysisOfAll': 'View All',
+  'test.testResultPage.TestResultBrief.lblTimeSpent': 'Time Spent',
+  'test.testResultPage.TestResultBrief.lblRightCount': 'Right Count',
+  'test.testResultPage.AchievementBar.label': 'Achievements',
 }
