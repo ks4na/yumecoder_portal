@@ -10,18 +10,19 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
   },
   linkIconWrapper: {
-    width: '20%',
     textAlign: 'center',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1),
+    flex: '0 0 20%',
 
     [theme.breakpoints.up('md')]: {
-      width: '10%',
+      flexBasis: '10%',
     },
   },
   linkIconBtn: {
     width: 26,
     height: 26,
+    padding: 0,
     lineHeight: '26px',
     borderRadius: '50%',
     fontSize: theme.typography.pxToRem(16),

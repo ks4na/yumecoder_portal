@@ -25,6 +25,13 @@ import useLangChooseMenuAnchor from '../../components/hooks/useLangChooseMenuAnc
 import LangChooseMenu from '../LangChooseMenu'
 
 const useStyles = makeStyles(theme => ({
+  wrapper: {
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
   root: {
     display: 'flex',
     justifyContent: 'center',
@@ -41,7 +48,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   centerBox: {
-    height: '60%',
     width: '70%',
     maxWidth: theme.breakpoints.width('sm'),
   },
@@ -158,16 +164,10 @@ export default function IndexPage(): JSX.Element {
 
   return (
     <>
-      <Box clone minHeight="100vh" bgcolor="indexPageGrey.main">
+      <Box clone className={classes.wrapper} bgcolor="indexPageGrey.main">
         <Container disableGutters maxWidth={false} className={classes.root}>
-          <Grid
-            container
-            direction="column"
-            spacing={2}
-            wrap="nowrap"
-            className={classes.centerBox}
-          >
-            <Grid item className={classes.centerBoxTop}>
+          <Box className={classes.centerBox}>
+            <Box className={classes.centerBoxTop}>
               <Box textAlign="center">
                 <img
                   src={YumeCoderLogo}
@@ -200,8 +200,8 @@ export default function IndexPage(): JSX.Element {
                   defaultMessage="在线IT练习平台"
                 />
               </Typography>
-            </Grid>
-            <Grid item container direction="row" spacing={2}>
+            </Box>
+            <Grid container direction="row" spacing={2}>
               <Grid item xs={isLandscape ? 6 : 12}>
                 <Button
                   fullWidth
@@ -232,7 +232,7 @@ export default function IndexPage(): JSX.Element {
                 </Button>
               </Grid>
             </Grid>
-          </Grid>
+          </Box>
         </Container>
       </Box>
 

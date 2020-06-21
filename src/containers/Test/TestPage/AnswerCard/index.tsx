@@ -32,17 +32,18 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   linkIconItem: {
-    width: '20%',
     padding: theme.spacing(1, 0),
+    flex: '0 0 20%',
 
     [theme.breakpoints.up('md')]: {
-      width: '10%',
+      flexBasis: '10%',
     },
   },
   linkIcon: {
     display: 'block',
     width: 24,
     height: 24,
+    padding: 0,
     fontSize: theme.typography.pxToRem(14),
     color: theme.palette.text.primary,
     border: `2px solid ${theme.palette.text.primary}`,

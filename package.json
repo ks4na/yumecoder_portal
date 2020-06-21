@@ -33,6 +33,7 @@
     "defaults",
     "> 0.2%",
     "not op_mini all",
+    "ie >= 11",
     "not ie 9"
   ],
   "config": {

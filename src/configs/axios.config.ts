@@ -3,6 +3,7 @@ import history from './history'
 import store from './reduxStore'
 import { addSnackbarItem } from '../models/actions'
 import { FormattedMessage } from 'react-intl'
+import { defaultLocale } from '../locales'
 
 interface BaseUrls {
   [propName: string]: string
@@ -27,25 +28,26 @@ axios.defaults.baseURL =
 // add locale field
 function addLocale(config: AxiosRequestConfig): AxiosRequestConfig {
   // 发送请求时，携带 locale 信息
-  const locale = localStorage.getItem('locale')
-  if (locale) {
-    if (config.method === 'get' || config.method === 'GET') {
-      config.params = { locale, ...config.params }
-    } else {
-      // 非 GET 请求
-      if (config.url) {
-        if (!config.url.includes('?')) {
-          config.url += `?locale=${locale}`
-        } else {
-          const searchString = config.url.substring(config.url.search(/\?/))
-          const urlSearchParams = new URLSearchParams(searchString)
-          const hasExistedLocale = urlSearchParams.get('locale') !== null
-          if (!hasExistedLocale) {
-            urlSearchParams.append('locale', locale)
-            config.url =
-              config.url.substring(0, config.url.search(/\?/) + 1) +
-              urlSearchParams.toString()
-          }
+  let locale = localStorage.getItem('locale')
+  if (!locale) {
+    locale = defaultLocale
+  }
+  if (config.method === 'get' || config.method === 'GET') {
+    config.params = { locale, ...config.params }
+  } else {
+    // 非 GET 请求
+    if (config.url) {
+      if (!config.url.includes('?')) {
+        config.url += `?locale=${locale}`
+      } else {
+        const searchString = config.url.substring(config.url.search(/\?/))
+        const urlSearchParams = new URLSearchParams(searchString)
+        const hasExistedLocale = urlSearchParams.get('locale') !== null
+        if (!hasExistedLocale) {
+          urlSearchParams.append('locale', locale)
+          config.url =
+            config.url.substring(0, config.url.search(/\?/) + 1) +
+            urlSearchParams.toString()
         }
       }
     }

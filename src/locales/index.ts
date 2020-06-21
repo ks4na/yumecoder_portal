@@ -18,7 +18,7 @@ export type LocaleInfosType<K extends string, DefaultLocaleType> = {
 export type LocaleKey = 'zh-cn' | 'en-us' | 'ja-jp'
 
 // 声明 “默认的 locale” 和 “默认的 locale 对应的msgs的类型”
-const defaultLocale: LocaleKey = 'zh-cn'
+export const defaultLocale: LocaleKey = 'zh-cn'
 type DefaultLocaleMsgsType = typeof zhCN
 
 const localeInfos: LocaleInfosType<LocaleKey, DefaultLocaleMsgsType> = {
