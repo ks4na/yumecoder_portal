@@ -9,42 +9,31 @@
 
 ### 基础
 
-- `react`, `react-dom`, `react-router-dom`
-  - 基础 react 框架
-- `typescript`
-  - 使用 typescript 语法编写
-  - `babel-typescript`
-    - 使用 babel 编译 typescript 代码，提升开发体验
-- `material-ui`
-  - react 组件库
-- `redux`
-  - 全局状态管理
-  - `redux-saga`
-    - 处理副作用
-- `axios`
-  - ajax 请求库
-  - `mockjs`
-    - mock 请求数据
+- 基础框架 : `react(with hooks)`, `react-dom`, `react-router-dom`
+- 开发语言 : `typescript`
+  - `babel-typescript`: 使用 babel 编译 typescript 代码，提升开发体验
+- UI 组件库 : `Material-UI`
+- 状态管理 : `redux`
+  - `redux-saga` : 处理副作用
 
 ### 额外
 
-- `react-intl`
-  - 国际化支持
-- `react-loadable`
-  - 组件级别懒加载
-  - import()
-    - 手动懒加载
-- `token auth`
-  - token 认证机制
-- `third-party account login`
-  - 三方登录支持
-  - `QQ`
-    - 支持使用 QQ 号登录
+- `axios` : ajax 请求库
+  - 使用拦截器实现 token 无痛刷新
+  - `mockjs` : 拦截请求，模拟数据
+- `token auth` : token 认证机制
+- `oauth login` : 第三方 Oauth 登录
+  - `QQ` 账号登录
+  - `Github` 账号登录
+- `react-intl` : 国际化
+- `@loadable/component` : 代码分割
+  - 通过 `import()` 语法实现组件懒加载
+- `react-spring` : 实现部分组件的动画效果
 
-### 规范
+### 代码规范
 
 - `husky`, `lint-staged`
-  - precommit 代码检查
+  - git precommit 代码检查
 - `eslint`
   - js/ts 代码检查
 - `stylelint`
@@ -54,17 +43,12 @@
 
 ### 测试
 
-- `jest`
-  - 代码测试
-  - `enzyme`, `@testing-library/react-hooks`
-    - react 组件测试
+- `jest` : 代码测试
+  - `enzyme`, `@testing-library/react-hooks` : react 组件测试
 
 ### 构建/部署
 
-- `webpack`
-  - 打包工具
+- `webpack` : 打包工具
   - 手动配置 webpack 开发、发布环境
-- `Github Actions`
-  - 持续集成支持
-  - `docker`, `ECS`, `shell`
-    - 使用 docker 容器部署应用
+- `Github Actions` : 持续集成
+  - `docker`, `VPS`, `shell` : 使用 docker 容器部署应用

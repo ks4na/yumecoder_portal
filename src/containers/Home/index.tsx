@@ -1,10 +1,8 @@
 import React from 'react'
 import { Switch, Route, RouteProps, useRouteMatch } from 'react-router-dom'
-
 import Root from './HomeRoot'
-import Profile from './Profile'
-import Settings from './Settings'
 import NoMatch from '../../components/NoMatch'
+import loadable from '@loadable/component'
 
 const routes: RouteProps[] = [
   {
@@ -15,12 +13,16 @@ const routes: RouteProps[] = [
   {
     path: '/settings',
     exact: true,
-    component: Settings,
+    component: loadable(() =>
+      import(/* webpackChunkName: 'settings-page' */ './Settings')
+    ),
   },
   {
     path: '/profile',
     exact: true,
-    component: Profile,
+    component: loadable(() =>
+      import(/* webpackChunkName: 'profile-page' */ './Profile')
+    ),
   },
   {
     path: '*',

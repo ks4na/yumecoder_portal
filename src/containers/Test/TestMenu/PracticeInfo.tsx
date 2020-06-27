@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Grid, Typography, makeStyles } from '@material-ui/core'
 import { FormattedMessage } from 'react-intl'
 import { useSelector } from 'react-redux'
+import AnimatedNumber from '../../../components/AnimatedNumber'
 
 export default function PracticeInfo(): JSX.Element {
   const data = useSelector(({ testMenuState }) => testMenuState.data)
@@ -24,7 +25,7 @@ export default function PracticeInfo(): JSX.Element {
                 defaultMessage="活跃天数"
               />
             }
-            value={exerciseDays}
+            value={<AnimatedNumber to={exerciseDays} />}
           />
         </Grid>
         <Grid item xs={4}>
@@ -35,7 +36,7 @@ export default function PracticeInfo(): JSX.Element {
                 defaultMessage="已练习题目数"
               />
             }
-            value={userDoneQuestionTotal}
+            value={<AnimatedNumber to={userDoneQuestionTotal} />}
           />
         </Grid>
         <Grid item xs={4}>
@@ -46,7 +47,12 @@ export default function PracticeInfo(): JSX.Element {
                 defaultMessage="正确率"
               />
             }
-            value={`${accuracy} %`}
+            value={
+              <AnimatedNumber
+                to={accuracy}
+                interpolateFn={(val): string => `${val.toFixed(0)} %`}
+              />
+            }
           />
         </Grid>
       </Grid>
@@ -56,7 +62,7 @@ export default function PracticeInfo(): JSX.Element {
 
 export interface PracticeInfoItemProps {
   label: React.ReactNode
-  value: string | number
+  value: React.ReactNode
 }
 
 const usePracticeInfoItemStyles = makeStyles({

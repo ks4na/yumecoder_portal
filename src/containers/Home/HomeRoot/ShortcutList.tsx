@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core'
 import RightIcon from '@material-ui/icons/ChevronRight'
 import { Link } from 'react-router-dom'
+import AnimatedNumber from '../../../components/AnimatedNumber'
 
 const useStyles = makeStyles(theme => ({
   listItemIcon: {
@@ -60,7 +61,7 @@ export default function ShortcutList({ list }: ShortcutListProps): JSX.Element {
                   <Box display="flex" marginRight={-1}>
                     {count !== undefined && (
                       <Typography component="span" color="primary">
-                        {count}
+                        <AnimatedNumber to={count} />
                       </Typography>
                     )}
                     <RightIcon className={classes.rightIcon} />
