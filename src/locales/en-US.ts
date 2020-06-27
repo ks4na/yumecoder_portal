@@ -267,4 +267,17 @@ export default {
   'test.testResultPage.TestResultBrief.lblTimeSpent': 'Time Spent',
   'test.testResultPage.TestResultBrief.lblRightCount': 'Right Count',
   'test.testResultPage.AchievementBar.label': 'Achievements',
+
+  // containers/Test/TestAnalysisPage
+  'test.testAnalysisPage.header.txtTitle': 'Test Questions Analysis',
+  'test.testAnalysisPage.footer.btnToPrevious': 'Previous',
+  'test.testAnalysisPage.footer.btnToNext': 'Next',
+  'test.testAnalysisPage.QuestionPanel.txtQuestionTypeSingleAnswer':
+    'Only one answer',
+  'test.testAnalysisPage.QuestionPanel.txtQuestionTypeMultiAnswer':
+    'More than one answer',
+  'test.testAnalysisPage.mainBody.questionPanel.txtHasDeleted': 'Deleted',
+  'test.testAnalysisPage.mainBody.txtRightAnswer': 'Right Answer',
+  'test.testAnalysisPage.mainBody.txtUserAnswer': 'Your Answer',
+  'test.testAnalysisPage.mainBody.btnShowAnalysis': 'Show Analysis',
 }

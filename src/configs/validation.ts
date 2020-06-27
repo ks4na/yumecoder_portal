@@ -10,6 +10,8 @@ export const REGEXP_NICKNAME = /^\S{4,15}$/
 export const REGEXP_PERSONALSIGNATURE = /^.{0,50}$/
 /* 考试时间格式： 形式类似 00:00:00， 最大为 23:59:59 */
 export const REGEXP_PAPERSPENTTIME = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/
+/* 非负整数 */
+export const REGEXP_NON_NEGATIVE_INTEGER = /^(0|[1-9]\d*)$/
 
 /**
  * 验证邮箱格式
@@ -102,4 +104,12 @@ export function comparePaperSpentTime(
       return s1 - s2
     }
   }
+}
+
+/**
+ * 判断输入的字符串是否为 非负整数
+ * @param str 输入的字符串
+ */
+export function isNonNegativeInteger(str: string): boolean {
+  return REGEXP_NON_NEGATIVE_INTEGER.test(str)
 }

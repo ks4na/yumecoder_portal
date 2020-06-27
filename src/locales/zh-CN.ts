@@ -247,4 +247,15 @@ export default {
   'test.testResultPage.TestResultBrief.lblTimeSpent': '练习时长',
   'test.testResultPage.TestResultBrief.lblRightCount': '正确数',
   'test.testResultPage.AchievementBar.label': '能力变化',
+
+  // containers/Test/TestAnalysisPage
+  'test.testAnalysisPage.header.txtTitle': '试题解析',
+  'test.testAnalysisPage.footer.btnToPrevious': '上一题',
+  'test.testAnalysisPage.footer.btnToNext': '下一题',
+  'test.testAnalysisPage.QuestionPanel.txtQuestionTypeSingleAnswer': '单选题',
+  'test.testAnalysisPage.QuestionPanel.txtQuestionTypeMultiAnswer': '多选题',
+  'test.testAnalysisPage.mainBody.questionPanel.txtHasDeleted': '已删除',
+  'test.testAnalysisPage.mainBody.txtRightAnswer': '正确答案',
+  'test.testAnalysisPage.mainBody.txtUserAnswer': '你的答案',
+  'test.testAnalysisPage.mainBody.btnShowAnalysis': '查 看 解 析',
 }

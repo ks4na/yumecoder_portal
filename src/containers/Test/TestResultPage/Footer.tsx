@@ -38,6 +38,7 @@ export default function Footer(): JSX.Element {
 
   const {
     disableBtnClick,
+    disableBtnAnalysisOfWrong,
     handleBtnAnalysisOfWrongClick,
     handleBtnAnalysisOfAllClick,
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -50,7 +51,7 @@ export default function Footer(): JSX.Element {
           fullWidth
           className={classes.button}
           startIcon={<Icon className={`fa-analysis-wrong btnIcon`} />}
-          disabled={disableBtnClick}
+          disabled={disableBtnClick || disableBtnAnalysisOfWrong}
           onClick={handleBtnAnalysisOfWrongClick}
         >
           <FormattedMessage
@@ -84,6 +85,10 @@ export function useFooterHook(): FooterHookReturnType {
 
   const disableBtnClick = !data
 
+  // 是否禁用 错题解析 按钮
+  const disableBtnAnalysisOfWrong =
+    !data || data.correctAmount === data.questionAmount
+
   const handleBtnAnalysisOfWrongClick = React.useCallback(() => {
     if (data) {
       history.push(`/test/${data.id}/analysis?onlyMistake=true`)
@@ -98,6 +103,7 @@ export function useFooterHook(): FooterHookReturnType {
 
   return {
     disableBtnClick,
+    disableBtnAnalysisOfWrong,
     handleBtnAnalysisOfWrongClick,
     handleBtnAnalysisOfAllClick,
   }
@@ -105,6 +111,7 @@ export function useFooterHook(): FooterHookReturnType {
 
 export interface FooterHookReturnType {
   disableBtnClick: boolean
+  disableBtnAnalysisOfWrong: boolean
   handleBtnAnalysisOfWrongClick: () => void
   handleBtnAnalysisOfAllClick: () => void
 }

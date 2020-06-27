@@ -7,6 +7,10 @@ import {
   OptionType,
 } from '../reducers/tests/testPage'
 import { TestResultData } from '../reducers/tests/testResult'
+import {
+  TestAnalysisDataType,
+  AnalysisDataQuestion,
+} from '../reducers/tests/testAnalysis'
 
 // handle request testMenuData
 export interface OriginalCategoryItem {
@@ -439,4 +443,96 @@ export function isCorrect(
     personalAnswer.length === rightAnswer.length &&
     new Set([...rightAnswer, ...personalAnswer]).size === rightAnswer.length
   )
+}
+
+// handle fetchTestAnalysisData
+export type FetchTestAnalysisDataReturnType =
+  | TestAnalysisDataType
+  | CommonErrorReturnType
+
+export interface OriginalTestAnalysisDataType {
+  test: {
+    id: number
+    test_name: string
+    question_amount: number
+    correct_amount: number
+    spend_time: string
+    create_user: number
+    questions: {
+      id: number
+      type: 0 | 1
+      question: string
+      options: {
+        id: number
+        sort: number
+        content: string
+      }[]
+      answer: string[]
+      user_answer: string[]
+      analysis: string
+      knowledge_tag: string
+      is_deleted: 0 | 1
+      is_collected: 0 | 1
+    }[]
+  }
+}
+
+// 自定义的类型保护
+export function isOriginalTestAnalysisDataType(
+  data: OriginalTestAnalysisDataType | CommonErrorReturnType
+): data is OriginalTestAnalysisDataType {
+  return (data as OriginalTestAnalysisDataType).test !== undefined
+}
+
+export function isTestAnalysisDataType(
+  data: TestAnalysisDataType | CommonErrorReturnType
+): data is TestAnalysisDataType {
+  return (data as TestAnalysisDataType).id !== undefined
+}
+
+export async function handleFetchTestAnalysisData(
+  testId: number | string
+): Promise<FetchTestAnalysisDataReturnType> {
+  const response = (await axios.get(
+    `/api/tests/${testId}/analysis`
+  )) as AxiosResponse<OriginalTestAnalysisDataType>
+
+  const { data } = response
+
+  if (isOriginalTestAnalysisDataType(data)) {
+    const ret: TestAnalysisDataType = {
+      id: data.test.id,
+      testName: data.test.test_name,
+      questionAmount: data.test.question_amount,
+      correctAmount: data.test.correct_amount,
+      spentTime: data.test.spend_time,
+      creater: data.test.create_user,
+      questions: data.test.questions.map(
+        (question): AnalysisDataQuestion => {
+          return {
+            id: question.id,
+            type: question.type,
+            question: question.question,
+            options: question.options
+              .sort((a, b) => a.sort - b.sort)
+              .map(option => {
+                return {
+                  id: option.id,
+                  content: option.content,
+                }
+              }),
+            answer: question.answer,
+            userAnswer: question.user_answer,
+            analysis: question.analysis,
+            knowledgeTag: question.knowledge_tag,
+            isCollected: question.is_collected,
+            isDeleted: question.is_deleted,
+          }
+        }
+      ),
+    }
+    return ret
+  } else {
+    return data
+  }
 }

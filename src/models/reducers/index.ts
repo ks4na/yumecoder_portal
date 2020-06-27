@@ -15,6 +15,7 @@ import shortcutListCountState, {
 import paperState, { PaperState } from './tests/paper'
 import testPageState, { TestPageState } from './tests/testPage'
 import testResultState, { TestResultState } from './tests/testResult'
+import testAnalysisState, { TestAnalysisState } from './tests/testAnalysis'
 
 declare module 'react-redux' {
   interface DefaultRootState {
@@ -32,6 +33,7 @@ declare module 'react-redux' {
     paperState: PaperState
     testPageState: TestPageState
     testResultState: TestResultState
+    testAnalysisState: TestAnalysisState
   }
 }
 
@@ -50,4 +52,5 @@ export default combineReducers({
   paperState,
   testPageState,
   testResultState,
+  testAnalysisState,
 })

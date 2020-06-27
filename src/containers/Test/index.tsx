@@ -4,6 +4,7 @@ import TestMenuPage from './TestMenu'
 import TestPage from './TestPage'
 import TestResultPage from './TestResultPage'
 import NoMatch from '../../components/NoMatch'
+import TestAnalysisPage from './TestAnalysisPage'
 
 const routes: RouteProps[] = [
   {
@@ -20,6 +21,11 @@ const routes: RouteProps[] = [
     path: '/:testId/result',
     exact: true,
     component: TestResultPage,
+  },
+  {
+    path: '/:testId/analysis',
+    exact: true,
+    component: TestAnalysisPage,
   },
   {
     path: '*',
