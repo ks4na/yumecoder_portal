@@ -10,6 +10,7 @@ import { TestResultData } from '../reducers/tests/testResult'
 import {
   TestAnalysisDataType,
   AnalysisDataQuestion,
+  AnalysisDataQuestionCollectStatus,
 } from '../reducers/tests/testAnalysis'
 
 // handle request testMenuData
@@ -534,5 +535,19 @@ export async function handleFetchTestAnalysisData(
     return ret
   } else {
     return data
+  }
+}
+
+// handle add to collection / remove from collection
+export type UpdateCollectStatusReturnType = true | CommonErrorReturnType
+
+export async function handleUpdateCollectStatus(
+  questionId: number,
+  isCollected: AnalysisDataQuestionCollectStatus
+): Promise<AxiosResponse<UpdateCollectStatusReturnType>> {
+  if (isCollected === AnalysisDataQuestionCollectStatus.COLLECTED) {
+    return axios.put(`/api/questions/${questionId}/collect`)
+  } else {
+    return axios.put(`/api/questions/${questionId}/cancelCollect`)
   }
 }

@@ -35,7 +35,10 @@ export default function Analysis({ content }: AnalysisProps): JSX.Element {
               gutterBottom
               className={classes.analysisHeader}
             >
-              题目解析
+              <FormattedMessage
+                id="test.testAnalysisPage.mainBody.txtAnalysisTitle"
+                defaultMessage="题目解析"
+              />
             </Typography>
             <Typography variant="body2" color="textSecondary">
               {content}

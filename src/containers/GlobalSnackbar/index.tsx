@@ -114,7 +114,11 @@ export default function GlobalSnackbar(): JSX.Element {
   return (
     <Snackbar
       open={open}
-      action={<CloseBtn />}
+      action={
+        !(snackbarProps && snackbarProps.hideDefaultActionComponent) && (
+          <CloseBtn />
+        )
+      }
       {...snackbarProps}
       onExited={handleExited}
       onClose={handleClose}

@@ -258,4 +258,11 @@ export default {
   'test.testAnalysisPage.mainBody.txtRightAnswer': '正确答案',
   'test.testAnalysisPage.mainBody.txtUserAnswer': '你的答案',
   'test.testAnalysisPage.mainBody.btnShowAnalysis': '查 看 解 析',
+  'test.testAnalysisPage.mainBody.txtAnalysisTitle': '题目解析',
+  'test.testAnalysisPage.btnCollect.txtAddToCollection': '添加到收藏',
+  'test.testAnalysisPage.btnCollect.txtRemoveFromCollection': '取消收藏',
+  'test.testAnalysisPage.btnCollect.txtAddToCollectionSuccess':
+    '成功添加到收藏',
+  'test.testAnalysisPage.btnCollect.txtRemoveFromCollectionSuccess':
+    '成功取消收藏',
 }

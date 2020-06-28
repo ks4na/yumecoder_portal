@@ -6,6 +6,8 @@ import {
   RESET_TEST_ANALYSIS_STATE,
   CHANGE_TEST_ANALYSIS_PAGE_TAB_INDEX,
   TOGGLE_ONLY_SHOW_MISTAKE_STATE,
+  CHANGE_TOGGLE_COLLECT_STATUS,
+  TOGGLE_COLLECT_STATE,
 } from '../../actions'
 
 export enum AnalysisDataQuestionType {
@@ -56,12 +58,14 @@ export interface TestAnalysisState {
   data?: TestAnalysisDataType
   tabIndex: number
   onlyShowMistake: boolean
+  collectRequestStatus: Status
 }
 
 const initState: TestAnalysisState = {
   status: Status.INITIAL,
   tabIndex: 0,
   onlyShowMistake: false,
+  collectRequestStatus: Status.INITIAL,
 }
 
 export default function testAnalysisReducer(
@@ -79,6 +83,23 @@ export default function testAnalysisReducer(
       return {
         ...state,
         onlyShowMistake: action.payload || !state.onlyShowMistake,
+      }
+    case CHANGE_TOGGLE_COLLECT_STATUS:
+      return { ...state, collectRequestStatus: action.payload }
+    case TOGGLE_COLLECT_STATE:
+      if (!state.data) {
+        throw new Error('cannot update collect status')
+      }
+      const updatedQuestions = state.data.questions.map(item => {
+        if (item.id === action.payload.questionId) {
+          return { ...item, isCollected: action.payload.isCollected }
+        } else {
+          return item
+        }
+      })
+      return {
+        ...state,
+        data: { ...state.data, questions: updatedQuestions },
       }
     case RESET_TEST_ANALYSIS_STATE:
       return initState

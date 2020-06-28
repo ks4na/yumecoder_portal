@@ -20,6 +20,8 @@ export interface AugmentedSnackbarProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   actionComponent?: ComponentType<any>
   actionComponentProps?: object
+
+  hideDefaultActionComponent?: boolean
 }
 
 export interface SnackbarState {

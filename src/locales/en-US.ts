@@ -280,4 +280,12 @@ export default {
   'test.testAnalysisPage.mainBody.txtRightAnswer': 'Right Answer',
   'test.testAnalysisPage.mainBody.txtUserAnswer': 'Your Answer',
   'test.testAnalysisPage.mainBody.btnShowAnalysis': 'Show Analysis',
+  'test.testAnalysisPage.mainBody.txtAnalysisTitle': 'Analysis',
+  'test.testAnalysisPage.btnCollect.txtAddToCollection': 'Add to collection',
+  'test.testAnalysisPage.btnCollect.txtRemoveFromCollection':
+    'Remove from collection',
+  'test.testAnalysisPage.btnCollect.txtAddToCollectionSuccess':
+    'Add to collection successfully',
+  'test.testAnalysisPage.btnCollect.txtRemoveFromCollectionSuccess':
+    'Remove from collection successfully',
 }
