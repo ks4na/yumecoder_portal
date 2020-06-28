@@ -3,7 +3,7 @@ import { Switch, Route, RouteProps } from 'react-router-dom'
 import './App.scss'
 import GlobalSnackbar from './containers/GlobalSnackbar'
 import IndexPage from './containers/IndexPage'
-import DevIndexPage from './components/demos/DevIndexPage'
+// import DevIndexPage from './components/demos/DevIndexPage'
 import NoMatch from './components/NoMatch'
 import LoginPage from './containers/LoginPage'
 import GithubLoginCallback from './containers/LoginPage/GithubLoginCallback'
@@ -20,10 +20,10 @@ const routes: RouteProps[] = [
     exact: true,
     component: IndexPage,
   },
-  {
-    path: '/dev',
-    component: DevIndexPage,
-  },
+  // {
+  //   path: '/dev',
+  //   component: DevIndexPage,
+  // },
   {
     path: '/login',
     component: LoginPage,

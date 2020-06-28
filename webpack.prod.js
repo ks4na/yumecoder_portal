@@ -25,8 +25,8 @@ module.exports = {
     // (如: localhost:3000/user/3/topics)刷新页面，这些引用路径都将是错误的(localhost:3000/user/3/bundle.js)
     publicPath,
     path: path.join(__dirname, './dist'),
-    filename: 'js/bundle.js',
-    chunkFilename: 'js/[name].bundle.js', // 输出到dist文件的chunk文件的名称
+    filename: 'js/[name]_[hash:8].bundle.js',
+    chunkFilename: 'js/[name]_[chunkhash:8].bundle.js', // 输出到dist文件的chunk文件的名称
   },
   devtool: 'source-map',
   optimization: {
@@ -41,6 +41,7 @@ module.exports = {
     // 分离第三方包
     splitChunks: {
       chunks: 'all',
+      name: false,
       // cacheGroups: {
       //   // 自定义一个 commons 组，分离 react|react-dom|react-router-dom 包为 react-dom-router.bundle.js
       //   // 注意设置 priority 高于 vendors 组才能生成该文件，且此时 vendors 组不再包含 react,react-dom,react-router-dom
@@ -51,6 +52,22 @@ module.exports = {
       //     priority: 10
       //   }
       // }
+      cacheGroups: {
+        // vendors
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'initial',
+          priority: 1,
+        },
+        // polyfills
+        polyfills: {
+          test: /[\\/]node_modules[\\/](core-js)[\\/]/,
+          name: 'polyfills',
+          chunks: 'all',
+          priority: 10,
+        },
+      },
     },
   },
   plugins: [
@@ -60,7 +77,7 @@ module.exports = {
       favicon: './favicon.ico',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:8].css',
+      filename: 'css/[name].[contenthash:8].css',
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static', // 设置生成方式为 html文件
@@ -135,8 +152,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 5120, // size less than 5k will use base64_encode
-            context: 'src',
-            name: '[path][name]_[hash:8].[ext]',
+            name: '[path][name]_[contenthash:8].[ext]',
           },
         },
         exclude: /assets[\\/]fonts/,
@@ -147,7 +163,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'fonts/[name]_[hash:4].[ext]',
+            name: 'fonts/[name]_[contenthash:8].[ext]',
           },
         },
         exclude: /assets[\\/]imgs/,
