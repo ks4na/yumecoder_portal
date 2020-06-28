@@ -84,95 +84,93 @@ export default function QuestionPanel({
   return (
     <Box
       role="tabpanel"
-      hidden={value !== index}
-      id={`question-tab-panel-${index}`}
-      aria-labelledby={`question-tab-${index}`}
+      display={value !== index ? 'none' : 'block'}
+      id={`question-analysis-tab-panel-${index}`}
+      aria-labelledby={`question-analysis-tab-${index}`}
       {...otherProps}
     >
-      {value === index && (
-        <Box p={2}>
-          {/* type */}
-          <Typography color="primary" gutterBottom>
-            ({questionType})
-          </Typography>
-          {/* question */}
-          <Typography gutterBottom>
-            {/* hasDeleted flag */}
-            {isDeleted && (
-              <Chip
-                component="span"
-                className={classes.hasDeletedChip}
-                size="small"
-                label={
-                  <FormattedMessage
-                    id="test.testAnalysisPage.mainBody.questionPanel.txtHasDeleted"
-                    defaultMessage="已删除"
-                  />
-                }
-              ></Chip>
-            )}
-            {/* question content */}
-            {question.question}
-          </Typography>
-          {/* indicator */}
-          <Typography variant="body2" align="right" gutterBottom>
-            <Box clone paddingRight={0.5}>
-              <Typography variant="body1" component="span" color="primary">
-                {index + 1}
+      <Box p={2}>
+        {/* type */}
+        <Typography color="primary" gutterBottom>
+          ({questionType})
+        </Typography>
+        {/* question */}
+        <Typography gutterBottom>
+          {/* hasDeleted flag */}
+          {isDeleted && (
+            <Chip
+              component="span"
+              className={classes.hasDeletedChip}
+              size="small"
+              label={
+                <FormattedMessage
+                  id="test.testAnalysisPage.mainBody.questionPanel.txtHasDeleted"
+                  defaultMessage="已删除"
+                />
+              }
+            ></Chip>
+          )}
+          {/* question content */}
+          {question.question}
+        </Typography>
+        {/* indicator */}
+        <Typography variant="body2" align="right" gutterBottom>
+          <Box clone paddingRight={0.5}>
+            <Typography variant="body1" component="span" color="primary">
+              {index + 1}
+            </Typography>
+          </Box>
+          /{total}
+        </Typography>
+        {/* options */}
+        <Options {...optionsProps} />
+        {/* answer */}
+        <Box clone marginBottom={1}>
+          <Grid container className={'answer-wrapper'}>
+            <Grid item xs={12} sm={6} md={4}>
+              <Typography>
+                <FormattedMessage
+                  id="test.testAnalysisPage.mainBody.txtRightAnswer"
+                  defaultMessage="正确答案"
+                />
+                {' : '}
+                <Typography component="span" className={classes.answer}>
+                  {question.answer.join(' ')}
+                </Typography>
               </Typography>
-            </Box>
-            /{total}
-          </Typography>
-          {/* options */}
-          <Options {...optionsProps} />
-          {/* answer */}
-          <Box clone marginBottom={1}>
-            <Grid container className={'answer-wrapper'}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Typography>
-                  <FormattedMessage
-                    id="test.testAnalysisPage.mainBody.txtRightAnswer"
-                    defaultMessage="正确答案"
-                  />
-                  {' : '}
-                  <Typography component="span" className={classes.answer}>
-                    {question.answer.join(' ')}
-                  </Typography>
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Typography>
-                  <FormattedMessage
-                    id="test.testAnalysisPage.mainBody.txtUserAnswer"
-                    defaultMessage="你的答案"
-                  />
-                  {' : '}
-                  <Typography
-                    component="span"
-                    className={`${classes.answer}${!isCorrect ? ' wrong' : ''}`}
-                  >
-                    {question.userAnswer.join(' ')}
-                  </Typography>
-                </Typography>
-              </Grid>
             </Grid>
-          </Box>
-          {/* knowledge tags */}
-          <Box className={'knowledge-tags'} textAlign="center">
-            {question.knowledgeTag.split(' ').map(item => (
-              <Chip
-                key={item}
-                className={classes.knowledgeTag}
-                label={item}
-                variant="outlined"
-                size="small"
-              />
-            ))}
-          </Box>
-          {/* analysis content */}
-          <Analysis content={question.analysis} />
+            <Grid item xs={12} sm={6} md={4}>
+              <Typography>
+                <FormattedMessage
+                  id="test.testAnalysisPage.mainBody.txtUserAnswer"
+                  defaultMessage="你的答案"
+                />
+                {' : '}
+                <Typography
+                  component="span"
+                  className={`${classes.answer}${!isCorrect ? ' wrong' : ''}`}
+                >
+                  {question.userAnswer.join(' ')}
+                </Typography>
+              </Typography>
+            </Grid>
+          </Grid>
         </Box>
-      )}
+        {/* knowledge tags */}
+        <Box className={'knowledge-tags'} textAlign="center">
+          {question.knowledgeTag.split(' ').map(item => (
+            <Chip
+              key={item}
+              className={classes.knowledgeTag}
+              label={item}
+              variant="outlined"
+              size="small"
+            />
+          ))}
+        </Box>
+        {/* analysis content */}
+        <Analysis content={question.analysis} />
+      </Box>
     </Box>
   )
 }
