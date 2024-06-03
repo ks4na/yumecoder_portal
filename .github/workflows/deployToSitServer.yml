@@ -50,5 +50,5 @@ jobs:
           proxy_timeout: 60s
           debug: true
           script: |
-            cd "$DEST_DIR"/../
+            cd "$DEST_DIR_SIT"/../
             bash ./deploy.sh
