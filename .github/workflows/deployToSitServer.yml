@@ -35,7 +35,7 @@ jobs:
           options: ''
           ssh_options: ''
           src: 'dist'
-          dest: '${{ secrets.USER_RAKSMART }}@${{ secrets.HOST_RAKSMART }}:{{ secrets.DEST_DIR_SIT }}'
+          dest: '${{ secrets.USER_RAKSMART }}@${{ secrets.HOST_RAKSMART }}:${{ secrets.DEST_DIR_SIT }}'
 
       - name: Run shell commands
         uses: appleboy/ssh-action@master
