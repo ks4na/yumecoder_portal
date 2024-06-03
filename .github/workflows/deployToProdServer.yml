@@ -26,26 +26,26 @@ jobs:
       - name: Deploy to prod server
         uses: Pendect/action-rsyncer@v1.1.0
         env:
-          DEPLOY_KEY: ${{secrets.DEPLOY_KEY_CLOUDCONE}}
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY_RAKSMART}}
         with:
-          flags: '-avzr --delete'
+          flags: '-avz --delete'
           options: ''
           ssh_options: ''
           src: 'dist'
-          dest: '${{ secrets.USER_CLOUDCONE }}@${{ secrets.HOST_CLOUDCONE }}:./yumecoder/portal/prod/temp'
+          dest: '${{ secrets.USER_RAKSMART }}@${{ secrets.HOST_RAKSMART }}:{{ secrets.DEST_DIR }}'
 
       - name: Run shell commands
         uses: appleboy/ssh-action@master
         env:
-          USER: ${{ secrets.USER_CLOUDCONE }}
+          DEST_DIR: ${{ secrets.DEST_DIR }}
         with:
-          host: ${{ secrets.HOST_CLOUDCONE }}
-          username: ${{ secrets.USER_CLOUDCONE }}
-          key: ${{ secrets.DEPLOY_KEY_CLOUDCONE }}
-          envs: USER
+          host: ${{ secrets.HOST_RAKSMART }}
+          username: ${{ secrets.USER_RAKSMART }}
+          key: ${{ secrets.DEPLOY_KEY_RAKSMART }}
+          envs: DEST_DIR
           timeout: 60s
           proxy_timeout: 60s
           debug: true
           script: |
-            cd /home/$USER/yumecoder/portal/prod
-            ./deploy.sh
+            cd "$DEST_DIR"/../
+            bash ./deploy.sh
